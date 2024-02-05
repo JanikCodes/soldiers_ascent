@@ -1,0 +1,27 @@
+[
+    {
+        "Id": "Player",
+        "Active": true,
+        "Name": "ToBeChanged",
+        "Visible": false,
+        "Description": "",
+        "MaxArmyCountOnOverworld": 0,
+        "SpawnArmyInterval": 0,
+        "StartCurrencyAmount": 100,
+        "FactionArmySpawnType": []
+    },
+    {
+        "Id": "1",
+        "Active": true,
+        "Name": "Hunter",
+        "Visible": true,
+        "Description": "",
+        "MaxArmyCountOnOverworld": 4,
+        "SpawnArmyInterval": 10,
+        "StartCurrencyAmount": 3500,
+        "FactionArmySpawnType": [
+            "OwnedStructures",
+            "OutsidePlayerView"
+        ]
+    }
+]

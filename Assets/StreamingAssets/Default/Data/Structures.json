@@ -1,0 +1,44 @@
+[
+    {
+        "Id": "1",
+        "Active": true,
+        "Name": "Village A",
+        "Description": "It's just village A.",
+        "OwnedByFactionId": "Player",
+        "AssignedPrefabId": "BaseCity",
+        "Position": [
+            2.58,
+            0,
+            23.09
+        ],
+        "Rotation": -25
+    },
+    {
+        "Id": "2",
+        "Active": true,
+        "Name": "Village B",
+        "Description": "It's just village B.",
+        "OwnedByFactionId": "1",
+        "AssignedPrefabId": "BaseCity",
+        "Position": [
+            32.86,
+            0,
+            43.92
+        ],
+        "Rotation": 45
+    },
+    {
+        "Id": "3",
+        "Active": true,
+        "Name": "Village C",
+        "Description": "It's just village C.",
+        "OwnedByFactionId": "1",
+        "AssignedPrefabId": "BaseCity_2",
+        "Position": [
+            -14,
+            0,
+            160.3
+        ],
+        "Rotation": 75
+    }
+]
