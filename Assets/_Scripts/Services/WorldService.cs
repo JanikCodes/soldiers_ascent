@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class WorldService : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private FactionService factionService;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        factionService = GetComponentInChildren<FactionService>();
+
+        FileService.CreateDirectories();
+
+        factionService.CreateScriptableObjects();
     }
 }
