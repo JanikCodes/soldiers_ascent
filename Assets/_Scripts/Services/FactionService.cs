@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class FactionService : MonoBehaviour
 {
+    [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<FactionSO> scriptableObjects = new List<FactionSO>();
+
+    public void CreateFactionObjects()
+    {
+        foreach (FactionSO data in scriptableObjects)
+        {
+            GameObject obj = Instantiate(objectPrefab);
+            obj.name = data.Name;
+        }
+
+        Debug.Log("Finished creating faction objects");
+    }
 
     public void CreateScriptableObjects()
     {
