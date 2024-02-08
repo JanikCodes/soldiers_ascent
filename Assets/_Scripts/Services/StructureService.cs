@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class StructureService : MonoBehaviour
 {
+    [SerializeField] private Transform structureParentTransform;
+    [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<StructureSO> scriptableObjects = new List<StructureSO>();
+
+    public void CreateStructureObjects()
+    {
+        foreach (StructureSO data in scriptableObjects)
+        {
+            GameObject obj = Instantiate(objectPrefab, structureParentTransform);
+            obj.name = data.Name;
+            obj.transform.position = data.Position;
+            obj.transform.rotation = data.Rotation;
+            obj.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        Debug.Log("Finished creating structure objects");
+    }
 
     public void CreateScriptableObjects()
     {

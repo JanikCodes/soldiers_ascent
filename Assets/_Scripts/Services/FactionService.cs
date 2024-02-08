@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FactionService : MonoBehaviour
-{
+{   
+    [SerializeField] private Transform factionParentTransform;
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<FactionSO> scriptableObjects = new List<FactionSO>();
 
@@ -11,7 +12,7 @@ public class FactionService : MonoBehaviour
     {
         foreach (FactionSO data in scriptableObjects)
         {
-            GameObject obj = Instantiate(objectPrefab);
+            GameObject obj = Instantiate(objectPrefab, factionParentTransform);
             obj.name = data.Name;
         }
 

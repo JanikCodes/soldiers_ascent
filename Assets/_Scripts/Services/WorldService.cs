@@ -18,5 +18,6 @@ public class WorldService : MonoBehaviour
         factionService.CreateFactionObjects();
         
         structureService.CreateScriptableObjects();
+        structureService.CreateStructureObjects();
     }
 }
