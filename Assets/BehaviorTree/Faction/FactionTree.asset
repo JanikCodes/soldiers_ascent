@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: CreateArmyTask
   m_EditorClassIdentifier: 
   nodeName: CreateArmy
-  nodePosition: {x: 178, y: 498}
+  nodePosition: {x: 0, y: 498}
   breakpoint: 0
   decorators: []
   services: []
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 0, y: 498}
+  nodePosition: {x: 189, y: 498}
   breakpoint: 0
   decorators: []
   services: []
@@ -230,5 +230,5 @@ MonoBehaviour:
   - {fileID: -4882866285795731112}
   services: []
   children:
-  - {fileID: -6059071904228106694}
   - {fileID: -6077922143012882884}
+  - {fileID: -6059071904228106694}
