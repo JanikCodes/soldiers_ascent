@@ -10,5 +10,5 @@ public class FactionSO : DataSO
     public int MaxArmyCountOnOverworld;
     public int SpawnArmyInterval;
     public int StartCurrencyAmount;
-    public GameObject ArmyPrefab; // Temporary prefab
+    public FactionArmySpawnType[] FactionArmySpawnType;
 }

@@ -11,6 +11,7 @@ public class FactionData : BaseData
     public int MaxArmyCountOnOverworld;
     public int SpawnArmyInterval;
     public int StartCurrencyAmount;
+    public string[] FactionArmySpawnType;
 }
 
 /// <summary>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FactionService : MonoBehaviour
-{   
+{
     [SerializeField] private Transform factionParentTransform;
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<FactionSO> scriptableObjects = new List<FactionSO>();
@@ -14,6 +14,9 @@ public class FactionService : MonoBehaviour
         {
             GameObject obj = Instantiate(objectPrefab, factionParentTransform);
             obj.name = data.Name;
+
+            ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
+            objectStorage.SetObject<FactionSO>(data);
         }
 
         Debug.Log("Finished creating faction objects");
@@ -36,7 +39,7 @@ public class FactionService : MonoBehaviour
             faction.MaxArmyCountOnOverworld = data.MaxArmyCountOnOverworld;
             faction.SpawnArmyInterval = data.SpawnArmyInterval;
             faction.StartCurrencyAmount = data.StartCurrencyAmount;
-            // faction.ArmyPrefab = armyPrefab;
+            faction.FactionArmySpawnType = Util.ReturnEnumValuesFromStringValues<FactionArmySpawnType>(data.FactionArmySpawnType);
 
             scriptableObjects.Add(faction);
         }

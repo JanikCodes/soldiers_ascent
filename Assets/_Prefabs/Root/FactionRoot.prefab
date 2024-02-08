@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6493242571054521624}
   - component: {fileID: 287492104825053593}
+  - component: {fileID: 4052870741619546776}
+  - component: {fileID: 4448569923745314453}
+  - component: {fileID: 2393714249708604786}
   m_Layer: 0
   m_Name: FactionRoot
   m_TagString: Untagged
@@ -46,3 +49,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedBehaviourTree: {fileID: 11400000, guid: 553959bb3727d9d43a5370a07c130b2a,
     type: 2}
+--- !u!114 &4052870741619546776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d5268bda341584390353d24e9543c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4448569923745314453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5899f2d3acc1fb6468658f9f4f75965f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2393714249708604786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe6d0cbcbf16d047aa2a00fa3f8f2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
