@@ -12,11 +12,12 @@ public class WorldService : MonoBehaviour
         factionService = GetComponentInChildren<FactionService>();
         structureService = GetComponentInChildren<StructureService>();
 
+        // created neccesary file directories on startup
         FileService.CreateDirectories();
 
         factionService.CreateScriptableObjects();
         factionService.CreateFactionObjects();
-        
+
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
     }

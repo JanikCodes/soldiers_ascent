@@ -14,9 +14,12 @@ public class StructureService : MonoBehaviour
         {
             GameObject obj = Instantiate(objectPrefab, structureParentTransform);
             obj.name = data.Name;
-            obj.transform.position = data.Position;
-            obj.transform.rotation = data.Rotation;
             obj.transform.localScale = new Vector3(1, 1, 1);
+
+            Vector3 calculatedPosition = CalculatePositionOnDynamicTerrain(data);
+
+            obj.transform.rotation = data.Rotation;
+            obj.transform.position = calculatedPosition;
         }
 
         Debug.Log("Finished creating structure objects");
@@ -44,5 +47,11 @@ public class StructureService : MonoBehaviour
         }
 
         Debug.Log("Finished adding faction scriptableobjects");
+    }
+
+    private Vector3 CalculatePositionOnDynamicTerrain(StructureSO data)
+    {
+        float terrainHeightPosition = Terrain.activeTerrain.SampleHeight(data.Position);
+        return new Vector3(data.Position.x, terrainHeightPosition, data.Position.z);
     }
 }
