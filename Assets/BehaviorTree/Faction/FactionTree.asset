@@ -1,45 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6348272359145124244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1770628119ce54980deb844516c178, type: 3}
-  m_Name: SelectorNode
-  m_EditorClassIdentifier: 
-  nodeName: Selector
-  nodePosition: {x: 43, y: 225}
-  breakpoint: 0
-  decorators: []
-  services: []
-  children:
-  - {fileID: 6166483315289010984}
---- !u!114 &-6059071904228106694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
-  m_Name: DebugLogTask
-  m_EditorClassIdentifier: 
-  nodeName: Debug Log
-  nodePosition: {x: 33.5, y: 498}
-  breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  logLevel: 0
-  message: {fileID: 806669559398968837}
---- !u!114 &-5521811162131277769
+--- !u!114 &-8675579638245746155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,6 +17,64 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 1
+--- !u!114 &-6348272359145124244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1770628119ce54980deb844516c178, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  nodeName: Selector
+  nodePosition: {x: 169, y: 225}
+  breakpoint: 0
+  decorators: []
+  services: []
+  children:
+  - {fileID: 6166483315289010984}
+  - {fileID: -190227781185631117}
+--- !u!114 &-6077922143012882884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51024ca693853b949837ede5545f4b30, type: 3}
+  m_Name: CreateArmyTask
+  m_EditorClassIdentifier: 
+  nodeName: CreateArmy
+  nodePosition: {x: 178, y: 498}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+--- !u!114 &-6059071904228106694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
+  m_Name: DebugLogTask
+  m_EditorClassIdentifier: 
+  nodeName: Debug Log
+  nodePosition: {x: 0, y: 498}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  logLevel: 0
+  message: {fileID: 806669559398968837}
 --- !u!114 &-4882866285795731112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,13 +107,12 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 98.5, y: 107}
+  nodePosition: {x: 159.5, y: 107}
   breakpoint: 0
   decorators: []
   services: []
   children:
   - {fileID: -6348272359145124244}
-  - {fileID: 5852242784522793819}
 --- !u!114 &-3392617437424358609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +130,26 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 150
+--- !u!114 &-190227781185631117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85263108a8bd9e0469feac3580755ae9, type: 3}
+  m_Name: WaitTask
+  m_EditorClassIdentifier: 
+  nodeName: Wait
+  nodePosition: {x: 367, y: 343}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  waitTime: {fileID: -8675579638245746155}
+  randomDeviation: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,9 +171,10 @@ MonoBehaviour:
   - {fileID: -3990935029754078965}
   - {fileID: -6059071904228106694}
   - {fileID: -6348272359145124244}
-  - {fileID: 5852242784522793819}
   - {fileID: 6166483315289010984}
   - {fileID: -4882866285795731112}
+  - {fileID: -6077922143012882884}
+  - {fileID: -190227781185631117}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
@@ -169,29 +208,9 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 112, y: 0}
+  nodePosition: {x: 173, y: 0}
   breakpoint: 0
   child: {fileID: -3990935029754078965}
---- !u!114 &5852242784522793819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85263108a8bd9e0469feac3580755ae9, type: 3}
-  m_Name: WaitTask
-  m_EditorClassIdentifier: 
-  nodeName: Wait
-  nodePosition: {x: 245, y: 225}
-  breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  waitTime: {fileID: -5521811162131277769}
-  randomDeviation: {fileID: 0}
 --- !u!114 &6166483315289010984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,10 +224,11 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Spawn Army
-  nodePosition: {x: 0, y: 343}
+  nodePosition: {x: 61, y: 343}
   breakpoint: 0
   decorators:
   - {fileID: -4882866285795731112}
   services: []
   children:
   - {fileID: -6059071904228106694}
+  - {fileID: -6077922143012882884}

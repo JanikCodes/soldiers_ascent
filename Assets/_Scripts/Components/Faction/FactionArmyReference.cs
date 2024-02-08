@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FactionArmyStorage : MonoBehaviour
+public class FactionArmyReference : MonoBehaviour
 {
     public List<GameObject> Armies { get; set; }
 

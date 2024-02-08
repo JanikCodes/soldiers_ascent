@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,13 @@ public class FactionService : MonoBehaviour
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<FactionSO> scriptableObjects = new List<FactionSO>();
 
+    private StructureService structureService;
+
+    private void Awake()
+    {
+        structureService = transform.parent.GetComponentInChildren<StructureService>();
+    }
+
     public void CreateFactionObjects()
     {
         foreach (FactionSO data in scriptableObjects)
@@ -17,6 +25,15 @@ public class FactionService : MonoBehaviour
 
             ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
             objectStorage.SetObject<FactionSO>(data);
+
+            FactionServiceReference factionServiceReference = obj.GetComponent<FactionServiceReference>();
+            factionServiceReference.FactionService = this;
+
+            StructureServiceReference structureServiceReference = obj.GetComponent<StructureServiceReference>();
+            structureServiceReference.StructureService = structureService;
+
+            CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
+            currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
         }
 
         Debug.Log("Finished creating faction objects");
@@ -45,5 +62,18 @@ public class FactionService : MonoBehaviour
         }
 
         Debug.Log("Finished adding faction scriptableobjects");
+    }
+
+    internal FactionSO GetFactionSOByString(string id)
+    {
+        foreach (FactionSO faction in scriptableObjects)
+        {
+            if (faction.Id.Equals(id))
+            {
+                return faction;
+            }
+        }
+
+        return null;
     }
 }

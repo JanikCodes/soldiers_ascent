@@ -9,7 +9,8 @@ public class CreateArmyTask : TaskNode
 {
     // Stored required components.
     private FactionSO factionData;
-    private FactionArmyStorage factionArmyStorage;
+    private FactionArmyReference factionArmyReference;
+    private StructureServiceReference structureService;
 
     protected override void OnInitialize()
     {
@@ -20,13 +21,15 @@ public class CreateArmyTask : TaskNode
     {
         base.OnEntry();
 
-        factionArmyStorage = GetOwner().GetComponent<FactionArmyStorage>();
+        factionData = GetOwner().GetComponent<ObjectStorage>().GetObject<FactionSO>();
+        factionArmyReference = GetOwner().GetComponent<FactionArmyReference>();
+        structureService = GetOwner().GetComponent<StructureServiceReference>();
     }
 
     protected override State OnUpdate()
     {
         FactionArmySpawnType spawnType = Util.GetRandomValue<FactionArmySpawnType>(factionData.FactionArmySpawnType);
-        
+
         switch(spawnType)
         {
             case FactionArmySpawnType.OwnedStructures:
@@ -42,7 +45,16 @@ public class CreateArmyTask : TaskNode
 
     private void SpawnArmyAtOwnedStructures()
     {
+        List<GameObject> structures = structureService.StructureService.GetFactionOwnedStructures(factionData);
+        if(structures.Count == 0)
+        {
+            Debug.LogWarning("Faction cannot spawn army at owned structures because structure count is 0");
+            return;
+        }
 
+        GameObject selectedStructure = Util.GetRandomValue<GameObject>(structures);
+
+        Debug.Log($"Spawning army at: {selectedStructure.gameObject.name} ");
     }
 
     protected override void OnExit()

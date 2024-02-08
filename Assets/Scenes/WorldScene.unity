@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factionParentTransform: {fileID: 1933511937}
+  structureParentTransform: {fileID: 970172624}
   objectPrefab: {fileID: 8310213461941167532, guid: 8f590277b52db854e88c14dd43e1ca50,
     type: 3}
   scriptableObjects: []

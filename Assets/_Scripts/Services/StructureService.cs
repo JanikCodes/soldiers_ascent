@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class StructureService : MonoBehaviour
 {
-    [SerializeField] private Transform structureParentTransform;
+    [SerializeField] private Transform structureParentTransform;    
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<StructureSO> scriptableObjects = new List<StructureSO>();
+
+    private FactionService factionService;
+
+    private void Awake()
+    {
+        factionService = transform.parent.GetComponentInChildren<FactionService>();
+    }
 
     public void CreateStructureObjects()
     {
@@ -20,6 +27,9 @@ public class StructureService : MonoBehaviour
 
             obj.transform.rotation = data.Rotation;
             obj.transform.position = calculatedPosition;
+
+            FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
+            factionAssociation.Associated = factionService.GetFactionSOByString(data.InitiallyOwnedByFaction);
         }
 
         Debug.Log("Finished creating structure objects");
@@ -47,6 +57,23 @@ public class StructureService : MonoBehaviour
         }
 
         Debug.Log("Finished adding faction scriptableobjects");
+    }
+
+    public List<GameObject> GetFactionOwnedStructures(FactionSO faction)
+    {
+        List<GameObject> result = new List<GameObject>();
+
+        foreach (Transform structure in structureParentTransform)
+        {
+            FactionAssociation factionAssociation = structure.GetComponent<FactionAssociation>();
+
+            if (factionAssociation.Associated.Id.Equals(faction.Id))
+            {
+                result.Add(structure.gameObject);
+            }
+        }
+
+        return result;
     }
 
     private Vector3 CalculatePositionOnDynamicTerrain(StructureSO data)

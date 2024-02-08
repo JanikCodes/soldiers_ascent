@@ -7,5 +7,5 @@ using UnityEngine;
 /// </summary>
 public class FactionAssociation : MonoBehaviour
 {
-    public FactionSO Associated { get; private set; }
+    public FactionSO Associated { get; set; }
 }

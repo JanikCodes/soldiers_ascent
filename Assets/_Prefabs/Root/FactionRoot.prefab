@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4052870741619546776}
   - component: {fileID: 4448569923745314453}
   - component: {fileID: 2393714249708604786}
+  - component: {fileID: 8892650991778506314}
+  - component: {fileID: 349631029096082037}
   m_Layer: 0
   m_Name: FactionRoot
   m_TagString: Untagged
@@ -83,5 +85,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fe6d0cbcbf16d047aa2a00fa3f8f2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8892650991778506314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f202fa1f82e0be4ab8f10aa55ebc8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &349631029096082037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e39efa9e5f68045918bbfc882b7ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
