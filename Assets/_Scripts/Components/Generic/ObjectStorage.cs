@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectStorage : MonoBehaviour
 {
-    [SerializeField] private object obj;
+    private object obj;
 
     public void SetObject<T>(T value)
     {

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class CurrencyStorage : MonoBehaviour
 {
-    public int Currency { get; private set; }
+    [field: SerializeField] public int Currency { get; private set; }
 
     public bool HasEnoughCurrency(int value)
     {
