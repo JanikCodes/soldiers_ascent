@@ -12,24 +12,31 @@ public class GetRandomSquadAmountTask : TaskNode
     private IntKey outputSquadAmount;
 
     // Stored required components.
-    private FactionSO factionData;
+    private ObjectStorage objectStorage;
 
     protected override void OnInitialize()
     {
         base.OnInitialize();
+
+        objectStorage = GetOwner().GetComponent<ObjectStorage>();
     }
 
     protected override void OnEntry()
     {
         base.OnEntry();
-
-        factionData = GetOwner().GetComponent<ObjectStorage>().GetObject<FactionSO>();
     }
 
     protected override State OnUpdate()
     {
+        FactionSO factionData = objectStorage.GetObject<FactionSO>();
+
+        if (!factionData)
+        {
+            return State.Failure;
+        }
+
         int squadAmount = Util.GetRandomValue(factionData.MinSquadAmount, factionData.MaxSquadAmount);
-        if(squadAmount < 0)
+        if (squadAmount < 0)
         {
             return State.Failure;
         }

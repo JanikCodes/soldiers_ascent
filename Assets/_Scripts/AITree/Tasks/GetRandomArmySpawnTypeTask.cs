@@ -6,30 +6,32 @@ using UnityEngine;
 
 [NodeContent("Get Random Army Spawn Type", "Tasks/Base/Faction/Get Random Army Spawn Type", IconPath = "Images/Icons/Node/WaitIcon.png")]
 public class GetRandomArmySpawnTypeTask : TaskNode
-{   
+{
     [Header("Variables")]
     [SerializeField]
     [NonLocal]
     private FactionArmySpawnTypeKey outputArmySpawnType;
 
     // Stored required components.
-    private FactionSO factionData;
+    private ObjectStorage objectStorage;
 
     protected override void OnInitialize()
     {
         base.OnInitialize();
+
+        objectStorage = GetOwner().GetComponent<ObjectStorage>();
     }
 
     protected override void OnEntry()
     {
         base.OnEntry();
-
-        factionData = GetOwner().GetComponent<ObjectStorage>().GetObject<FactionSO>();
     }
 
     protected override State OnUpdate()
     {
-        if (factionData.FactionArmySpawnType.Length == 0)
+        FactionSO factionData = objectStorage.GetObject<FactionSO>();
+
+        if (!factionData || factionData.FactionArmySpawnType.Length == 0)
         {
             return State.Failure;
         }

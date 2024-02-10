@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6493242571054521624}
+  - component: {fileID: 903041979703107967}
+  - component: {fileID: -5966224704882633144}
   - component: {fileID: -6034477381611678391}
   m_Layer: 0
   m_Name: ArmyRoot
@@ -33,6 +35,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903041979703107967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581266756febbf447a9cc1da85c40584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedBehaviourTree: {fileID: 0}
+--- !u!114 &-5966224704882633144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe6d0cbcbf16d047aa2a00fa3f8f2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-6034477381611678391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fb0a235796637478598be3951c7b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Associated>k__BackingField: {fileID: 0}
 --- !u!1001 &7391246704776987692
 PrefabInstance:
   m_ObjectHideFlags: 0

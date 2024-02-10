@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class Util
 {
-    private static readonly Random random = new Random();
+    private static readonly System.Random random = new System.Random();
 
     /// <summary>
     /// Converts a string representation of an enum value to its corresponding enum value.
@@ -48,6 +49,24 @@ public static class Util
         }
 
         return result;
+    }
+
+    public static Vector3 GetRandomPositionInRadius(Vector3 basePosition, float radius, float minRadius = 0f)
+    {
+        float effectiveRadius = UnityEngine.Mathf.Max(radius, minRadius);
+
+        // Generate random angles in radians
+        float randomAngle = UnityEngine.Random.Range(0f, UnityEngine.Mathf.PI * 2f);
+
+        // Calculate random distance within the effective radius
+        float randomDistance = UnityEngine.Random.Range(minRadius, effectiveRadius);
+
+        // Calculate random X and Z offsets based on the random angle and distance
+        float offsetX = UnityEngine.Mathf.Cos(randomAngle) * randomDistance;
+        float offsetZ = UnityEngine.Mathf.Sin(randomAngle) * randomDistance;
+
+        // Calculate the random position based on the offsets and the basePosition's Y component
+        return new Vector3(basePosition.x + offsetX, basePosition.y, basePosition.z + offsetZ);
     }
 
     /// <summary>

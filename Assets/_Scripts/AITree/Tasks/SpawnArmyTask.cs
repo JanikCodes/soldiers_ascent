@@ -12,32 +12,33 @@ public class SpawnArmyTask : TaskNode
 
     [Header("Variables")]
     [SerializeField]
-    private TransformKey spawnLocation;
+    private Vector3Key spawnLocation;
     [SerializeField]
     private IntKey squadAmount;
 
     // Stored required components.
-    private FactionSO factionData;
-    private FactionArmyReference factionArmyReference;
-    private FactionService factionService;
+    private ObjectStorage objectStorage;
+    private FactionServiceReference factionServiceReference;
 
     protected override void OnInitialize()
     {
         base.OnInitialize();
+
+        objectStorage = GetOwner().GetComponent<ObjectStorage>();
+        factionServiceReference = GetOwner().GetComponent<FactionServiceReference>();
     }
 
     protected override void OnEntry()
     {
         base.OnEntry();
-
-        factionData = GetOwner().GetComponent<ObjectStorage>().GetObject<FactionSO>();
-        factionArmyReference = GetOwner().GetComponent<FactionArmyReference>();
-        factionService = GetOwner().GetComponent<FactionServiceReference>().FactionService;
     }
 
     protected override State OnUpdate()
     {
-        if (squadAmount.GetValue() == 0)
+        FactionSO factionData = objectStorage.GetObject<FactionSO>();
+        FactionService factionService = factionServiceReference.FactionService;
+
+        if (squadAmount.GetValue() == 0 || !factionService)
         {
             return State.Failure;
         }
@@ -49,13 +50,14 @@ public class SpawnArmyTask : TaskNode
 
             // TODO: buy preset
             // TODO: reduce faction currency based on presets
-            // TODO: create army prefab
-            // TODO: position it at spawnLocation
-            // TODO: populate it properly
         }
 
         GameObject army = Instantiate(factionService.armyRootPrefab, factionService.armyParentTransform);
-        army.transform.position = spawnLocation.GetValue().position;
+        army.transform.position = spawnLocation.GetValue();
+
+        // populate components
+        FactionAssociation factionAssociation = army.GetComponent<FactionAssociation>();
+        factionAssociation.Associated = factionData;
 
         OnNewArmySpawned?.Invoke(army.transform, factionData.Id);
 
