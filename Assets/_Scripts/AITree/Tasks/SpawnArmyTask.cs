@@ -4,7 +4,7 @@ using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent("Spawn Army", "Tasks/Base/Faction/Spawn Army", IconPath = "Images/Icons/Node/WaitIcon.png")]
+[NodeContent("Spawn Army", "Tasks/Base/Faction/Spawn Army", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class SpawnArmyTask : TaskNode
 {
     public static OnNewArmySpawnedDelegate OnNewArmySpawned;

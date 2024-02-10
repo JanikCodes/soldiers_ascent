@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 1056, y: 771}
+  nodePosition: {x: 1060, y: 814}
   breakpoint: 0
   decorators: []
   services: []
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 682, y: 225}
+  nodePosition: {x: 684, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Spawn outside player view
-  nodePosition: {x: 1234, y: 616}
+  nodePosition: {x: 1238, y: 657}
   breakpoint: 0
   decorators:
   - {fileID: 6175638512680464125}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: CreateArmyTask
   m_EditorClassIdentifier: 
   nodeName: Spawn Army
-  nodePosition: {x: 867, y: 771}
+  nodePosition: {x: 867, y: 814}
   breakpoint: 0
   decorators: []
   services: []
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 737.5, y: 107}
+  nodePosition: {x: 739.5, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Spawn based on type
-  nodePosition: {x: 920, y: 498}
+  nodePosition: {x: 922, y: 539}
   breakpoint: 0
   decorators: []
   services: []
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 1289.5, y: 771}
+  nodePosition: {x: 1293.5, y: 814}
   breakpoint: 0
   decorators: []
   services: []
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: GetRandomArmySpawnTypeTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Army Spawn Type
-  nodePosition: {x: 0, y: 498}
+  nodePosition: {x: 0, y: 539}
   breakpoint: 0
   decorators: []
   services: []
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1523, y: 225}
+  nodePosition: {x: 1527, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -340,6 +340,7 @@ MonoBehaviour:
   - {fileID: -9107391279524948571}
   - {fileID: -4222068323293529712}
   - {fileID: 4765110877234514095}
+  - {fileID: 2474005994820727690}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
@@ -356,9 +357,27 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 751, y: 0}
+  nodePosition: {x: 753, y: 0}
   breakpoint: 0
   child: {fileID: -3990935029754078965}
+--- !u!114 &2474005994820727690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5185dfac9058c943983ba6af04648e7, type: 3}
+  m_Name: HasReachedMaxArmyAmountDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Has Reached Max Army Amount
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 1
+  waitUntilTrue: 0
 --- !u!114 &3729624949525780505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +408,7 @@ MonoBehaviour:
   m_Name: GetRandomSquadAmountTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Squad Amount
-  nodePosition: {x: 289, y: 498}
+  nodePosition: {x: 289, y: 539}
   breakpoint: 0
   decorators: []
   services: []
@@ -443,7 +462,7 @@ MonoBehaviour:
   m_Name: GetRandomStructureTransformTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Structure Transform
-  nodePosition: {x: 578, y: 771}
+  nodePosition: {x: 578, y: 814}
   breakpoint: 0
   decorators: []
   services: []
@@ -466,10 +485,11 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Spawn Army
-  nodePosition: {x: 639, y: 343}
+  nodePosition: {x: 619, y: 343}
   breakpoint: 0
   decorators:
   - {fileID: -4882866285795731112}
+  - {fileID: 2474005994820727690}
   services: []
   children:
   - {fileID: -2619014887254040403}
@@ -526,7 +546,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Spawn at owned structures
-  nodePosition: {x: 761.5, y: 616}
+  nodePosition: {x: 763.5, y: 657}
   breakpoint: 0
   decorators:
   - {fileID: -8435228713867227094}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RenownedGames.AITree;
 using UnityEngine;
 
-[NodeContent("Get Random Squad Amount", "Tasks/Base/Faction/Get Random Squad Amount", IconPath = "Images/Icons/Node/WaitIcon.png")]
+[NodeContent("Get Random Squad Amount", "Tasks/Base/Faction/Get Random Squad Amount", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class GetRandomSquadAmountTask : TaskNode
 {
     [Header("Variables")]

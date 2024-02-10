@@ -4,7 +4,7 @@ using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent("Get Random Army Spawn Type", "Tasks/Base/Faction/Get Random Army Spawn Type", IconPath = "Images/Icons/Node/WaitIcon.png")]
+[NodeContent("Get Random Army Spawn Type", "Tasks/Base/Faction/Get Random Army Spawn Type", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class GetRandomArmySpawnTypeTask : TaskNode
 {
     [Header("Variables")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RenownedGames.AITree;
 using UnityEngine;
 
-[NodeContent("Get Random Structure Position", "Tasks/Base/Faction/Get Random Structure Position", IconPath = "Images/Icons/Node/WaitIcon.png")]
+[NodeContent("Get Random Structure Position", "Tasks/Base/Faction/Get Random Structure Position", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class GetRandomStructurePositionTask : TaskNode
 {
     [Header("Variables")]

@@ -4,7 +4,7 @@ using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent(name: "Is Army Spawn Type", path: "Base/Faction/Is Army Spawn Type", IconPath = "Images/Icons/Node/Example.png")]
+[NodeContent(name: "Is Army Spawn Type", path: "Base/Faction/Is Army Spawn Type", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class IsArmySpawnTypeDecorator : ConditionDecorator
 {
     [Header("Variables")]
@@ -13,6 +13,11 @@ public class IsArmySpawnTypeDecorator : ConditionDecorator
 
     [SerializeField]
     private FactionArmySpawnTypeKey secondInput;
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();
+    }
 
     protected override void OnEntry()
     {

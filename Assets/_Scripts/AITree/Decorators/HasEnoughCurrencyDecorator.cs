@@ -4,7 +4,7 @@ using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent(name:"Has Enough Currency", path:"Base/Faction/Has Enough Currency", IconPath = "Images/Icons/Node/Example.png")]
+[NodeContent(name:"Has Enough Currency", path:"Base/Faction/Has Enough Currency", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class HasEnoughCurrencyDecorator : ConditionDecorator
 {
     [Header("Variables")]
@@ -12,13 +12,18 @@ public class HasEnoughCurrencyDecorator : ConditionDecorator
     private IntKey requiredCurrency;
 
     // Stored required components.
-    private CurrencyStorage currencyStorage; 
+    private CurrencyStorage currencyStorage;
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();
+
+        currencyStorage = GetOwner().GetComponent<CurrencyStorage>();
+    }
 
     protected override void OnEntry()
     {
         base.OnEntry();
-
-        currencyStorage = GetOwner().GetComponent<CurrencyStorage>();
     }
  
     protected override bool CalculateResult()
