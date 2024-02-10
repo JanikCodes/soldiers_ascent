@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public static class Util
 {
+    private static readonly Random random = new Random();
+
     /// <summary>
     /// Converts a string representation of an enum value to its corresponding enum value.
     /// </summary>
@@ -56,7 +58,6 @@ public static class Util
     /// <returns>A randomly selected element from the array.</returns>
     public static T GetRandomValue<T>(T[] array)
     {
-        Random random = new Random();
         int randomIndex = random.Next(array.Length);
         return array[randomIndex];
     }
@@ -69,7 +70,6 @@ public static class Util
     /// <returns>A randomly selected element from the list.</returns>
     public static T GetRandomValue<T>(List<T> list)
     {
-        Random random = new Random();
         int randomIndex = random.Next(list.Count);
         return list[randomIndex];
     }

@@ -17,6 +17,23 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 1
+--- !u!114 &-7179857595253344690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e7bd978a67c9b4db53d7626fff470e, type: 3}
+  m_Name: secondInput
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 1
 --- !u!114 &-6348272359145124244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,7 +47,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 104, y: 225}
+  nodePosition: {x: 537.5, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -49,12 +66,12 @@ MonoBehaviour:
   m_Name: CreateArmyTask
   m_EditorClassIdentifier: 
   nodeName: CreateArmy
-  nodePosition: {x: 0, y: 498}
+  nodePosition: {x: 578, y: 771}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
---- !u!114 &-6059071904228106694
+--- !u!114 &-5971998066017555635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,17 +80,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
-  m_Name: DebugLogTask
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
   m_EditorClassIdentifier: 
-  nodeName: Debug Log
-  nodePosition: {x: 189, y: 498}
+  nodeName: Spawn outside player view
+  nodePosition: {x: 945, y: 616}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: 6175638512680464125}
   services: []
-  ignoreAbortSelf: 0
-  logLevel: 0
-  message: {fileID: 806669559398968837}
+  children:
+  - {fileID: -2709903335930028451}
 --- !u!114 &-4882866285795731112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +123,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 159.5, y: 107}
+  nodePosition: {x: 593, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -130,6 +147,83 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 150
+--- !u!114 &-3226470753898981550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1770628119ce54980deb844516c178, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  nodeName: Spawn based on type
+  nodePosition: {x: 775.5, y: 498}
+  breakpoint: 0
+  decorators: []
+  services: []
+  children:
+  - {fileID: 3165740254671029543}
+  - {fileID: -5971998066017555635}
+--- !u!114 &-2709903335930028451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
+  m_Name: DebugLogTask
+  m_EditorClassIdentifier: 
+  nodeName: Debug Log
+  nodePosition: {x: 1000.5, y: 771}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  logLevel: 1
+  message: {fileID: 3729624949525780505}
+--- !u!114 &-2619014887254040403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec79b5f6b848b34598982eec6dbbcba, type: 3}
+  m_Name: GetRandomArmySpawnTypeTask
+  m_EditorClassIdentifier: 
+  nodeName: Get Random Army Spawn Type
+  nodePosition: {x: 0, y: 498}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  outputArmySpawnType: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
+--- !u!114 &-1583574968498852885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfcad34f5547eb4292ce0c46aef412c, type: 3}
+  m_Name: message
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: Success!
 --- !u!114 &-190227781185631117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +237,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 367, y: 225}
+  nodePosition: {x: 1234, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -169,16 +263,78 @@ MonoBehaviour:
   nodes:
   - {fileID: 2289092435735400405}
   - {fileID: -3990935029754078965}
-  - {fileID: -6059071904228106694}
   - {fileID: -6348272359145124244}
   - {fileID: 6166483315289010984}
   - {fileID: -4882866285795731112}
   - {fileID: -6077922143012882884}
   - {fileID: -190227781185631117}
+  - {fileID: -2619014887254040403}
+  - {fileID: 6104136893224467721}
+  - {fileID: 3165740254671029543}
+  - {fileID: -5971998066017555635}
+  - {fileID: 4754784726572829008}
+  - {fileID: 6175638512680464125}
+  - {fileID: -3226470753898981550}
+  - {fileID: -2709903335930028451}
+  - {fileID: 6750743430832770376}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
---- !u!114 &806669559398968837
+--- !u!114 &1308972262494260802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e7bd978a67c9b4db53d7626fff470e, type: 3}
+  m_Name: secondInput
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 0
+--- !u!114 &2289092435735400405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9bdc4129dd9f64c97141f9b4995906, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  nodeName: 
+  nodePosition: {x: 606.5, y: 0}
+  breakpoint: 0
+  child: {fileID: -3990935029754078965}
+--- !u!114 &3165740254671029543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Spawn at owned structures
+  nodePosition: {x: 617, y: 616}
+  breakpoint: 0
+  decorators:
+  - {fileID: 4754784726572829008}
+  services: []
+  children:
+  - {fileID: -6077922143012882884}
+  - {fileID: 6750743430832770376}
+--- !u!114 &3729624949525780505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,8 +350,8 @@ MonoBehaviour:
   description: 
   sync: 0
   isLocal: 1
-  value: Spawned new army
---- !u!114 &2289092435735400405
+  value: Not implemented yet.
+--- !u!114 &4754784726572829008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,13 +360,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9bdc4129dd9f64c97141f9b4995906, type: 3}
-  m_Name: RootNode
+  m_Script: {fileID: 11500000, guid: 3e9d85a6f23e74e4abcad00c30eadd1b, type: 3}
+  m_Name: IsArmySpawnTypeDecorator
   m_EditorClassIdentifier: 
-  nodeName: 
-  nodePosition: {x: 173, y: 0}
+  nodeName: Is Army Spawn Type
+  nodePosition: {x: 0, y: 0}
   breakpoint: 0
-  child: {fileID: -3990935029754078965}
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  firstInput: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
+  secondInput: {fileID: 1308972262494260802}
+--- !u!114 &6104136893224467721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e85ac6273b8f849b8547a481febdfa, type: 3}
+  m_Name: GetRandomStructureTransformTask
+  m_EditorClassIdentifier: 
+  nodeName: Get Random Structure Transform
+  nodePosition: {x: 289, y: 498}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  factionOwnedStructuresOnly: {fileID: 6362822935480979202}
+  outputTransform: {fileID: 7947928982811570298, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
 --- !u!114 &6166483315289010984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,11 +406,70 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Spawn Army
-  nodePosition: {x: 61, y: 343}
+  nodePosition: {x: 494.5, y: 343}
   breakpoint: 0
   decorators:
   - {fileID: -4882866285795731112}
   services: []
   children:
-  - {fileID: -6077922143012882884}
-  - {fileID: -6059071904228106694}
+  - {fileID: -2619014887254040403}
+  - {fileID: 6104136893224467721}
+  - {fileID: -3226470753898981550}
+--- !u!114 &6175638512680464125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9d85a6f23e74e4abcad00c30eadd1b, type: 3}
+  m_Name: IsArmySpawnTypeDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is Army Spawn Type
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  firstInput: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
+  secondInput: {fileID: -7179857595253344690}
+--- !u!114 &6362822935480979202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b97a1cab3e25e246a1321c1c6515ce3, type: 3}
+  m_Name: factionOwnedStructuresOnly
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 1
+--- !u!114 &6750743430832770376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
+  m_Name: DebugLogTask
+  m_EditorClassIdentifier: 
+  nodeName: Debug Log
+  nodePosition: {x: 767, y: 771}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  logLevel: 0
+  message: {fileID: -1583574968498852885}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StructureService : MonoBehaviour
 {
-    [SerializeField] private Transform structureParentTransform;    
+    [SerializeField] private Transform structureParentTransform;
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private List<StructureSO> scriptableObjects = new List<StructureSO>();
 
@@ -59,9 +59,9 @@ public class StructureService : MonoBehaviour
         Debug.Log("Finished adding faction scriptableobjects");
     }
 
-    public List<GameObject> GetFactionOwnedStructures(FactionSO faction)
+    public List<Transform> GetFactionOwnedStructures(FactionSO faction)
     {
-        List<GameObject> result = new List<GameObject>();
+        List<Transform> result = new List<Transform>();
 
         foreach (Transform structure in structureParentTransform)
         {
@@ -69,8 +69,20 @@ public class StructureService : MonoBehaviour
 
             if (factionAssociation.Associated.Id.Equals(faction.Id))
             {
-                result.Add(structure.gameObject);
+                result.Add(structure);
             }
+        }
+
+        return result;
+    }
+
+    public List<Transform> GetAllStructures()
+    {
+        List<Transform> result = new List<Transform>();
+
+        foreach (Transform structure in structureParentTransform)
+        {
+            result.Add(structure);
         }
 
         return result;

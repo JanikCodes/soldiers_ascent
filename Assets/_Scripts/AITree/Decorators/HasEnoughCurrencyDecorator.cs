@@ -4,10 +4,9 @@ using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent(name:"HasEnoughCurrency", path:"Base/Faction/HasEnoughCurrency", IconPath = "Images/Icons/Node/Example.png")]
+[NodeContent(name:"Has Enough Currency", path:"Base/Faction/Has Enough Currency", IconPath = "Images/Icons/Node/Example.png")]
 public class HasEnoughCurrencyDecorator : ConditionDecorator
 {
-    [Title("Node")]
     [SerializeField]
     private IntKey requiredCurrency;
 
