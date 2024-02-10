@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StructureService : MonoBehaviour
+public class StructureService : ScriptableObjectService<StructureSO>
 {
     [SerializeField] private Transform structureParentTransform;
     [SerializeField] private GameObject objectPrefab;
-    [SerializeField] private List<StructureSO> scriptableObjects = new List<StructureSO>();
 
     private FactionService factionService;
 
@@ -29,13 +28,13 @@ public class StructureService : MonoBehaviour
             obj.transform.position = calculatedPosition;
 
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
-            factionAssociation.Associated = factionService.GetFactionSOById(data.InitiallyOwnedByFaction);
+            factionAssociation.Associated = factionService.GetSOById(data.InitiallyOwnedByFaction);
         }
 
         Debug.Log("Finished creating structure objects");
     }
 
-    public void CreateScriptableObjects()
+    public override void CreateScriptableObjects()
     {
         List<StructureData> rawData = DataService.CreateDataFromFilesAndMods<StructureData>("Structures");
 
@@ -76,7 +75,7 @@ public class StructureService : MonoBehaviour
         return result;
     }
 
-    public List<Transform> GetAllStructures()
+    public List<Transform> GetAllStructureTransforms()
     {
         List<Transform> result = new List<Transform>();
 

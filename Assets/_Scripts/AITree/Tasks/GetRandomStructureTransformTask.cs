@@ -41,7 +41,7 @@ public class GetRandomStructureTransformTask : TaskNode
         }
         else
         {
-            structures = structureService.StructureService.GetAllStructures();
+            structures = structureService.StructureService.GetAllStructureTransforms();
         }
 
         if (structures.Count == 0)

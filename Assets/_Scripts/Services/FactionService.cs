@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FactionService : MonoBehaviour
+public class FactionService : ScriptableObjectService<FactionSO>
 {
     [SerializeField] private Transform factionParentTransform;
     [SerializeField] private GameObject objectPrefab;
-    [SerializeField] private List<FactionSO> scriptableObjects = new List<FactionSO>();
 
     private StructureService structureService;
 
@@ -39,7 +38,7 @@ public class FactionService : MonoBehaviour
         Debug.Log("Finished creating faction objects");
     }
 
-    public void CreateScriptableObjects()
+    public override void CreateScriptableObjects()
     {
         List<FactionData> rawData = DataService.CreateDataFromFilesAndMods<FactionData>("Factions");
 
@@ -62,10 +61,5 @@ public class FactionService : MonoBehaviour
         }
 
         Debug.Log("Finished adding faction scriptableobjects");
-    }
-
-    public FactionSO GetFactionSOById(string id)
-    {
-        return scriptableObjects.Find(x => x.Id.Equals(id));
     }
 }

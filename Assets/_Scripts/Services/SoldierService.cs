@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierService : MonoBehaviour
+public class SoldierService : ScriptableObjectService<SoldierSO>
 {
-    [SerializeField] private List<SoldierSO> scriptableObjects = new List<SoldierSO>();
-
-    public void CreateScriptableObjects()
+    public override void CreateScriptableObjects()
     {
         List<SoldierData> rawData = DataService.CreateDataFromFilesAndMods<SoldierData>("Soldiers");
 
@@ -26,10 +24,5 @@ public class SoldierService : MonoBehaviour
         }
 
         Debug.Log("Finished adding soldier scriptableobjects");
-    }
-
-    public SoldierSO GetSoldierSOById(string id)
-    {
-        return scriptableObjects.Find(x => x.Id.Equals(id));
     }
 }
