@@ -34,8 +34,6 @@ public class FactionService : ScriptableObjectService<FactionSO>
             CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
             currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
         }
-
-        Debug.Log("Finished creating faction objects");
     }
 
     public override void CreateScriptableObjects()
@@ -60,6 +58,6 @@ public class FactionService : ScriptableObjectService<FactionSO>
             scriptableObjects.Add(faction);
         }
 
-        Debug.Log("Finished adding faction scriptableobjects");
+        base.CreateScriptableObjects();
     }
 }

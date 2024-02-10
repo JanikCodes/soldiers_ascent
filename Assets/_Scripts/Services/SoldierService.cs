@@ -23,6 +23,6 @@ public class SoldierService : ScriptableObjectService<SoldierSO>
             scriptableObjects.Add(soldier);
         }
 
-        Debug.Log("Finished adding soldier scriptableobjects");
+        base.CreateScriptableObjects();
     }
 }

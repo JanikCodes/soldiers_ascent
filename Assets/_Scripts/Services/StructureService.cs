@@ -30,8 +30,6 @@ public class StructureService : ScriptableObjectService<StructureSO>
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
             factionAssociation.Associated = factionService.GetSOById(data.InitiallyOwnedByFaction);
         }
-
-        Debug.Log("Finished creating structure objects");
     }
 
     public override void CreateScriptableObjects()
@@ -55,7 +53,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
             scriptableObjects.Add(structure);
         }
 
-        Debug.Log("Finished adding faction scriptableobjects");
+        base.CreateScriptableObjects();
     }
 
     public List<Transform> GetFactionOwnedStructures(FactionSO faction)
