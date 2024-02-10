@@ -33,6 +33,11 @@ public class FactionSquadPresetService : ScriptableObjectService<FactionSquadPre
         base.CreateScriptableObjects();
     }
 
+    public List<FactionSquadPresetSO> GetFactionSquadPresets(string factionId)
+    {
+        return scriptableObjects.FindAll(x => x.AssignedFactionId.Equals(factionId));
+    }
+
     private List<SoldierSO> GetSoldierScriptableObjectsByArray(string[] soldierIds)
     {
         List<SoldierSO> soldierList = new List<SoldierSO>();

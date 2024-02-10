@@ -9,10 +9,12 @@ public class FactionService : ScriptableObjectService<FactionSO>
     [SerializeField] private GameObject objectPrefab;
 
     private StructureService structureService;
+    private FactionSquadPresetService factionSquadPresetService;
 
     private void Awake()
     {
         structureService = transform.parent.GetComponentInChildren<StructureService>();
+        factionSquadPresetService = transform.parent.GetComponentInChildren<FactionSquadPresetService>();
     }
 
     public void CreateFactionObjects()
@@ -54,6 +56,7 @@ public class FactionService : ScriptableObjectService<FactionSO>
             faction.SpawnArmyInterval = data.SpawnArmyInterval;
             faction.StartCurrencyAmount = data.StartCurrencyAmount;
             faction.FactionArmySpawnType = Util.ReturnEnumValuesFromStringValues<FactionArmySpawnType>(data.FactionArmySpawnType);
+            faction.SquadPresets = factionSquadPresetService.GetFactionSquadPresets(data.Id);
 
             scriptableObjects.Add(faction);
         }
