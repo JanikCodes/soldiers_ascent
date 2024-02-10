@@ -7,6 +7,7 @@ using UnityEngine;
 [NodeContent(name:"Has Enough Currency", path:"Base/Faction/Has Enough Currency", IconPath = "Images/Icons/Node/Example.png")]
 public class HasEnoughCurrencyDecorator : ConditionDecorator
 {
+    [Header("Variables")]
     [SerializeField]
     private IntKey requiredCurrency;
 

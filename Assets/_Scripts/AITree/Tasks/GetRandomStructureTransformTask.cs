@@ -6,6 +6,7 @@ using UnityEngine;
 [NodeContent("Get Random Structure Transform", "Tasks/Base/Faction/Get Random Structure Transform", IconPath = "Images/Icons/Node/WaitIcon.png")]
 public class GetRandomStructureTransformTask : TaskNode
 {
+    [Header("Variables")]
     [SerializeField]
     private BoolKey factionOwnedStructuresOnly;
 

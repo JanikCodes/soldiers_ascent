@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using RenownedGames.AITree;
-using RenownedGames.Apex;
 using UnityEngine;
 
-[NodeContent("Get Random Army Spawn Type", "Tasks/Base/Faction/Get Random Army Spawn Type", IconPath = "Images/Icons/Node/WaitIcon.png")]
-public class GetRandomArmySpawnTypeTask : TaskNode
-{   
+[NodeContent("Get Random Squad Amount", "Tasks/Base/Faction/Get Random Squad Amount", IconPath = "Images/Icons/Node/WaitIcon.png")]
+public class GetRandomSquadAmountTask : TaskNode
+{
     [Header("Variables")]
     [SerializeField]
     [NonLocal]
-    private FactionArmySpawnTypeKey outputArmySpawnType;
+    private IntKey outputSquadAmount;
 
     // Stored required components.
     private FactionSO factionData;
@@ -29,12 +28,13 @@ public class GetRandomArmySpawnTypeTask : TaskNode
 
     protected override State OnUpdate()
     {
-        if (factionData.FactionArmySpawnType.Length == 0)
+        int squadAmount = Util.GetRandomValue(factionData.MinSquadAmount, factionData.MaxSquadAmount);
+        if(squadAmount < 0)
         {
             return State.Failure;
         }
 
-        outputArmySpawnType.SetValue(Util.GetRandomValue<FactionArmySpawnType>(factionData.FactionArmySpawnType));
+        outputSquadAmount.SetValue(squadAmount);
 
         return State.Success;
     }

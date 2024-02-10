@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 2138371971058551308}
   - {fileID: -9048669002759425895}
   - {fileID: 7947928982811570298}
+  - {fileID: 3832630999346551277}
   parent: {fileID: 0}
 --- !u!114 &2138371971058551308
 MonoBehaviour:
@@ -51,6 +52,23 @@ MonoBehaviour:
   sync: 0
   isLocal: 0
   value: {fileID: 0}
+--- !u!114 &3832630999346551277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4342cf7e7aa28924ab39d3e45018358f, type: 3}
+  m_Name: SquadAmount
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 0
+  value: 0
 --- !u!114 &7947928982811570298
 MonoBehaviour:
   m_ObjectHideFlags: 0

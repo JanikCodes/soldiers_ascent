@@ -51,6 +51,15 @@ public static class Util
     }
 
     /// <summary>
+    /// Returns a random integer from given min and max value.
+    /// </summary>
+    /// <returns>A random integer.</returns>
+    public static int GetRandomValue(int min, int max)
+    {
+        return UnityEngine.Random.Range(min, max);
+    }
+
+    /// <summary>
     /// Returns a random element from the given array.
     /// </summary>
     /// <typeparam name="T">The type of elements in the array.</typeparam>

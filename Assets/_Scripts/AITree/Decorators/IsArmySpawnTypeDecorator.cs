@@ -7,6 +7,7 @@ using UnityEngine;
 [NodeContent(name: "Is Army Spawn Type", path: "Base/Faction/Is Army Spawn Type", IconPath = "Images/Icons/Node/Example.png")]
 public class IsArmySpawnTypeDecorator : ConditionDecorator
 {
+    [Header("Variables")]
     [SerializeField]
     private FactionArmySpawnTypeKey firstInput;
 
