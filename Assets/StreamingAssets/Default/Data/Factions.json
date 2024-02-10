@@ -8,8 +8,8 @@
         "MaxArmyCountOnOverworld": 0,
         "SpawnArmyInterval": 0,
         "StartCurrencyAmount": 100,
-        "MinSquadAmount": 0,
-        "MaxSquadAmount": 0,
+        "MinSquadAmount": 2,
+        "MaxSquadAmount": 5,
         "FactionArmySpawnType": [
             "OutsidePlayerView"
         ]

@@ -162,12 +162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51024ca693853b949837ede5545f4b30, type: 3}
   m_Name: CreateArmyTask
   m_EditorClassIdentifier: 
-  nodeName: CreateArmy
+  nodeName: Spawn Army
   nodePosition: {x: 867, y: 771}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
+  spawnLocation: {fileID: 7947928982811570298, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
+  squadAmount: {fileID: 3832630999346551277, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
 --- !u!114 &-3990935029754078965
 MonoBehaviour:
   m_ObjectHideFlags: 0

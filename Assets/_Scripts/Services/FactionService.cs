@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class FactionService : ScriptableObjectService<FactionSO>
 {
-    [SerializeField] private Transform factionParentTransform;
-    [SerializeField] private GameObject objectPrefab;
+    [field: SerializeField] public Transform factionParentTransform { get; private set; }
+    [field: SerializeField] public Transform armyParentTransform { get; private set; }
+    [field: SerializeField] public GameObject factionRootPrefab { get; private set; }
+    [field: SerializeField] public GameObject armyRootPrefab { get; private set; }
 
     private StructureService structureService;
     private FactionSquadPresetService factionSquadPresetService;
@@ -21,7 +23,7 @@ public class FactionService : ScriptableObjectService<FactionSO>
     {
         foreach (FactionSO data in scriptableObjects)
         {
-            GameObject obj = Instantiate(objectPrefab, factionParentTransform);
+            GameObject obj = Instantiate(factionRootPrefab, factionParentTransform);
             obj.name = data.Name;
 
             ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
@@ -55,6 +57,8 @@ public class FactionService : ScriptableObjectService<FactionSO>
             faction.MaxArmyCountOnOverworld = data.MaxArmyCountOnOverworld;
             faction.SpawnArmyInterval = data.SpawnArmyInterval;
             faction.StartCurrencyAmount = data.StartCurrencyAmount;
+            faction.MinSquadAmount = data.MinSquadAmount;
+            faction.MaxSquadAmount = data.MaxSquadAmount;
             faction.FactionArmySpawnType = Util.ReturnEnumValuesFromStringValues<FactionArmySpawnType>(data.FactionArmySpawnType);
             faction.SquadPresets = factionSquadPresetService.GetFactionSquadPresets(data.Id);
 

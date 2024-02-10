@@ -5,7 +5,8 @@ using UnityEngine;
 public class StructureService : ScriptableObjectService<StructureSO>
 {
     [SerializeField] private Transform structureParentTransform;
-    [SerializeField] private GameObject objectPrefab;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject structureRootPrefab;
 
     private FactionService factionService;
 
@@ -18,7 +19,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
     {
         foreach (StructureSO data in scriptableObjects)
         {
-            GameObject obj = Instantiate(objectPrefab, structureParentTransform);
+            GameObject obj = Instantiate(structureRootPrefab, structureParentTransform);
             obj.name = data.Name;
             obj.transform.localScale = new Vector3(1, 1, 1);
 

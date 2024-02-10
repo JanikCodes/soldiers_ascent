@@ -400,8 +400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableObjects: []
-  factionParentTransform: {fileID: 1933511937}
-  objectPrefab: {fileID: 8310213461941167532, guid: 8f590277b52db854e88c14dd43e1ca50,
+  <factionParentTransform>k__BackingField: {fileID: 1933511937}
+  <armyParentTransform>k__BackingField: {fileID: 1154749143}
+  <factionRootPrefab>k__BackingField: {fileID: 8310213461941167532, guid: 8f590277b52db854e88c14dd43e1ca50,
+    type: 3}
+  <armyRootPrefab>k__BackingField: {fileID: 8310213461941167532, guid: f6c70f6f247fdc74aa636ccf81612f65,
     type: 3}
 --- !u!1 &553412349
 GameObject:
@@ -449,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableObjects: []
   structureParentTransform: {fileID: 970172624}
-  objectPrefab: {fileID: 8310213461941167532, guid: 2f5ef66128c457c41b601d8f0b381a51,
+  structureRootPrefab: {fileID: 8310213461941167532, guid: 2f5ef66128c457c41b601d8f0b381a51,
     type: 3}
 --- !u!1 &970172623
 GameObject:
