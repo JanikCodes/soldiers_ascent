@@ -399,10 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f938a41f0ddeb034983ad6c14fc8f14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptableObjects: []
   factionParentTransform: {fileID: 1933511937}
   objectPrefab: {fileID: 8310213461941167532, guid: 8f590277b52db854e88c14dd43e1ca50,
     type: 3}
-  scriptableObjects: []
 --- !u!1 &553412349
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,10 +447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c321148a23ad8458f60d42f8549566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptableObjects: []
   structureParentTransform: {fileID: 970172624}
   objectPrefab: {fileID: 8310213461941167532, guid: 2f5ef66128c457c41b601d8f0b381a51,
     type: 3}
-  scriptableObjects: []
 --- !u!1 &970172623
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +637,7 @@ Transform:
   - {fileID: 386883858}
   - {fileID: 553412350}
   - {fileID: 337003911}
+  - {fileID: 1794701528}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -759,6 +760,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1794701527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794701528}
+  - component: {fileID: 1794701529}
+  m_Layer: 0
+  m_Name: FactionSquadPresetService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1794701528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794701527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1265609438}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794701529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794701527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d4eca8aa247de4e827db532b6a3ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableObjects: []
 --- !u!1 &1933511936
 GameObject:
   m_ObjectHideFlags: 0
