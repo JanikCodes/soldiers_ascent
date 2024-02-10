@@ -8,6 +8,8 @@
         "MaxArmyCountOnOverworld": 0,
         "SpawnArmyInterval": 0,
         "StartCurrencyAmount": 100,
+        "MinSquadAmount": 0,
+        "MaxSquadAmount": 0,
         "FactionArmySpawnType": [
             "OutsidePlayerView"
         ]
@@ -21,6 +23,8 @@
         "MaxArmyCountOnOverworld": 4,
         "SpawnArmyInterval": 10,
         "StartCurrencyAmount": 3500,
+        "MinSquadAmount": 2,
+        "MaxSquadAmount": 5,
         "FactionArmySpawnType": [
             "OwnedStructures"
         ]

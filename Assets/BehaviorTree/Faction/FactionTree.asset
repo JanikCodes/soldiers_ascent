@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9107391279524948571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
+  m_Name: DebugLogTask
+  m_EditorClassIdentifier: 
+  nodeName: Debug Log
+  nodePosition: {x: 767, y: 771}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  logLevel: 0
+  message: {fileID: -8847623254264403483}
+--- !u!114 &-8847623254264403483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfcad34f5547eb4292ce0c46aef412c, type: 3}
+  m_Name: message
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: Successfully created army
 --- !u!114 &-8675579638245746155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +54,27 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 1
+--- !u!114 &-8435228713867227094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9d85a6f23e74e4abcad00c30eadd1b, type: 3}
+  m_Name: IsArmySpawnTypeDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is Army Spawn Type
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  firstInput: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
+    type: 2}
+  secondInput: {fileID: 5301703065465459502}
 --- !u!114 &-7179857595253344690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,24 +111,6 @@ MonoBehaviour:
   services: []
   children:
   - {fileID: 6166483315289010984}
---- !u!114 &-6077922143012882884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51024ca693853b949837ede5545f4b30, type: 3}
-  m_Name: CreateArmyTask
-  m_EditorClassIdentifier: 
-  nodeName: CreateArmy
-  nodePosition: {x: 578, y: 771}
-  breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
 --- !u!114 &-5971998066017555635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +150,24 @@ MonoBehaviour:
   inverseCondition: 0
   waitUntilTrue: 0
   requiredCurrency: {fileID: -3392617437424358609}
+--- !u!114 &-4222068323293529712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51024ca693853b949837ede5545f4b30, type: 3}
+  m_Name: CreateArmyTask
+  m_EditorClassIdentifier: 
+  nodeName: CreateArmy
+  nodePosition: {x: 578, y: 771}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
 --- !u!114 &-3990935029754078965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +223,7 @@ MonoBehaviour:
   decorators: []
   services: []
   children:
-  - {fileID: 3165740254671029543}
+  - {fileID: 7950547690116947040}
   - {fileID: -5971998066017555635}
 --- !u!114 &-2709903335930028451
 MonoBehaviour:
@@ -207,23 +265,6 @@ MonoBehaviour:
   ignoreAbortSelf: 0
   outputArmySpawnType: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
     type: 2}
---- !u!114 &-1583574968498852885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcfcad34f5547eb4292ce0c46aef412c, type: 3}
-  m_Name: message
-  m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: Success!
 --- !u!114 &-190227781185631117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,37 +307,20 @@ MonoBehaviour:
   - {fileID: -6348272359145124244}
   - {fileID: 6166483315289010984}
   - {fileID: -4882866285795731112}
-  - {fileID: -6077922143012882884}
   - {fileID: -190227781185631117}
   - {fileID: -2619014887254040403}
   - {fileID: 6104136893224467721}
-  - {fileID: 3165740254671029543}
   - {fileID: -5971998066017555635}
-  - {fileID: 4754784726572829008}
   - {fileID: 6175638512680464125}
   - {fileID: -3226470753898981550}
   - {fileID: -2709903335930028451}
-  - {fileID: 6750743430832770376}
+  - {fileID: -8435228713867227094}
+  - {fileID: 7950547690116947040}
+  - {fileID: -9107391279524948571}
+  - {fileID: -4222068323293529712}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
---- !u!114 &1308972262494260802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e7bd978a67c9b4db53d7626fff470e, type: 3}
-  m_Name: secondInput
-  m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 0
 --- !u!114 &2289092435735400405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,27 +337,6 @@ MonoBehaviour:
   nodePosition: {x: 606.5, y: 0}
   breakpoint: 0
   child: {fileID: -3990935029754078965}
---- !u!114 &3165740254671029543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  nodeName: Spawn at owned structures
-  nodePosition: {x: 617, y: 616}
-  breakpoint: 0
-  decorators:
-  - {fileID: 4754784726572829008}
-  services: []
-  children:
-  - {fileID: -6077922143012882884}
-  - {fileID: 6750743430832770376}
 --- !u!114 &3729624949525780505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +354,7 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: Not implemented yet.
---- !u!114 &4754784726572829008
+--- !u!114 &5301703065465459502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,18 +363,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9d85a6f23e74e4abcad00c30eadd1b, type: 3}
-  m_Name: IsArmySpawnTypeDecorator
+  m_Script: {fileID: 11500000, guid: b3e7bd978a67c9b4db53d7626fff470e, type: 3}
+  m_Name: secondInput
   m_EditorClassIdentifier: 
-  nodeName: Is Army Spawn Type
-  nodePosition: {x: 0, y: 0}
-  breakpoint: 0
-  child: {fileID: 0}
-  inverseCondition: 0
-  waitUntilTrue: 0
-  firstInput: {fileID: -9048669002759425895, guid: 1c24ef07d391bb04c9a41f2385578fd2,
-    type: 2}
-  secondInput: {fileID: 1308972262494260802}
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 0
 --- !u!114 &6104136893224467721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +452,7 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 1
---- !u!114 &6750743430832770376
+--- !u!114 &7950547690116947040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,14 +461,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 968f5dae537da714e8c4a0f04af03e01, type: 3}
-  m_Name: DebugLogTask
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
   m_EditorClassIdentifier: 
-  nodeName: Debug Log
-  nodePosition: {x: 767, y: 771}
+  nodeName: Spawn outside player view
+  nodePosition: {x: 617, y: 616}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: -8435228713867227094}
   services: []
-  ignoreAbortSelf: 0
-  logLevel: 0
-  message: {fileID: -1583574968498852885}
+  children:
+  - {fileID: -4222068323293529712}
+  - {fileID: -9107391279524948571}

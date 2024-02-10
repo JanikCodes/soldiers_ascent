@@ -12,5 +12,7 @@ public class FactionSO : DataSO
     public int MaxArmyCountOnOverworld;
     public int SpawnArmyInterval;
     public int StartCurrencyAmount;
+    public int MinSquadAmount;
+    public int MaxSquadAmount;
     public FactionArmySpawnType[] FactionArmySpawnType;
 }
