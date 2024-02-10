@@ -64,16 +64,8 @@ public class FactionService : MonoBehaviour
         Debug.Log("Finished adding faction scriptableobjects");
     }
 
-    internal FactionSO GetFactionSOByString(string id)
+    public FactionSO GetFactionSOById(string id)
     {
-        foreach (FactionSO faction in scriptableObjects)
-        {
-            if (faction.Id.Equals(id))
-            {
-                return faction;
-            }
-        }
-
-        return null;
+        return scriptableObjects.Find(x => x.Id.Equals(id));
     }
 }

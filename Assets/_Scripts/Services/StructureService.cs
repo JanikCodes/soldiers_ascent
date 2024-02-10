@@ -29,7 +29,7 @@ public class StructureService : MonoBehaviour
             obj.transform.position = calculatedPosition;
 
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
-            factionAssociation.Associated = factionService.GetFactionSOByString(data.InitiallyOwnedByFaction);
+            factionAssociation.Associated = factionService.GetFactionSOById(data.InitiallyOwnedByFaction);
         }
 
         Debug.Log("Finished creating structure objects");
