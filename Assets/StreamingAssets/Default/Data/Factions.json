@@ -1,6 +1,6 @@
 [
     {
-        "Id": "Player",
+        "Id": "Base_Player",
         "Active": true,
         "Name": "ToBeChanged",
         "Visible": false,
@@ -15,7 +15,7 @@
         ]
     },
     {
-        "Id": "1",
+        "Id": "Base_Hunter",
         "Active": true,
         "Name": "Hunter",
         "Visible": true,
