@@ -6,8 +6,7 @@
         "Visible": false,
         "Description": "Player Description",
         "MaxArmyCountOnOverworld": 0,
-        "SpawnArmyInterval": 0,
-        "StartCurrencyAmount": 100,
+        "StartCurrencyAmount": 10000,
         "MinSquadAmount": 2,
         "MaxSquadAmount": 5,
         "FactionArmySpawnType": [
@@ -20,9 +19,8 @@
         "Name": "Hunter",
         "Visible": true,
         "Description": "Nothing to say about.",
-        "MaxArmyCountOnOverworld": 4,
-        "SpawnArmyInterval": 10,
-        "StartCurrencyAmount": 3500,
+        "MaxArmyCountOnOverworld": 6,
+        "StartCurrencyAmount": 35000,
         "MinSquadAmount": 2,
         "MaxSquadAmount": 5,
         "FactionArmySpawnType": [

@@ -10,7 +10,6 @@ public class FactionSO : DataSO
     public string Description;
     public bool Visible;
     public int MaxArmyCountOnOverworld;
-    public int SpawnArmyInterval;
     public int StartCurrencyAmount;
     public int MinSquadAmount;
     public int MaxSquadAmount;

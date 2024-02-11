@@ -55,7 +55,6 @@ public class FactionService : ScriptableObjectService<FactionSO>
             faction.Visible = data.Visible;
             faction.Description = data.Description;
             faction.MaxArmyCountOnOverworld = data.MaxArmyCountOnOverworld;
-            faction.SpawnArmyInterval = data.SpawnArmyInterval;
             faction.StartCurrencyAmount = data.StartCurrencyAmount;
             faction.MinSquadAmount = data.MinSquadAmount;
             faction.MaxSquadAmount = data.MaxSquadAmount;
