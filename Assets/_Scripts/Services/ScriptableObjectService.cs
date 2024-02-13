@@ -8,7 +8,7 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
 
     public virtual void CreateScriptableObjects()
     {
-        Debug.Log("Type of : " + typeof(T).Name);
+        Debug.Log("Type of: " + typeof(T).Name);
         Debug.Log("Number of scriptableObjects created: " + scriptableObjects.Count);
     }
 

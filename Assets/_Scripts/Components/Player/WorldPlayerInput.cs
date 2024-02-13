@@ -6,6 +6,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class WorldPlayerInput : MonoBehaviour
 {
+    public static WorldPlayerInput Instance { get; private set; }
+
     public event Action OnSingleClick;
     public event Action OnCameraZoom;
     public event CameraRotationEnabledDelegate OnCameraEnableRotationChange;
@@ -15,6 +17,15 @@ public class WorldPlayerInput : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+
         input = new CustomInput();
     }
 

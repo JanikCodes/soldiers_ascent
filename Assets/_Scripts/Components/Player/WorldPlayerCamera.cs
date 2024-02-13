@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldPlayerInput))]
 public class WorldPlayerCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
@@ -20,7 +19,7 @@ public class WorldPlayerCamera : MonoBehaviour
 
     private void Awake()
     {
-        input = GetComponent<WorldPlayerInput>();
+        input = WorldPlayerInput.Instance;
 
         // Call this once at start to set the initial cameraDistance
         cameraDistance = minMaxZoom.x + minMaxZoom.y / 2;
