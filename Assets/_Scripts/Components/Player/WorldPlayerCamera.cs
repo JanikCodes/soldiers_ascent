@@ -10,7 +10,7 @@ public class WorldPlayerCamera : MonoBehaviour
     [SerializeField] private float zoomStepSize = 1f;
     [SerializeField] private Vector2 minMaxViewClamp = new Vector2(15, 75);
     [SerializeField] private Vector2 minMaxZoom = new Vector2(20, 65);
-    
+
     private WorldPlayerInput input;
     private bool cameraRotationEnabled;
     private float cameraDistance;
@@ -33,6 +33,12 @@ public class WorldPlayerCamera : MonoBehaviour
         input.OnCameraZoom += Zoom;
     }
 
+    private void OnDisable()
+    {
+        input.OnCameraEnableRotationChange -= CameraRotationEnabledChanged;
+        input.OnCameraZoom -= Zoom;
+    }
+
     private void LateUpdate()
     {
         Rotate();
@@ -46,7 +52,7 @@ public class WorldPlayerCamera : MonoBehaviour
 
     public void Rotate(bool force = false)
     {
-        if(!cameraRotationEnabled && !force) { return; }
+        if (!cameraRotationEnabled && !force) { return; }
 
         yaw += input.GetCameraRotation().x * rotationSpeed;
         pitch -= input.GetCameraRotation().y * rotationSpeed;
