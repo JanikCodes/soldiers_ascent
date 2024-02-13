@@ -932,6 +932,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 996581349689654013}
+  rotationSpeed: 0.35
+  zoomStepSize: 1
+  minMaxViewClamp: {x: 15, y: 75}
+  minMaxZoom: {x: 10, y: 65}
 --- !u!114 &1809558494035735946
 MonoBehaviour:
   m_ObjectHideFlags: 0
