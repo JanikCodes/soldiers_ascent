@@ -57,7 +57,7 @@ public class SpawnArmyTask : TaskNode
 
         // populate components
         FactionAssociation factionAssociation = army.GetComponent<FactionAssociation>();
-        factionAssociation.Associated = factionData;
+        factionAssociation.AssociatedFactionTransform = GetOwner().transform;
 
         OnNewArmySpawned?.Invoke(army.transform, factionData.Id);
 

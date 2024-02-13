@@ -29,7 +29,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
             obj.transform.position = calculatedPosition;
 
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
-            factionAssociation.Associated = factionService.GetSOById(data.InitiallyOwnedByFaction);
+            factionAssociation.AssociatedFactionTransform = factionService.GetFactionTransform(data.InitiallyOwnedByFaction);
         }
     }
 
@@ -65,7 +65,8 @@ public class StructureService : ScriptableObjectService<StructureSO>
         {
             FactionAssociation factionAssociation = structure.GetComponent<FactionAssociation>();
 
-            if (factionAssociation.Associated.Id.Equals(faction.Id))
+            FactionSO factionSO = factionAssociation.AssociatedFactionTransform.GetComponent<ObjectStorage>().GetObject<FactionSO>();
+            if (factionSO.Id.Equals(faction.Id))
             {
                 result.Add(structure);
             }

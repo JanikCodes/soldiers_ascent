@@ -66,4 +66,19 @@ public class FactionService : ScriptableObjectService<FactionSO>
 
         base.CreateScriptableObjects();
     }
+
+    public Transform GetFactionTransform(string factionId)
+    {
+        foreach (Transform faction in factionParentTransform)
+        {
+            if (faction.GetComponent<ObjectStorage>().GetObject<FactionSO>().Id.Equals(factionId))
+            {
+                return faction;
+            }
+        }
+
+        Debug.LogError("Couldn't find faction transform where objectStorage FactionSO has ID: " + factionId);
+
+        return null;
+    }
 }

@@ -12,12 +12,12 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
         Debug.Log("Number of scriptableObjects created: " + scriptableObjects.Count);
     }
 
-    public List<T> GetAllSO()
+    public List<T> GetAllScriptableObjects()
     {
         return scriptableObjects;
     }
 
-    public T GetSOById(string id)
+    public T GetSscriptableObject(string id)
     {
         return scriptableObjects.Find(x => x.Id.Equals(id));
     }

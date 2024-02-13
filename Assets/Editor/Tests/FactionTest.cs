@@ -18,6 +18,6 @@ public class FactionTest : MonoBehaviour
     [Test]
     public void HasCreatedScriptableObjects()
     {
-        Assert.Greater(factionService.GetAllSO().Count, 0);
+        Assert.Greater(factionService.GetAllScriptableObjects().Count, 0);
     }
 }
