@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class RelationshipData : BaseData
 {
-    public RelationshipConnectionData[] Relationships;
+    public List<RelationshipConnectionData> Relationships;
 
     [Serializable]
     public struct RelationshipConnectionData

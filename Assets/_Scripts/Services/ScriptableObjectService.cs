@@ -17,7 +17,7 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
         return scriptableObjects;
     }
 
-    public T GetSscriptableObject(string id)
+    public T GetScriptableObject(string id)
     {
         return scriptableObjects.Find(x => x.Id.Equals(id));
     }

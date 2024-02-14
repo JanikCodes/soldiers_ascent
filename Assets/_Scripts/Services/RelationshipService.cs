@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static RelationshipData;
 
 public class RelationshipService : ScriptableObjectService<RelationshipSO>
 {

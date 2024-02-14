@@ -44,7 +44,7 @@ public class FactionSquadPresetService : ScriptableObjectService<FactionSquadPre
 
         foreach (string soldierId in soldierIds)
         {
-            SoldierSO soldier = soldierService.GetSscriptableObject(soldierId);
+            SoldierSO soldier = soldierService.GetScriptableObject(soldierId);
 
             if (soldier)
             {

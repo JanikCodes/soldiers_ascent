@@ -12,11 +12,13 @@ public class FactionService : ScriptableObjectService<FactionSO>
 
     private StructureService structureService;
     private FactionSquadPresetService factionSquadPresetService;
+    private RelationshipService relationshipService;
 
     private void Awake()
     {
         structureService = transform.parent.GetComponentInChildren<StructureService>();
         factionSquadPresetService = transform.parent.GetComponentInChildren<FactionSquadPresetService>();
+        relationshipService = transform.parent.GetComponentInChildren<RelationshipService>();
     }
 
     public override void CreateScriptableObjects()
@@ -64,6 +66,9 @@ public class FactionService : ScriptableObjectService<FactionSO>
 
             CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
             currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
+
+            FactionRelationship factionRelationship = obj.GetComponent<FactionRelationship>();
+            factionRelationship.relationships = relationshipService.GetScriptableObject(data.Id).Relationships;
         }
     }
 
