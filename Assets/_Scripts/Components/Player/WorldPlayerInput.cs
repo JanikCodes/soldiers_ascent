@@ -17,16 +17,16 @@ public class WorldPlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-        } 
-
         input = new CustomInput();
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void OnEnable()
@@ -49,14 +49,14 @@ public class WorldPlayerInput : MonoBehaviour
 
     public Vector2 GetCameraRotation()
     {
-        if(input == null) { return new Vector2(); }
+        if (input == null) { return new Vector2(); }
 
         return input.PlayerOverworld.CameraRotation.ReadValue<Vector2>();
     }
 
     public Vector3 GetMousePosition()
     {
-        if(input == null) { return new Vector2(); }
+        if (input == null) { return new Vector2(); }
 
         return input.PlayerOverworld.MousePosition.ReadValue<Vector2>();
     }
@@ -69,7 +69,7 @@ public class WorldPlayerInput : MonoBehaviour
     private void SingleClickToMove(CallbackContext context)
     {
         if (!context.started) { return; }
-        
+
         OnSingleClick?.Invoke();
     }
 

@@ -19,27 +19,6 @@ public class FactionService : ScriptableObjectService<FactionSO>
         factionSquadPresetService = transform.parent.GetComponentInChildren<FactionSquadPresetService>();
     }
 
-    public void CreateFactionObjects()
-    {
-        foreach (FactionSO data in scriptableObjects)
-        {
-            GameObject obj = Instantiate(factionRootPrefab, factionParentTransform);
-            obj.name = data.Name;
-
-            ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
-            objectStorage.SetObject<FactionSO>(data);
-
-            FactionServiceReference factionServiceReference = obj.GetComponent<FactionServiceReference>();
-            factionServiceReference.FactionService = this;
-
-            StructureServiceReference structureServiceReference = obj.GetComponent<StructureServiceReference>();
-            structureServiceReference.StructureService = structureService;
-
-            CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
-            currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
-        }
-    }
-
     public override void CreateScriptableObjects()
     {
         List<FactionData> rawData = DataService.CreateDataFromFilesAndMods<FactionData>("Factions");
@@ -65,6 +44,27 @@ public class FactionService : ScriptableObjectService<FactionSO>
         }
 
         base.CreateScriptableObjects();
+    }
+
+    public void CreateFactionObjects()
+    {
+        foreach (FactionSO data in scriptableObjects)
+        {
+            GameObject obj = Instantiate(factionRootPrefab, factionParentTransform);
+            obj.name = data.Name;
+
+            ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
+            objectStorage.SetObject<FactionSO>(data);
+
+            FactionServiceReference factionServiceReference = obj.GetComponent<FactionServiceReference>();
+            factionServiceReference.FactionService = this;
+
+            StructureServiceReference structureServiceReference = obj.GetComponent<StructureServiceReference>();
+            structureServiceReference.StructureService = structureService;
+
+            CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
+            currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
+        }
     }
 
     public Transform GetFactionTransform(string factionId)

@@ -7,8 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(IAstarAI))]
 public class WorldPlayerMovement : MonoBehaviour
 {
-    private WorldPlayerInput input;
     private IAstarAI ai;
+    private WorldPlayerInput input;
 
     private void Awake()
     {
