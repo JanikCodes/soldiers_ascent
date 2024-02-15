@@ -9,7 +9,7 @@ public class GetRandomPositionTask : TaskNode
     [Header("Variables")]
     [SerializeField]
     [NonLocal]
-    private Vector3Key randomPosition;
+    private Vector3Key outputPosition;
 
     [SerializeField]
     private FloatKey radius;
@@ -31,7 +31,7 @@ public class GetRandomPositionTask : TaskNode
 
     protected override State OnUpdate()
     {
-        randomPosition.SetValue(PickRandomPoint());
+        outputPosition.SetValue(PickRandomPoint());
         
         return State.Success;
     }

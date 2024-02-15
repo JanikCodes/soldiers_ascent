@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 790, y: 107}
+  nodePosition: {x: 691.5, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1498, y: 551}
+  nodePosition: {x: 1301, y: 500}
   breakpoint: 0
   decorators: []
   services: []
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 389, y: 826}
+  nodePosition: {x: 406, y: 720}
   breakpoint: 0
   decorators: []
   services: []
@@ -132,12 +132,13 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Check relation with army
-  nodePosition: {x: 363.5, y: 551}
+  nodePosition: {x: 265, y: 382}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: -2517745153643029129}
   services: []
   children:
-  - {fileID: 3196184547213777309}
+  - {fileID: 8129699521764964780}
   - {fileID: -3660461986205072495}
 --- !u!114 &-5471334321185924590
 MonoBehaviour:
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 1270, y: 551}
+  nodePosition: {x: 1073, y: 500}
   breakpoint: 0
   decorators: []
   services: []
@@ -177,6 +178,23 @@ MonoBehaviour:
   key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   acceptableRadius: 0.2
   includeAIRadius: 1
+--- !u!114 &-3871046672405974330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
+  m_Name: length
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 10
 --- !u!114 &-3660461986205072495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,14 +208,13 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Friendly or Neutral
-  nodePosition: {x: 557, y: 669}
+  nodePosition: {x: 467, y: 563}
   breakpoint: 0
   decorators:
   - {fileID: -7521158917470855991}
   services: []
   children:
   - {fileID: -7460034327557624097}
-  - {fileID: 7815277907706442595}
   - {fileID: 7371925495625662126}
 --- !u!114 &-3553500584410733970
 MonoBehaviour:
@@ -212,15 +229,15 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 698.5, y: 225}
+  nodePosition: {x: 600, y: 225}
   breakpoint: 0
   decorators: []
   services:
   - {fileID: -2466645102769060132}
   children:
-  - {fileID: -3453750399328882999}
+  - {fileID: -5486308673255982984}
   - {fileID: 4693625203236801399}
---- !u!114 &-3453750399328882999
+--- !u!114 &-2517745153643029129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,17 +246,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
-  m_Name: SequencerNode
+  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
+  m_Name: BlackboardConditionDecorator
   m_EditorClassIdentifier: 
-  nodeName: Check closest army
-  nodePosition: {x: 376, y: 382}
+  nodeName: Blackboard Condition
+  nodePosition: {x: 0, y: 0}
   breakpoint: 0
-  decorators:
-  - {fileID: -1335618614171435452}
-  services: []
-  children:
-  - {fileID: -5486308673255982984}
+  child: {fileID: 0}
+  notifyObserver: 0
+  observerAbort: 3
+  key: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+  keyQuery:
+    rid: 7081132317477961740
+  references:
+    version: 2
+    RefIds:
+    - rid: 7081132317477961740
+      type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
+      data:
+        comparer: 0
 --- !u!114 &-2466645102769060132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +287,7 @@ MonoBehaviour:
     m_Bits: 64
   outputClosestTransform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
---- !u!114 &-1335618614171435452
+--- !u!114 &-2418909106924065986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,25 +296,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
-  m_Name: BlackboardConditionDecorator
+  m_Script: {fileID: 11500000, guid: 9ec7dfc6392eb7140bc6327aee20e25e, type: 3}
+  m_Name: GetFleePositionService
   m_EditorClassIdentifier: 
-  nodeName: Blackboard Condition
+  nodeName: Get Flee Position
   nodePosition: {x: 0, y: 0}
   breakpoint: 0
   child: {fileID: 0}
-  notifyObserver: 1
-  observerAbort: 0
-  key: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
-  keyQuery:
-    rid: 7081132317477961737
-  references:
-    version: 2
-    RefIds:
-    - rid: 7081132317477961737
-      type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
-      data:
-        comparer: 0
+  targetToFleeFrom: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  length: {fileID: -3871046672405974330}
+  outputPosition: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-1331554414268764275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +324,7 @@ MonoBehaviour:
   description: 
   sync: 0
   isLocal: 1
-  value: Hostile nearby!
+  value: Hostile nearby! Fleeing!
 --- !u!114 &-136833458815850657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,50 +368,20 @@ MonoBehaviour:
   - {fileID: -4118946825210658781}
   - {fileID: -8323472893839050254}
   - {fileID: -2466645102769060132}
-  - {fileID: 384097689060554822}
-  - {fileID: -3453750399328882999}
-  - {fileID: -1335618614171435452}
   - {fileID: -5486308673255982984}
   - {fileID: -3660461986205072495}
   - {fileID: -7521158917470855991}
   - {fileID: -7460034327557624097}
   - {fileID: -6123833012306316449}
-  - {fileID: 3196184547213777309}
   - {fileID: 4779792292276599683}
-  - {fileID: 2352987212061616946}
-  - {fileID: 7815277907706442595}
   - {fileID: 7371925495625662126}
+  - {fileID: 6117513977228014102}
+  - {fileID: 8129699521764964780}
+  - {fileID: -2418909106924065986}
+  - {fileID: -2517745153643029129}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
---- !u!114 &384097689060554822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
-  m_Name: BlackboardConditionDecorator
-  m_EditorClassIdentifier: 
-  nodeName: Blackboard Condition
-  nodePosition: {x: 0, y: 0}
-  breakpoint: 0
-  child: {fileID: 0}
-  notifyObserver: 1
-  observerAbort: 0
-  key: {fileID: 6853932377527735574, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
-  keyQuery:
-    rid: 7081132317477961733
-  references:
-    version: 2
-    RefIds:
-    - rid: 7081132317477961733
-      type: {class: BoolQuery, ns: RenownedGames.AITree, asm: AITree}
-      data:
-        comparer: 0
 --- !u!114 &1597192846565055748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,12 +395,12 @@ MonoBehaviour:
   m_Name: GetRandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Position
-  nodePosition: {x: 1014, y: 551}
+  nodePosition: {x: 817, y: 500}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  randomPosition: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+  outputPosition: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
   radius: {fileID: 5963341140349979219}
 --- !u!114 &1927959957970673096
@@ -432,35 +420,6 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 1
---- !u!114 &2352987212061616946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1a54253e39b814686fd93d56d96cdd, type: 3}
-  m_Name: SetKeyTask
-  m_EditorClassIdentifier: 
-  nodeName: Set Key
-  nodePosition: {x: 178, y: 826}
-  breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  blackboardKey: {fileID: 6853932377527735574, guid: 42550d070b947af4ab4d5d8f948ad9d2,
-    type: 2}
-  keyReceiver:
-    rid: 7081132317477961738
-  references:
-    version: 2
-    RefIds:
-    - rid: 7081132317477961738
-      type: {class: BoolReceiver, ns: RenownedGames.AITree, asm: AITree}
-      data:
-        value: 1
 --- !u!114 &3051239811825553075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,28 +436,7 @@ MonoBehaviour:
   description: 
   sync: 0
   isLocal: 1
-  value: 1
---- !u!114 &3196184547213777309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  nodeName: Hostile
-  nodePosition: {x: 50, y: 669}
-  breakpoint: 0
-  decorators:
-  - {fileID: -6123833012306316449}
-  services: []
-  children:
-  - {fileID: 4779792292276599683}
-  - {fileID: 2352987212061616946}
+  value: 0.5
 --- !u!114 &4234252423764265349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +450,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 808.5, y: 0}
+  nodePosition: {x: 710, y: 0}
   breakpoint: 0
   child: {fileID: -8482461371860293987}
 --- !u!114 &4693625203236801399
@@ -528,10 +466,9 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Roam
-  nodePosition: {x: 1190, y: 382}
+  nodePosition: {x: 1055, y: 382}
   breakpoint: 0
-  decorators:
-  - {fileID: 384097689060554822}
+  decorators: []
   services: []
   children:
   - {fileID: 1597192846565055748}
@@ -550,7 +487,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 0, y: 826}
+  nodePosition: {x: 0, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -570,7 +507,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1628, y: 225}
+  nodePosition: {x: 1431, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -594,6 +531,27 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 40
+--- !u!114 &6117513977228014102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdda2d46078f0d4a917b9269723519f, type: 3}
+  m_Name: MoveToPositionTask
+  m_EditorClassIdentifier: 
+  nodeName: Move To Position
+  nodePosition: {x: 178, y: 759}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+  acceptableRadius: 0.2
+  includeAIRadius: 1
 --- !u!114 &7371925495625662126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,13 +565,13 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 781, y: 826}
+  nodePosition: {x: 584, y: 720}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
   result: 1
---- !u!114 &7815277907706442595
+--- !u!114 &8129699521764964780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,23 +580,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1a54253e39b814686fd93d56d96cdd, type: 3}
-  m_Name: SetKeyTask
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
   m_EditorClassIdentifier: 
-  nodeName: Set Key
-  nodePosition: {x: 567, y: 826}
+  nodeName: Hostile
+  nodePosition: {x: 58.5, y: 563}
   breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  blackboardKey: {fileID: 6853932377527735574, guid: 42550d070b947af4ab4d5d8f948ad9d2,
-    type: 2}
-  keyReceiver:
-    rid: 7081132317477961738
-  references:
-    version: 2
-    RefIds:
-    - rid: 7081132317477961738
-      type: {class: BoolReceiver, ns: RenownedGames.AITree, asm: AITree}
-      data:
-        value: 0
+  decorators:
+  - {fileID: -6123833012306316449}
+  services:
+  - {fileID: -2418909106924065986}
+  children:
+  - {fileID: 4779792292276599683}
+  - {fileID: 6117513977228014102}

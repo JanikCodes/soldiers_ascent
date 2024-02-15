@@ -31,6 +31,11 @@ public class CheckFactionRelationshipDecorator : ConditionDecorator
 
     protected override bool CalculateResult()
     {
+        if(!transform.GetValue()) 
+        {
+            return false;
+        }
+        
         // get own factionRelationship
         FactionRelationship factionRelationship = factionAssociation.AssociatedFactionTransform.GetComponent<FactionRelationship>();
 
