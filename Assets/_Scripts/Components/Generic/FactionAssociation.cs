@@ -7,6 +7,6 @@ using UnityEngine;
 /// Component that can be attached to Gameobjects in order to have a reference to the main faction Transform to access other components
 /// </summary>
 public class FactionAssociation : MonoBehaviour
-{   
+{
     [field: SerializeField, ReadOnlyField] public Transform AssociatedFactionTransform { get; set; }
 }

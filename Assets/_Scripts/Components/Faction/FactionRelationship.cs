@@ -17,4 +17,22 @@ public class FactionRelationship : MonoBehaviour
     {
         return relationships.Find(x => x.FactionId.Equals(factionId)).RelationshipValue;
     }
+
+    public RelationshipType GetRelationshipTypeTowardsFaction(string factionId)
+    {
+        int value = GetRelationshipValueTowardsFaction(factionId);
+
+        if (value > 25)
+        {
+            return RelationshipType.Friendly;
+        }
+        else if (value <= 25 && value > -25)
+        {
+            return RelationshipType.Neutral;
+        }
+        else
+        {
+            return RelationshipType.Hostile;
+        }
+    }
 }
