@@ -16,13 +16,13 @@ public class FactionArmyReference : MonoBehaviour
 
     private void OnEnable()
     {
-        SpawnArmyTask.OnNewArmySpawned += ArmySpawnedHandler;
+        FactionService.OnNewArmySpawned += ArmySpawnedHandler;
 
     }
 
     private void OnDisable()
     {
-        SpawnArmyTask.OnNewArmySpawned -= ArmySpawnedHandler;
+        FactionService.OnNewArmySpawned -= ArmySpawnedHandler;
     }
 
     public int GetArmyCount()

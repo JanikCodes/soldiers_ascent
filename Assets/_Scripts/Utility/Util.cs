@@ -101,4 +101,15 @@ public static class Util
         int randomIndex = random.Next(list.Count);
         return list[randomIndex];
     }
+
+    /// <summary>
+    /// Calculates the position including calculated height of terrain of a given position. 
+    /// </summary>
+    /// <param name="position">The position to be calculated from</param>
+    /// <returns>A newly calculated position taking terrain height into account.</returns>
+    public static Vector3 CalculatePositionOnTerrain(Vector3 position)
+    {
+        float terrainHeightPosition = Terrain.activeTerrain.SampleHeight(position);
+        return new Vector3(position.x, terrainHeightPosition, position.z);
+    }
 }

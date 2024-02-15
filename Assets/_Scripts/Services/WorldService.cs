@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class WorldService : MonoBehaviour
 {
-    // TODO: replace with proper service
-    [SerializeField] private GameObject playerPrefab;
-
     private SoldierService soldierService;
     private RelationshipService relationshipService;
     private FactionSquadPresetService factionSquadPresetService;
     private FactionService factionService;
     private StructureService structureService;
+    private PlayerService playerService;
 
     private void Start()
     {
@@ -19,6 +17,7 @@ public class WorldService : MonoBehaviour
         soldierService = GetComponentInChildren<SoldierService>();
         factionSquadPresetService = GetComponentInChildren<FactionSquadPresetService>();
         factionService = GetComponentInChildren<FactionService>();
+        playerService = GetComponentInChildren<PlayerService>();
         structureService = GetComponentInChildren<StructureService>();
 
         // created neccesary file directories on startup
@@ -31,10 +30,10 @@ public class WorldService : MonoBehaviour
         factionService.CreateScriptableObjects();
         factionService.CreateFactionObjects();
 
+        playerService.CreateScriptableObjects();
+        playerService.SpawnPlayerIntoWorld();
+
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
-
-        // TODO: remove temporary player creation here
-        Instantiate(playerPrefab);
     }
 }

@@ -23,7 +23,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
             obj.name = data.Name;
             obj.transform.localScale = new Vector3(1, 1, 1);
 
-            Vector3 calculatedPosition = CalculatePositionOnDynamicTerrain(data);
+            Vector3 calculatedPosition = Util.CalculatePositionOnTerrain(data.Position);
 
             obj.transform.rotation = data.Rotation;
             obj.transform.position = calculatedPosition;
@@ -85,11 +85,5 @@ public class StructureService : ScriptableObjectService<StructureSO>
         }
 
         return result;
-    }
-
-    private Vector3 CalculatePositionOnDynamicTerrain(StructureSO data)
-    {
-        float terrainHeightPosition = Terrain.activeTerrain.SampleHeight(data.Position);
-        return new Vector3(data.Position.x, terrainHeightPosition, data.Position.z);
     }
 }

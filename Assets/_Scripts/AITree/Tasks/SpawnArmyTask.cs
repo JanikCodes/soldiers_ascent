@@ -7,9 +7,6 @@ using UnityEngine;
 [NodeContent("Spawn Army", "Tasks/Base/Faction/Spawn Army", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
 public class SpawnArmyTask : TaskNode
 {
-    public static OnNewArmySpawnedDelegate OnNewArmySpawned;
-    public delegate void OnNewArmySpawnedDelegate(Transform armyTransform, string factionId);
-
     [Header("Variables")]
     [SerializeField]
     private Vector3Key spawnLocation;
@@ -52,14 +49,8 @@ public class SpawnArmyTask : TaskNode
             // TODO: reduce faction currency based on presets
         }
 
-        GameObject army = Instantiate(factionService.armyRootPrefab, factionService.armyParentTransform);
-        army.transform.position = spawnLocation.GetValue();
-
-        // populate components
-        FactionAssociation factionAssociation = army.GetComponent<FactionAssociation>();
-        factionAssociation.AssociatedFactionTransform = GetOwner().transform;
-
-        OnNewArmySpawned?.Invoke(army.transform, factionData.Id);
+        // spawn army
+        factionService.CreateAndSpawnArmy(spawnLocation.GetValue(), factionData.Id);
 
         return State.Success;
     }
