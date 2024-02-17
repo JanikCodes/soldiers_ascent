@@ -33,7 +33,7 @@ public class SpawnArmyTask : TaskNode
     protected override State OnUpdate()
     {
         FactionSO factionData = objectStorage.GetObject<FactionSO>();
-        FactionService factionService = factionServiceReference.FactionService;
+        FactionService factionService = factionServiceReference.Service;
         if (squadAmount.GetValue() == 0 || !factionService)
         {
             return State.Failure;

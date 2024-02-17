@@ -16,12 +16,14 @@ public class FactionService : ScriptableObjectService<FactionSO>
     private StructureService structureService;
     private FactionSquadPresetService factionSquadPresetService;
     private RelationshipService relationshipService;
+    private EconomyService economyService;
 
     private void Awake()
     {
         structureService = transform.parent.GetComponentInChildren<StructureService>();
         factionSquadPresetService = transform.parent.GetComponentInChildren<FactionSquadPresetService>();
         relationshipService = transform.parent.GetComponentInChildren<RelationshipService>();
+        economyService = transform.parent.GetComponentInChildren<EconomyService>();
     }
 
     public override void CreateScriptableObjects()
@@ -62,10 +64,10 @@ public class FactionService : ScriptableObjectService<FactionSO>
             objectStorage.SetObject<FactionSO>(data);
 
             FactionServiceReference factionServiceReference = obj.GetComponent<FactionServiceReference>();
-            factionServiceReference.FactionService = this;
+            factionServiceReference.Service = this;
 
             StructureServiceReference structureServiceReference = obj.GetComponent<StructureServiceReference>();
-            structureServiceReference.StructureService = structureService;
+            structureServiceReference.Service = structureService;
 
             CurrencyStorage currencyStorage = obj.GetComponent<CurrencyStorage>();
             currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
@@ -103,6 +105,9 @@ public class FactionService : ScriptableObjectService<FactionSO>
         // populate components ( when getting components we need to use GetComponentInChildren() due to the possibility of PlayerStructure or maybe create a specific component that points to the armyRoot of the playerStructure )
         FactionAssociation factionAssociation = army.GetComponentInChildren<FactionAssociation>();
         factionAssociation.AssociatedFactionTransform = factionTransform;
+
+        EconomyServiceReference economyServiceReference = army.GetComponentInChildren<EconomyServiceReference>();
+        economyServiceReference.Service = economyService;
 
         OnNewArmySpawned?.Invoke(army.transform, factionId);
 

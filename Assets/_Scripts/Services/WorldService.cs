@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldService : MonoBehaviour
 {
     private ItemService itemService;
+    private EconomyService economyService;
     private RelationshipService relationshipService;
     private SoldierService soldierService;
     private FactionSquadPresetService factionSquadPresetService;
@@ -15,6 +16,7 @@ public class WorldService : MonoBehaviour
     private void Start()
     {
         itemService = GetComponentInChildren<ItemService>();
+        economyService = GetComponentInChildren<EconomyService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
         soldierService = GetComponentInChildren<SoldierService>();
         factionSquadPresetService = GetComponentInChildren<FactionSquadPresetService>();
@@ -26,6 +28,7 @@ public class WorldService : MonoBehaviour
         FileService.CreateDirectories();
 
         itemService.CreateScriptableObjects();
+        economyService.InitEconomy();
 
         relationshipService.CreateScriptableObjects();
         soldierService.CreateScriptableObjects();

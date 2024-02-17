@@ -48,11 +48,11 @@ public class GetRandomStructurePositionTask : TaskNode
         List<Transform> structures;
         if (factionOwnedStructuresOnly)
         {
-            structures = structureService.StructureService.GetFactionOwnedStructures(factionData);
+            structures = structureService.Service.GetFactionOwnedStructures(factionData);
         }
         else
         {
-            structures = structureService.StructureService.GetAllStructureTransforms();
+            structures = structureService.Service.GetAllStructureTransforms();
         }
 
         if (structures.Count == 0)

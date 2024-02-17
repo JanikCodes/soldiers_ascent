@@ -9,10 +9,12 @@ public class StructureService : ScriptableObjectService<StructureSO>
     [SerializeField] private GameObject structureRootPrefab;
 
     private FactionService factionService;
+    private EconomyService economyService;
 
     private void Awake()
     {
         factionService = transform.parent.GetComponentInChildren<FactionService>();
+        economyService = transform.parent.GetComponentInChildren<EconomyService>();
     }
 
     public void CreateStructureObjects()
@@ -30,6 +32,9 @@ public class StructureService : ScriptableObjectService<StructureSO>
 
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
             factionAssociation.AssociatedFactionTransform = factionService.GetFactionTransform(data.InitiallyOwnedByFaction);
+
+            EconomyServiceReference economyServiceReference = obj.GetComponentInChildren<EconomyServiceReference>();
+            economyServiceReference.Service = economyService;
         }
     }
 

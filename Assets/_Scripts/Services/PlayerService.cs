@@ -8,10 +8,12 @@ public class PlayerService : ScriptableObjectService<PlayerSO>
     [SerializeField] private GameObject playerPrefab;
 
     private FactionService factionService;
+    private EconomyService economyService;
 
     private void Awake()
     {
         factionService = transform.parent.GetComponentInChildren<FactionService>();
+        economyService = transform.parent.GetComponentInChildren<EconomyService>();
     }
 
     public override void CreateScriptableObjects()
@@ -38,5 +40,8 @@ public class PlayerService : ScriptableObjectService<PlayerSO>
     {
         PlayerSO playerData = scriptableObjects[0];
         GameObject playerContainer = factionService.CreateAndSpawnArmy(playerData.SpawnPosition, playerData.InitiallyOwnedByFaction, playerPrefab);
+
+        EconomyServiceReference economyServiceReference = playerContainer.GetComponentInChildren<EconomyServiceReference>();
+        economyServiceReference.Service = economyService;
     }
 }

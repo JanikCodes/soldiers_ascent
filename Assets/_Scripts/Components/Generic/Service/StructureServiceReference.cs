@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class StructureServiceReference : MonoBehaviour
 {
-    public StructureService StructureService { get; set; }
+    public StructureService Service { get; set; }
 }

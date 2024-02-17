@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class FactionServiceReference : MonoBehaviour
 {
-    public FactionService FactionService { get; set; }
+    public FactionService Service { get; set; }
 }

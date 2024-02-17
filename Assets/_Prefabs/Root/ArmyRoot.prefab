@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3592817065014123498}
   - component: {fileID: -1978276720701989056}
   - component: {fileID: 2001851387136850044}
+  - component: {fileID: 7915794090243196948}
   m_Layer: 6
   m_Name: ArmyRoot
   m_TagString: Untagged
@@ -246,6 +247,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryMaxSize: 54
+--- !u!114 &7915794090243196948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07291250d8e83294c989fc6f26cbf5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7391246704776987692
 PrefabInstance:
   m_ObjectHideFlags: 0
