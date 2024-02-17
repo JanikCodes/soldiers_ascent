@@ -37,6 +37,6 @@ public class PlayerService : ScriptableObjectService<PlayerSO>
     public void SpawnPlayerIntoWorld()
     {
         PlayerSO playerData = scriptableObjects[0];
-        GameObject playerStructure = factionService.CreateAndSpawnArmy(playerData.SpawnPosition, playerData.InitiallyOwnedByFaction, playerPrefab);
+        GameObject playerContainer = factionService.CreateAndSpawnArmy(playerData.SpawnPosition, playerData.InitiallyOwnedByFaction, playerPrefab);
     }
 }

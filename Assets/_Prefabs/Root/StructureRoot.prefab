@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6034477381611678391}
   - component: {fileID: -2600795944468766484}
   - component: {fileID: -37894602725069881}
+  - component: {fileID: -7663484292233847805}
   m_Layer: 0
   m_Name: StructureRoot
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fb0a235796637478598be3951c7b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AssociatedFactionTransform>k__BackingField: {fileID: 0}
 --- !u!114 &-2600795944468766484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d5268bda341584390353d24e9543c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Currency>k__BackingField: 0
 --- !u!114 &-37894602725069881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +74,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe6d0cbcbf16d047aa2a00fa3f8f2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7663484292233847805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa0fbdf7d3a090459623e45255273a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryMaxSize: 54
 --- !u!1001 &3086024960825896585
 PrefabInstance:
   m_ObjectHideFlags: 0
