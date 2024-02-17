@@ -19,7 +19,7 @@
         "Name": "Hunter",
         "Visible": true,
         "Description": "Nothing to say about.",
-        "MaxArmyCountOnOverworld": 3,
+        "MaxArmyCountOnOverworld": 1,
         "StartCurrencyAmount": 35000,
         "MinSquadAmount": 2,
         "MaxSquadAmount": 5,
