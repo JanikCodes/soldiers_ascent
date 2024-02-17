@@ -5,6 +5,7 @@
         "Name": "Stone",
         "Description": "It's a stone, what do you expect?",
         "BaseValue": 50,
+        "MaxStackSize": 50,
         "ItemType": "Resource",
         "PossibleRarities": [
             "Common",
@@ -20,6 +21,7 @@
         "Name": "Wood",
         "Description": "It's wood, what do you expect?",
         "BaseValue": 50,
+        "MaxStackSize": 25,
         "ItemType": "Resource",
         "PossibleRarities": [
             "Common",
@@ -35,6 +37,7 @@
         "Name": "Bread",
         "Description": "yummy! Just what I wanted!",
         "BaseValue": 50,
+        "MaxStackSize": 10,
         "ItemType": "Food",
         "PossibleRarities": [
             "Common",

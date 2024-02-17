@@ -20,6 +20,7 @@ public class ItemService : ScriptableObjectService<ItemSO>
             item.Name = data.Name;
             item.Description = data.Description;
             item.BaseValue = data.BaseValue;
+            item.MaxStackSize = data.MaxStackSize;
             item.ItemType = Util.ReturnEnumValueFromStringValue<ItemType>(data.ItemType);
             item.PossibleRarities = Util.ReturnEnumValuesFromStringValues<RarityType>(data.PossibleRarities);
             item.FoodValue = data.FoodValue;

@@ -11,6 +11,7 @@ public class ItemData : BaseData
     public string Description;
     public string ItemType;
     public int BaseValue;
+    public int MaxStackSize;
     public string[] PossibleRarities;
     public int FoodValue;
 }
