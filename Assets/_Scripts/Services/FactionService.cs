@@ -90,7 +90,7 @@ public class FactionService : ScriptableObjectService<FactionSO>
         return null;
     }
 
-    public void CreateAndSpawnArmy(Vector3 rawPosition, string factionId, GameObject prefab = null)
+    public GameObject CreateAndSpawnArmy(Vector3 rawPosition, string factionId, GameObject prefab = null)
     {
         // do we take the default prefab or the optional?
         GameObject selectedPrefab = prefab ? prefab : ArmyRootPrefab;
@@ -105,5 +105,7 @@ public class FactionService : ScriptableObjectService<FactionSO>
         factionAssociation.AssociatedFactionTransform = factionTransform;
 
         OnNewArmySpawned?.Invoke(army.transform, factionId);
+
+        return army;
     }
 }

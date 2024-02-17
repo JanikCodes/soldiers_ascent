@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2148874464943102388}
   - component: {fileID: 3403799450766788195}
   - component: {fileID: 3592817065014123498}
+  - component: {fileID: -1978276720701989056}
   m_Layer: 6
   m_Name: ArmyRoot
   m_TagString: Untagged
@@ -217,6 +218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf2024bd228ec942a53570dc6982c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsPlayerNearby>k__BackingField: 0
+--- !u!114 &-1978276720701989056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dc30332947b0a4ea51af7530f95dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Squads>k__BackingField: []
 --- !u!1001 &7391246704776987692
 PrefabInstance:
   m_ObjectHideFlags: 0

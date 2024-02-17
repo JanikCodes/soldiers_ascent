@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 1273.5, y: 107}
+  nodePosition: {x: 1325, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -37,26 +37,6 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 30
---- !u!114 &-8124516107328487392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85263108a8bd9e0469feac3580755ae9, type: 3}
-  m_Name: WaitTask
-  m_EditorClassIdentifier: 
-  nodeName: Wait
-  nodePosition: {x: 2465, y: 421}
-  breakpoint: 0
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  waitTime: {fileID: -3182530437858956030}
-  randomDeviation: {fileID: -3943284984372112355}
 --- !u!114 &-7521158917470855991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,23 +219,6 @@ MonoBehaviour:
   key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   acceptableRadius: 0.2
   includeAIRadius: 1
---- !u!114 &-3943284984372112355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
-  m_Name: randomDeviation
-  m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 1
 --- !u!114 &-3871046672405974330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +270,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1182, y: 225}
+  nodePosition: {x: 1233.5, y: 225}
   breakpoint: 0
   decorators: []
   services:
@@ -316,24 +279,7 @@ MonoBehaviour:
   children:
   - {fileID: -5486308673255982984}
   - {fileID: 2474855644660186959}
-  - {fileID: -8124516107328487392}
---- !u!114 &-3182530437858956030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
-  m_Name: waitTime
-  m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 0.25
+  - {fileID: 2707570553815690497}
 --- !u!114 &-2633474434212892086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +503,6 @@ MonoBehaviour:
   - {fileID: -2418909106924065986}
   - {fileID: 7239031301377395939}
   - {fileID: 6802113317115669407}
-  - {fileID: -8124516107328487392}
   - {fileID: 4502913116341140585}
   - {fileID: 1525176544425191118}
   - {fileID: 2474855644660186959}
@@ -573,6 +518,7 @@ MonoBehaviour:
   - {fileID: -5202855308120486140}
   - {fileID: 4518725200463289126}
   - {fileID: 6451935942018094749}
+  - {fileID: 2707570553815690497}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
@@ -678,6 +624,25 @@ MonoBehaviour:
   - {fileID: -121468016573310788}
   - {fileID: -2329727852840237708}
   - {fileID: -5202855308120486140}
+--- !u!114 &2707570553815690497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8862e53ff24744d44833ea7524aa71dd, type: 3}
+  m_Name: FinishWithResultTask
+  m_EditorClassIdentifier: 
+  nodeName: Finish With Result
+  nodePosition: {x: 2465, y: 421}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  result: 0
 --- !u!114 &3051239811825553075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +707,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 1292, y: 0}
+  nodePosition: {x: 1343.5, y: 0}
   breakpoint: 0
   child: {fileID: -8482461371860293987}
 --- !u!114 &4502913116341140585
@@ -816,7 +781,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 2595, y: 225}
+  nodePosition: {x: 2698, y: 225}
   breakpoint: 0
   decorators: []
   services: []

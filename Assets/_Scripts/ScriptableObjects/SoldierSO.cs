@@ -9,5 +9,5 @@ public class SoldierSO : DataSO
     public string Name;
     public string Description;
     public float MovementSpeed;
-    public int Health;
+    public int MaxHealth;
 }

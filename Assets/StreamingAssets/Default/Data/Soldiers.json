@@ -5,7 +5,7 @@
         "Name": "Basic Soldier",
         "Description": "A fat fucking shit soldier",
         "MovementSpeed": 4.7,
-        "Health": 340
+        "MaxHealth": 340
     },
     {
         "Id": "Base_Soldier_Experienced",
@@ -13,7 +13,7 @@
         "Name": "Experienced Soldier",
         "Description": "A more experienced fucking shit soldier",
         "MovementSpeed": 5.5,
-        "Health": 475
+        "MaxHealth": 475
     },
     {
         "Id": "Base_Soldier_Military",
@@ -21,6 +21,6 @@
         "Name": "Military Trained Soldier",
         "Description": "A military trained soldier, damn.",
         "MovementSpeed": 5.65,
-        "Health": 645
+        "MaxHealth": 645
     }
 ]

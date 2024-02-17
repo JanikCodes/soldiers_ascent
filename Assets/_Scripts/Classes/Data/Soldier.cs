@@ -8,5 +8,24 @@ public class SoldierData : BaseData
     public string Name;
     public string Description;
     public float MovementSpeed;
+    public int MaxHealth;
+}
+
+[Serializable]
+public class Soldier
+{
+    public SoldierSO SoldierBaseData;
+
+    [Header("Dynamic Data")]
+    public string Name;
     public int Health;
+    public int Moral;
+
+    public Soldier(SoldierSO data)
+    {
+        SoldierBaseData = data;
+        Name = data.Name;
+        Health = data.MaxHealth;
+        Moral = 100;
+    }
 }

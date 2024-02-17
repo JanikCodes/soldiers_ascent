@@ -34,23 +34,31 @@ public class SpawnArmyTask : TaskNode
     {
         FactionSO factionData = objectStorage.GetObject<FactionSO>();
         FactionService factionService = factionServiceReference.FactionService;
-
         if (squadAmount.GetValue() == 0 || !factionService)
         {
             return State.Failure;
         }
+
+        // spawn army
+        GameObject armyRoot = factionService.CreateAndSpawnArmy(spawnLocation.GetValue(), factionData.Id);
+        SquadStorage squadStorage = armyRoot.GetComponent<SquadStorage>();
 
         // select random squadPresets
         for (int i = 0; i < squadAmount.GetValue(); i++)
         {
             FactionSquadPresetSO preset = Util.GetRandomValue<FactionSquadPresetSO>(factionData.SquadPresets);
 
-            // TODO: buy preset
-            // TODO: reduce faction currency based on presets
-        }
+            Squad squad = new Squad();
+            foreach(SoldierSO soldierData in preset.Soldiers)
+            {   
+                // add soldier to squad
+                Soldier soldier = new Soldier(soldierData);
+                squad.AddSoldier(soldier);
+            }
 
-        // spawn army
-        factionService.CreateAndSpawnArmy(spawnLocation.GetValue(), factionData.Id);
+            // add squad to storage
+            squadStorage.AddSquad(squad);
+        }
 
         return State.Success;
     }

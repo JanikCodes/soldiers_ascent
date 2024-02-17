@@ -18,7 +18,7 @@ public class SoldierService : ScriptableObjectService<SoldierSO>
             soldier.Name = data.Name;
             soldier.Description = data.Description;
             soldier.MovementSpeed = data.MovementSpeed;
-            soldier.Health = data.Health;
+            soldier.MaxHealth = data.MaxHealth;
 
             scriptableObjects.Add(soldier);
         }
