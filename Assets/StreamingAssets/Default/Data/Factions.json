@@ -10,7 +10,8 @@
         "MinSquadAmount": 2,
         "MaxSquadAmount": 5,
         "FactionArmySpawnType": [
-            "OutsidePlayerView"
+            "OutsidePlayerView",
+            "OwnedStructures"
         ]
     },
     {
@@ -19,7 +20,7 @@
         "Name": "Hunter",
         "Visible": true,
         "Description": "Nothing to say about.",
-        "MaxArmyCountOnOverworld": 4,
+        "MaxArmyCountOnOverworld": 2,
         "StartCurrencyAmount": 35000,
         "MinSquadAmount": 2,
         "MaxSquadAmount": 5,
