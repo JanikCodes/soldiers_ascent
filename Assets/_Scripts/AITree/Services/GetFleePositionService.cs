@@ -5,7 +5,7 @@ using RenownedGames.AITree;
 using UnityEngine;
 
 [NodeContent("Get Flee Position", "Base/Army/Get Flee Position", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
-public class GetFleePositionService : ServiceNode
+public class GetFleePositionService : IntervalServiceNode
 {
     [Header("Variables")]
     [SerializeField]

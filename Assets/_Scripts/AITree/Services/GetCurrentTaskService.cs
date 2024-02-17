@@ -4,7 +4,7 @@ using RenownedGames.AITree;
 using UnityEngine;
 
 [NodeContent("Get Current Task", "Base/Army/Get Current Task", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
-public class GetCurrentTaskService : ServiceNode
+public class GetCurrentTaskService : IntervalServiceNode
 {
     [Header("Variables")]
     [SerializeField]

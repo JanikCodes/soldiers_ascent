@@ -5,7 +5,7 @@ using RenownedGames.AITree;
 using UnityEngine;
 
 [NodeContent("Get Closest Army", "Base/Army/Get Closest Army", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
-public class GetClosestArmyService : ServiceNode
+public class GetClosestArmyService : IntervalServiceNode
 {
     [Header("Variables")]
     [SerializeField]

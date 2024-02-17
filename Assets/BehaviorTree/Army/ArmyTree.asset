@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 1125, y: 798}
+  nodePosition: {x: 1125, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Visit Transform Task
-  nodePosition: {x: 2209, y: 641}
+  nodePosition: {x: 2209, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: 4518725200463289126}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 1770, y: 798}
+  nodePosition: {x: 1770, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 995, y: 798}
+  nodePosition: {x: 995, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -370,6 +370,10 @@ MonoBehaviour:
   nodePosition: {x: 0, y: 0}
   breakpoint: 0
   child: {fileID: 0}
+  interval: 0.5
+  randomDeviation: 0
+  callTickOnEntry: 0
+  restartTimerOnEntry: 0
   sightRadius: {fileID: -8202552212928910846}
   scanLayer:
     serializedVersion: 2
@@ -392,6 +396,10 @@ MonoBehaviour:
   nodePosition: {x: 0, y: 0}
   breakpoint: 0
   child: {fileID: 0}
+  interval: 0.5
+  randomDeviation: 0
+  callTickOnEntry: 0
+  restartTimerOnEntry: 0
   targetToFleeFrom: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
   length: {fileID: -3871046672405974330}
@@ -410,7 +418,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Roam Task
-  nodePosition: {x: 1658, y: 641}
+  nodePosition: {x: 1658, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6893879772899372232}
@@ -433,7 +441,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 1998, y: 798}
+  nodePosition: {x: 1998, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -468,7 +476,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 1336, y: 798}
+  nodePosition: {x: 1336, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -505,7 +513,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Wait Task
-  nodePosition: {x: 962, y: 641}
+  nodePosition: {x: 962, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6178300087193399284}
@@ -562,7 +570,6 @@ MonoBehaviour:
   - {fileID: 1900726854944487623}
   - {fileID: -1170644259627154343}
   - {fileID: -1538163153340404170}
-  - {fileID: 7539546673714258459}
   - {fileID: -5202855308120486140}
   - {fileID: 4518725200463289126}
   - {fileID: 6451935942018094749}
@@ -602,6 +609,10 @@ MonoBehaviour:
   nodePosition: {x: 0, y: 0}
   breakpoint: 0
   child: {fileID: 0}
+  interval: 1
+  randomDeviation: 0
+  callTickOnEntry: 0
+  restartTimerOnEntry: 0
   outputTask: {fileID: 4890251046310636152, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
 --- !u!114 &1597192846565055748
@@ -617,7 +628,7 @@ MonoBehaviour:
   m_Name: GetRandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Position
-  nodePosition: {x: 1514, y: 798}
+  nodePosition: {x: 1514, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -638,7 +649,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 817, y: 798}
+  nodePosition: {x: 817, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -658,11 +669,10 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1510, y: 421}
+  nodePosition: {x: 1558, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 4502913116341140585}
-  - {fileID: 7539546673714258459}
   services: []
   children:
   - {fileID: -121468016573310788}
@@ -864,7 +874,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 2248, y: 798}
+  nodePosition: {x: 2248, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -907,7 +917,7 @@ MonoBehaviour:
   breakpoint: 0
   child: {fileID: 0}
   notifyObserver: 0
-  observerAbort: 1
+  observerAbort: 3
   key: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   keyQuery:
     rid: 7081132338593136644
@@ -918,34 +928,6 @@ MonoBehaviour:
       type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
       data:
         comparer: 0
---- !u!114 &7539546673714258459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
-  m_Name: BlackboardConditionDecorator
-  m_EditorClassIdentifier: 
-  nodeName: Blackboard Condition
-  nodePosition: {x: 0, y: 0}
-  breakpoint: 0
-  child: {fileID: 0}
-  notifyObserver: 0
-  observerAbort: 1
-  key: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
-  keyQuery:
-    rid: 7081132338593136648
-  references:
-    version: 2
-    RefIds:
-    - rid: 7081132338593136648
-      type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
-      data:
-        comparer: 1
 --- !u!114 &8129699521764964780
 MonoBehaviour:
   m_ObjectHideFlags: 0
