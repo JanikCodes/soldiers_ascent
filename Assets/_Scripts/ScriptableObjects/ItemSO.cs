@@ -11,6 +11,6 @@ public class ItemSO : DataSO
     public ItemType ItemType;
     public int BaseValue;
     public int MaxStackSize;
-    public RarityType[] PossibleRarities;
+    public RarityType Rarity;
     public int FoodValue;
 }

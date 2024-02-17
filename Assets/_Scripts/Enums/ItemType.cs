@@ -6,5 +6,7 @@ public enum ItemType
     Resource,
     Food,
     Ammunition,
-    Clothing
+    Clothing,
+    Weapon,
+    Luxury
 }

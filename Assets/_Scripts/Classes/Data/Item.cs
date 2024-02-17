@@ -12,14 +12,14 @@ public class ItemData : BaseData
     public string ItemType;
     public int BaseValue;
     public int MaxStackSize;
-    public string[] PossibleRarities;
+    public string Rarity;
     public int FoodValue;
 }
 
 [Serializable]
 public class Item
-{   
-    public ItemData ItemBaseData;
+{
+    public ItemSO ItemBaseData;
 
     [Header("Dynamic Data")]
     public int Count;

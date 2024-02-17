@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SquadStorage : MonoBehaviour
@@ -14,5 +15,10 @@ public class SquadStorage : MonoBehaviour
     public void AddSquad(Squad squad)
     {
         Squads.Add(squad);
+    }
+
+    public int GetTotalSoldierCount()
+    {
+        return Squads.Sum(squad => squad.GetSoldierCount());
     }
 }

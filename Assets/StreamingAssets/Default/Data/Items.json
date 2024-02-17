@@ -4,47 +4,129 @@
         "Active": true,
         "Name": "Stone",
         "Description": "It's a stone, what do you expect?",
+        "BaseValue": 65,
+        "MaxStackSize": 50,
+        "ItemType": "Resource",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Hardwood",
+        "Active": true,
+        "Name": "Hardwood",
+        "Description": "Sturdy and reliable hardwood.",
         "BaseValue": 50,
         "MaxStackSize": 50,
         "ItemType": "Resource",
         "PossibleRarities": [
-            "Common",
-            "Rare",
-            "Epic",
-            "Legendary"
+            "Common"
         ],
         "FoodValue": 0
     },
     {
-        "Id": "Base_Wood",
+        "Id": "Base_Iron_Ore",
         "Active": true,
-        "Name": "Wood",
-        "Description": "It's wood, what do you expect?",
-        "BaseValue": 50,
-        "MaxStackSize": 25,
+        "Name": "Iron Ore",
+        "Description": "Unrefined iron ore.",
+        "BaseValue": 110,
+        "MaxStackSize": 50,
         "ItemType": "Resource",
         "PossibleRarities": [
-            "Common",
-            "Rare",
-            "Epic",
-            "Legendary"
+            "Common"
         ],
         "FoodValue": 0
     },
     {
-        "Id": "Base_Bread",
+        "Id": "Base_Raw_Silk",
         "Active": true,
-        "Name": "Bread",
-        "Description": "yummy! Just what I wanted!",
-        "BaseValue": 50,
+        "Name": "Raw Silk",
+        "Description": "Untreated silk ready for refinement.",
+        "BaseValue": 95,
+        "MaxStackSize": 50,
+        "ItemType": "Resource",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Wine",
+        "Active": true,
+        "Name": "Wine",
+        "Description": "Fine wine.",
+        "BaseValue": 150,
+        "MaxStackSize": 3,
+        "ItemType": "Luxury",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Wool",
+        "Active": true,
+        "Name": "Wool",
+        "Description": "Soft wool from sheep.",
+        "BaseValue": 72,
+        "MaxStackSize": 50,
+        "ItemType": "Resource",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Date_Fruit",
+        "Active": true,
+        "Name": "Date Fruit",
+        "Description": "Sweet and chewy date fruit.",
+        "BaseValue": 42,
+        "MaxStackSize": 75,
+        "ItemType": "Food",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 12
+    },
+    {
+        "Id": "Base_Olives",
+        "Active": true,
+        "Name": "Olives",
+        "Description": "A jar of tasty olives.",
+        "BaseValue": 84,
         "MaxStackSize": 10,
         "ItemType": "Food",
         "PossibleRarities": [
-            "Common",
-            "Rare",
-            "Epic",
-            "Legendary"
+            "Common"
         ],
-        "FoodValue": 35
+        "FoodValue": 18
+    },
+    {
+        "Id": "Base_Fish",
+        "Active": true,
+        "Name": "Fish",
+        "Description": "Freshly caught fish.",
+        "BaseValue": 40,
+        "MaxStackSize": 75,
+        "ItemType": "Food",
+        "PossibleRarities": [
+            "Common"
+        ],
+        "FoodValue": 20
+    },
+    {
+        "Id": "Base_Cheese",
+        "Active": true,
+        "Name": "Cheese",
+        "Description": "Delicious cheese.",
+        "BaseValue": 90,
+        "MaxStackSize": 30,
+        "ItemType": "Food",
+        "PossibleRarities": [
+            "Rare"
+        ],
+        "FoodValue": 40
     }
 ]

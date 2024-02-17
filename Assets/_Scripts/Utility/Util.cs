@@ -103,6 +103,24 @@ public static class Util
     }
 
     /// <summary>
+    /// Returns a list of random elements from the given list.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <param name="list">The list from which to select random elements.</param>
+    /// <param name="count">The number of random elements to return.</param>
+    /// <returns>A list of randomly selected elements from the list.</returns>
+    public static List<T> GetRandomValues<T>(List<T> list, int count)
+    {
+        List<T> randomValues = new List<T>();
+        for (int i = 0; i < count; i++)
+        {
+            int randomIndex = random.Next(list.Count);
+            randomValues.Add(list[randomIndex]);
+        }
+        return randomValues;
+    }
+
+    /// <summary>
     /// Calculates the position including calculated height of terrain of a given position. 
     /// </summary>
     /// <param name="position">The position to be calculated from</param>

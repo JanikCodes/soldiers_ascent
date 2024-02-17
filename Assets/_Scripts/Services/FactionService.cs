@@ -20,10 +20,10 @@ public class FactionService : ScriptableObjectService<FactionSO>
 
     private void Awake()
     {
-        structureService = transform.parent.GetComponentInChildren<StructureService>();
-        factionSquadPresetService = transform.parent.GetComponentInChildren<FactionSquadPresetService>();
-        relationshipService = transform.parent.GetComponentInChildren<RelationshipService>();
-        economyService = transform.parent.GetComponentInChildren<EconomyService>();
+        structureService = GetOtherService<StructureService>();
+        factionSquadPresetService = GetOtherService<FactionSquadPresetService>();
+        relationshipService = GetOtherService<RelationshipService>();
+        economyService = GetOtherService<EconomyService>();
     }
 
     public override void CreateScriptableObjects()

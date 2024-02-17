@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataSO
-{   
+{
     [Header("ScriptableObjects")]
     [SerializeField] protected List<T> scriptableObjects = new List<T>();
 
@@ -20,5 +20,10 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
     public T GetScriptableObject(string id)
     {
         return scriptableObjects.Find(x => x.Id.Equals(id));
+    }
+
+    public U GetOtherService<U>()
+    {
+        return transform.parent.GetComponentInChildren<U>();
     }
 }

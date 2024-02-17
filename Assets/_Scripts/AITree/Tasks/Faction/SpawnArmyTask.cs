@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using RenownedGames.AITree;
 using RenownedGames.Apex;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class SpawnArmyTask : TaskNode
     // Stored required components.
     private ObjectStorage objectStorage;
     private FactionServiceReference factionServiceReference;
+    private ItemService itemService;
 
     protected override void OnInitialize()
     {
@@ -32,6 +34,8 @@ public class SpawnArmyTask : TaskNode
 
     protected override State OnUpdate()
     {
+        itemService = factionServiceReference.Service.GetOtherService<ItemService>();
+
         FactionSO factionData = objectStorage.GetObject<FactionSO>();
         FactionService factionService = factionServiceReference.Service;
         if (squadAmount.GetValue() == 0 || !factionService)
@@ -42,6 +46,7 @@ public class SpawnArmyTask : TaskNode
         // spawn army
         GameObject armyRoot = factionService.CreateAndSpawnArmy(spawnLocation.GetValue(), factionData.Id);
         SquadStorage squadStorage = armyRoot.GetComponent<SquadStorage>();
+        Inventory inventory = armyRoot.GetComponent<Inventory>();
 
         // select random squadPresets
         for (int i = 0; i < squadAmount.GetValue(); i++)
@@ -49,8 +54,8 @@ public class SpawnArmyTask : TaskNode
             FactionSquadPresetSO preset = Util.GetRandomValue<FactionSquadPresetSO>(factionData.SquadPresets);
 
             Squad squad = new Squad();
-            foreach(SoldierSO soldierData in preset.Soldiers)
-            {   
+            foreach (SoldierSO soldierData in preset.Soldiers)
+            {
                 // add soldier to squad
                 Soldier soldier = new Soldier(soldierData);
                 squad.AddSoldier(soldier);
@@ -58,6 +63,35 @@ public class SpawnArmyTask : TaskNode
 
             // add squad to storage
             squadStorage.AddSquad(squad);
+        }
+
+        // fill inventory based on present soldiers
+        int soldierCount = squadStorage.GetTotalSoldierCount();
+
+        int foodItemCount = soldierCount / 3;
+        int resourceItemCount = soldierCount / 3;
+        int luxuryItemCount = 0;
+
+        // calculate luxury chance
+        int luxuryChance = Util.GetRandomValue(0, 100);
+        if (luxuryChance <= 25)
+        {
+            luxuryItemCount = Util.GetRandomValue(1, 2);
+        }
+
+        // TODO: calculate available item rarities based on army strength/size 
+        List<RarityType> availableRarities = new List<RarityType>();
+        availableRarities.Add(RarityType.Common);
+
+        List<Item> totalItems = new List<Item>();
+        totalItems.AddRange(itemService.GetItemsByType(ItemType.Food, availableRarities, foodItemCount));
+        totalItems.AddRange(itemService.GetItemsByType(ItemType.Resource, availableRarities, resourceItemCount));
+        totalItems.AddRange(itemService.GetItemsByType(ItemType.Luxury, availableRarities, luxuryItemCount));
+
+        // add all items to the inventory
+        foreach (Item item in totalItems)
+        {
+            inventory.AddItem(item);
         }
 
         return State.Success;

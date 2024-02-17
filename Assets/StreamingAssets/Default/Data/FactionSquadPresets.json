@@ -50,5 +50,15 @@
             "Base_Soldier_Starter"
         ],
         "AssignedFactionId": "Base_Hunter"
+    },
+    {
+        "Id": "Base_Squad_Preset_4",
+        "Active": true,
+        "Soldiers": [
+            "Base_Soldier_Starter",
+            "Base_Soldier_Starter",
+            "Base_Soldier_Starter"
+        ],
+        "AssignedFactionId": "Base_Hunter"
     }
 ]

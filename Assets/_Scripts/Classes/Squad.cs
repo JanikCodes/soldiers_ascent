@@ -11,4 +11,9 @@ public class Squad
     {
         soldiers.Add(soldier);
     }
+
+    public int GetSoldierCount()
+    {
+        return soldiers.Count;
+    }
 }

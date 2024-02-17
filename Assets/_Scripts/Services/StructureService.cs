@@ -13,8 +13,8 @@ public class StructureService : ScriptableObjectService<StructureSO>
 
     private void Awake()
     {
-        factionService = transform.parent.GetComponentInChildren<FactionService>();
-        economyService = transform.parent.GetComponentInChildren<EconomyService>();
+        factionService = GetOtherService<FactionService>();
+        economyService = GetOtherService<EconomyService>();
     }
 
     public void CreateStructureObjects()

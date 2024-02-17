@@ -10,7 +10,7 @@ public class FactionSquadPresetService : ScriptableObjectService<FactionSquadPre
 
     private void Awake()
     {
-        soldierService = transform.parent.GetComponentInChildren<SoldierService>();
+        soldierService = GetOtherService<SoldierService>();
     }
 
     public override void CreateScriptableObjects()
