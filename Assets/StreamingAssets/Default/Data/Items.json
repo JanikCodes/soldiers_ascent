@@ -1,0 +1,47 @@
+[
+    {
+        "Id": "Base_Stone",
+        "Active": true,
+        "Name": "Stone",
+        "Description": "It's a stone, what do you expect?",
+        "BaseValue": 50,
+        "ItemType": "Resource",
+        "PossibleRarities": [
+            "Common",
+            "Rare",
+            "Epic",
+            "Legendary"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Wood",
+        "Active": true,
+        "Name": "Wood",
+        "Description": "It's wood, what do you expect?",
+        "BaseValue": 50,
+        "ItemType": "Resource",
+        "PossibleRarities": [
+            "Common",
+            "Rare",
+            "Epic",
+            "Legendary"
+        ],
+        "FoodValue": 0
+    },
+    {
+        "Id": "Base_Bread",
+        "Active": true,
+        "Name": "Bread",
+        "Description": "yummy! Just what I wanted!",
+        "BaseValue": 50,
+        "ItemType": "Food",
+        "PossibleRarities": [
+            "Common",
+            "Rare",
+            "Epic",
+            "Legendary"
+        ],
+        "FoodValue": 35
+    }
+]

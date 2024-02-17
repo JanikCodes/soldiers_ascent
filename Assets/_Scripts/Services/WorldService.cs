@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class WorldService : MonoBehaviour
 {
-    private SoldierService soldierService;
+    private ItemService itemService;
     private RelationshipService relationshipService;
+    private SoldierService soldierService;
     private FactionSquadPresetService factionSquadPresetService;
     private FactionService factionService;
-    private StructureService structureService;
     private PlayerService playerService;
+    private StructureService structureService;
 
     private void Start()
     {
+        itemService = GetComponentInChildren<ItemService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
         soldierService = GetComponentInChildren<SoldierService>();
         factionSquadPresetService = GetComponentInChildren<FactionSquadPresetService>();
@@ -22,6 +24,8 @@ public class WorldService : MonoBehaviour
 
         // created neccesary file directories on startup
         FileService.CreateDirectories();
+
+        itemService.CreateScriptableObjects();
 
         relationshipService.CreateScriptableObjects();
         soldierService.CreateScriptableObjects();
@@ -35,5 +39,6 @@ public class WorldService : MonoBehaviour
 
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
+
     }
 }
