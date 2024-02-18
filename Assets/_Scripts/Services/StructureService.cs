@@ -101,12 +101,16 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave
         {
             FactionAssociation factionAssociation = structureTransform.GetComponent<FactionAssociation>();
             FactionSO factionSO = factionAssociation.AssociatedFactionTransform.GetComponent<ObjectStorage>().GetObject<FactionSO>();
+            Inventory inventory = structureTransform.GetComponent<Inventory>();
 
             StructureSaveData structureSaveData = new();
             structureSaveData.Id = structureTransform.GetComponent<ObjectStorage>().GetObject<StructureSO>().Id;
             structureSaveData.GUID = structureTransform.GetComponent<GUID>().Id;
             structureSaveData.OwnedByFactionId = factionSO.Id;
             structureSaveData.Currency = structureTransform.GetComponent<CurrencyStorage>().Currency;
+
+            // save inventory
+            structureSaveData.Inventory = new InventorySaveData(inventory.GetItems());
 
             save.Structures.Add(structureSaveData);
         }

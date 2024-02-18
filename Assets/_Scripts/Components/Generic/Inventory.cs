@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
         items.Clear();
     }
 
-    public List<Item> GetAllItems()
+    public List<Item> GetItems()
     {
         return items;
     }

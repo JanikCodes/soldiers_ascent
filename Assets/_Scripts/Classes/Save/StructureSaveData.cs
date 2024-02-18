@@ -11,4 +11,5 @@ public class StructureSaveData
     public string Id;
     public string OwnedByFactionId;
     public int Currency;
+    public InventorySaveData Inventory;
 }
