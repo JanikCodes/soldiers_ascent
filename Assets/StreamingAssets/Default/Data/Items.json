@@ -7,9 +7,7 @@
         "BaseValue": 65,
         "MaxStackSize": 50,
         "ItemType": "Resource",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -20,9 +18,7 @@
         "BaseValue": 50,
         "MaxStackSize": 50,
         "ItemType": "Resource",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -33,9 +29,7 @@
         "BaseValue": 110,
         "MaxStackSize": 50,
         "ItemType": "Resource",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -46,9 +40,7 @@
         "BaseValue": 95,
         "MaxStackSize": 50,
         "ItemType": "Resource",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -59,9 +51,7 @@
         "BaseValue": 150,
         "MaxStackSize": 3,
         "ItemType": "Luxury",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -72,9 +62,7 @@
         "BaseValue": 72,
         "MaxStackSize": 50,
         "ItemType": "Resource",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 0
     },
     {
@@ -85,9 +73,7 @@
         "BaseValue": 42,
         "MaxStackSize": 75,
         "ItemType": "Food",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 12
     },
     {
@@ -98,9 +84,7 @@
         "BaseValue": 84,
         "MaxStackSize": 10,
         "ItemType": "Food",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 18
     },
     {
@@ -111,9 +95,7 @@
         "BaseValue": 40,
         "MaxStackSize": 75,
         "ItemType": "Food",
-        "PossibleRarities": [
-            "Common"
-        ],
+        "Rarity": "Common",
         "FoodValue": 20
     },
     {
@@ -124,9 +106,7 @@
         "BaseValue": 90,
         "MaxStackSize": 30,
         "ItemType": "Food",
-        "PossibleRarities": [
-            "Rare"
-        ],
+        "Rarity": "Rare",
         "FoodValue": 40
     }
 ]
