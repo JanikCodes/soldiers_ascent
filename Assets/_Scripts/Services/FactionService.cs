@@ -130,9 +130,11 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
 
                 SquadStorage squadStorage = armyTransform.GetComponent<SquadStorage>();
                 Inventory inventory = armyTransform.GetComponent<Inventory>();
+                CurrencyStorage currencyStorage = armyTransform.GetComponent<CurrencyStorage>();
 
                 ArmySaveData armySaveData = new();
                 armySaveData.GUID = armyTransform.GetComponent<GUID>().Id;
+                armySaveData.Currency = currencyStorage.Currency;
                 armySaveData.Position = Util.GetFloatArray(armyTransform.transform.position);
                 armySaveData.Rotation = Util.GetFloatArray(armyTransform.transform.rotation);
 

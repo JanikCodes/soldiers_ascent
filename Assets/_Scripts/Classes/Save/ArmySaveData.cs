@@ -10,6 +10,7 @@ public class ArmySaveData
     public string GUID;
     public float[] Position;
     public float[] Rotation;
+    public int Currency;
     public List<SquadSaveData> Squads = new();
     public InventorySaveData Inventory;
 }
