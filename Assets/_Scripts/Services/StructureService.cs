@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StructureService : ScriptableObjectService<StructureSO>
+public class StructureService : ScriptableObjectService<StructureSO>, ISave
 {
     [SerializeField] private Transform structureParentTransform;
     [Header("Prefabs")]
@@ -29,6 +29,9 @@ public class StructureService : ScriptableObjectService<StructureSO>
 
             obj.transform.rotation = data.Rotation;
             obj.transform.position = calculatedPosition;
+
+            ObjectStorage objectStorage = obj.GetComponent<ObjectStorage>();
+            objectStorage.SetObject<StructureSO>(data);
 
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
             factionAssociation.AssociatedFactionTransform = factionService.GetFactionTransform(data.InitiallyOwnedByFaction);
@@ -90,5 +93,22 @@ public class StructureService : ScriptableObjectService<StructureSO>
         }
 
         return result;
+    }
+
+    public void Save(Save save)
+    {
+        foreach (Transform structureTransform in structureParentTransform)
+        {
+            FactionAssociation factionAssociation = structureTransform.GetComponent<FactionAssociation>();
+            FactionSO factionSO = factionAssociation.AssociatedFactionTransform.GetComponent<ObjectStorage>().GetObject<FactionSO>();
+
+            StructureSaveData structureSaveData = new();
+            structureSaveData.Id = structureTransform.GetComponent<ObjectStorage>().GetObject<StructureSO>().Id;
+            structureSaveData.GUID = structureTransform.GetComponent<GUID>().Id;
+            structureSaveData.OwnedByFactionId = factionSO.Id;
+            structureSaveData.Currency = structureTransform.GetComponent<CurrencyStorage>().Currency;
+
+            save.Structures.Add(structureSaveData);
+        }
     }
 }

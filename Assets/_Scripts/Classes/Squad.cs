@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class Squad
 {
-    [SerializeField] private List<Soldier> soldiers = new List<Soldier>();
+    [SerializeField] private List<Soldier> soldiers = new();
 
     public void AddSoldier(Soldier soldier)
     {
