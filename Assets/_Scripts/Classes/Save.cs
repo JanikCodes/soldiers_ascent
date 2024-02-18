@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static EconomyService;
 
 [Serializable]
 public class Save
@@ -9,4 +10,5 @@ public class Save
     public long LastTimePlayed;
     public List<FactionSaveData> Factions = new();
     public List<StructureSaveData> Structures = new();
+    public List<ItemRecord> Economy = new();
 }
