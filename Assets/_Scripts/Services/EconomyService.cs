@@ -16,7 +16,7 @@ public class EconomyService : MonoBehaviour
         public int CurrentPrice;
     }
 
-    [SerializeField] private List<ItemRecord> itemRecords = new List<ItemRecord>();
+    [SerializeField] private List<ItemRecord> itemRecords = new();
 
     private ItemService itemService;
 
@@ -32,7 +32,7 @@ public class EconomyService : MonoBehaviour
         // create record for each existing item in the game
         foreach (ItemSO item in items)
         {
-            ItemRecord record = new ItemRecord();
+            ItemRecord record = new();
             record.ItemId = item.Id;
             record.BasePrice = item.BaseValue;
             record.CurrentPrice = item.BaseValue;

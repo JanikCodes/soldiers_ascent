@@ -40,7 +40,7 @@ public class FactionSquadPresetService : ScriptableObjectService<FactionSquadPre
 
     private List<SoldierSO> GetSoldierScriptableObjectsByArray(string[] soldierIds)
     {
-        List<SoldierSO> soldierList = new List<SoldierSO>();
+        List<SoldierSO> soldierList = new();
 
         foreach (string soldierId in soldierIds)
         {

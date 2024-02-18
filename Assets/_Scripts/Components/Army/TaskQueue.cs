@@ -12,11 +12,11 @@ public class TaskQueue : MonoBehaviour
     private void Start()
     {
         // Initialize the queue
-        Tasks = new Queue<Task>();
+        Tasks = new();
 
         // TODO: remove below
         // Temporary add hard-coded tasks
-        Task task1 = new Task();
+        Task task1 = new();
         task1.TaskType = TaskType.Wait;
         QueueTask(task1);
     }
@@ -37,7 +37,7 @@ public class TaskQueue : MonoBehaviour
         {
             Tasks.Dequeue();
 
-            Task taskLoop = new Task();
+            Task taskLoop = new();
             taskLoop.TaskType = TaskType.Roam;
             QueueTask(taskLoop);
         }

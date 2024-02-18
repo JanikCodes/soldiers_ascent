@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataSO
 {
     [Header("ScriptableObjects")]
-    [SerializeField] protected List<T> scriptableObjects = new List<T>();
+    [SerializeField] protected List<T> scriptableObjects = new();
 
     public virtual void CreateScriptableObjects()
     {

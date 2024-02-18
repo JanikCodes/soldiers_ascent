@@ -53,11 +53,11 @@ public class SpawnArmyTask : TaskNode
         {
             FactionSquadPresetSO preset = Util.GetRandomValue<FactionSquadPresetSO>(factionData.SquadPresets);
 
-            Squad squad = new Squad();
+            Squad squad = new();
             foreach (SoldierSO soldierData in preset.Soldiers)
             {
                 // add soldier to squad
-                Soldier soldier = new Soldier(soldierData);
+                Soldier soldier = new(soldierData);
                 squad.AddSoldier(soldier);
             }
 
@@ -81,10 +81,10 @@ public class SpawnArmyTask : TaskNode
 
         // TODO: calculate available item rarities based on army strength/size
         // TODO: perhaps move logic into seperate methodes across services/components to have them reuseable 
-        List<RarityType> availableRarities = new List<RarityType>();
+        List<RarityType> availableRarities = new();
         availableRarities.Add(RarityType.Common);
 
-        List<Item> totalItems = new List<Item>();
+        List<Item> totalItems = new();
         totalItems.AddRange(itemService.GetItemsByType(ItemType.Food, availableRarities, foodItemCount));
         totalItems.AddRange(itemService.GetItemsByType(ItemType.Resource, availableRarities, resourceItemCount));
         totalItems.AddRange(itemService.GetItemsByType(ItemType.Luxury, availableRarities, luxuryItemCount));

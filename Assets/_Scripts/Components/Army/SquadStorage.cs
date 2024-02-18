@@ -9,7 +9,7 @@ public class SquadStorage : MonoBehaviour
 
     private void Awake()
     {
-        Squads = new List<Squad>();
+        Squads = new();
     }
 
     public void AddSquad(Squad squad)

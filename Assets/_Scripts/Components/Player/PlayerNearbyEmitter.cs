@@ -9,13 +9,13 @@ public class PlayerNearbyEmitter : MonoBehaviour
     [SerializeField] private LayerMask layer;
     [SerializeField] private float scanInterval = 1f;
 
-    private HashSet<PlayerNearby> previousNearbyPlayers = new HashSet<PlayerNearby>();
+    private HashSet<PlayerNearby> previousNearbyPlayers = new();
 
     private IEnumerator Start()
     {
         while (true)
         {
-            HashSet<PlayerNearby> currentNearbyPlayers = new HashSet<PlayerNearby>();
+            HashSet<PlayerNearby> currentNearbyPlayers = new();
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, range, layer);
             foreach (Collider collider in colliders)

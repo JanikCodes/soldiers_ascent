@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Util
 {
-    private static readonly System.Random random = new System.Random();
+    private static readonly System.Random random = new();
 
     /// <summary>
     /// Converts a string representation of an enum value to its corresponding enum value.
@@ -111,7 +111,7 @@ public static class Util
     /// <returns>A list of randomly selected elements from the list.</returns>
     public static List<T> GetRandomValues<T>(List<T> list, int count)
     {
-        List<T> randomValues = new List<T>();
+        List<T> randomValues = new();
         for (int i = 0; i < count; i++)
         {
             int randomIndex = random.Next(list.Count);

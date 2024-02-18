@@ -8,5 +8,5 @@ using System.Collections.Generic;
 public class FactionSaveData
 {
     public string Id;
-    public List<ArmySaveData> Armies = new List<ArmySaveData>();
+    public List<ArmySaveData> Armies = new();
 }

@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private int inventoryMaxSize = 54;
 
-    [SerializeField] private List<Item> items = new List<Item>();
+    [SerializeField] private List<Item> items = new();
 
     public void ClearStorage()
     {

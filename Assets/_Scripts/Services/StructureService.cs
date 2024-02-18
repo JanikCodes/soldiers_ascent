@@ -64,7 +64,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
 
     public List<Transform> GetFactionOwnedStructures(FactionSO faction)
     {
-        List<Transform> result = new List<Transform>();
+        List<Transform> result = new();
 
         foreach (Transform structure in structureParentTransform)
         {
@@ -82,7 +82,7 @@ public class StructureService : ScriptableObjectService<StructureSO>
 
     public List<Transform> GetAllStructureTransforms()
     {
-        List<Transform> result = new List<Transform>();
+        List<Transform> result = new();
 
         foreach (Transform structure in structureParentTransform)
         {

@@ -8,8 +8,8 @@ public class WorldPlayerCamera : MonoBehaviour
     [Header("Configurations")]
     [SerializeField] private float rotationSpeed = 0.35f;
     [SerializeField] private float zoomStepSize = 1f;
-    [SerializeField] private Vector2 minMaxViewClamp = new Vector2(15, 75);
-    [SerializeField] private Vector2 minMaxZoom = new Vector2(20, 65);
+    [SerializeField] private Vector2 minMaxViewClamp = new(15, 75);
+    [SerializeField] private Vector2 minMaxZoom = new(20, 65);
 
     private WorldPlayerInput input;
     private bool cameraRotationEnabled;

@@ -10,7 +10,7 @@ public class SaveService : MonoBehaviour
 {
     public static SaveService Instance { get; private set; }
 
-    private List<ISave> saveObjects = new List<ISave>();
+    private List<ISave> saveObjects = new();
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class SaveService : MonoBehaviour
 
     public void Save()
     {
-        Save save = new Save();
+        Save save = new();
         save.Version = 0.4f;
 
         foreach (ISave saveable in saveObjects)

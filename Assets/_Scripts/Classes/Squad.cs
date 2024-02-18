@@ -12,6 +12,11 @@ public class Squad
         soldiers.Add(soldier);
     }
 
+    public List<Soldier> GetSoldiers()
+    {
+        return soldiers;
+    }
+
     public int GetSoldierCount()
     {
         return soldiers.Count;

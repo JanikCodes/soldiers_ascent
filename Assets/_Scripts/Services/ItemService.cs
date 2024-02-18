@@ -34,7 +34,7 @@ public class ItemService : ScriptableObjectService<ItemSO>
 
     public List<Item> GetItemsByType(ItemType itemType, List<RarityType> possibleRarities, int uniqueItems)
     {
-        List<Item> items = new List<Item>();
+        List<Item> items = new();
 
         // get random unique items from count
         List<ItemSO> availableItems = Util.GetRandomValues(GetItemsByTypeAndRarity(itemType, possibleRarities), uniqueItems);
@@ -44,7 +44,7 @@ public class ItemService : ScriptableObjectService<ItemSO>
             int minCount = Mathf.Max(1, itemSO.MaxStackSize / 2);
             int itemCount = Util.GetRandomValue(minCount, itemSO.MaxStackSize);
 
-            Item newItem = new Item();
+            Item newItem = new();
             newItem.ItemBaseData = itemSO;
             newItem.Count = itemCount;
             items.Add(newItem);

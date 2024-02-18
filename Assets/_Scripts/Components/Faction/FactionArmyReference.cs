@@ -13,7 +13,7 @@ public class FactionArmyReference : MonoBehaviour
     {
         objectStorage = GetComponent<ObjectStorage>();
 
-        ReferencedArmies = new List<Transform>();
+        ReferencedArmies = new();
     }
 
     private void OnEnable()

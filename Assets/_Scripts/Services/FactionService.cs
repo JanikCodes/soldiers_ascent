@@ -119,19 +119,28 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
     {
         foreach (Transform faction in FactionParentTransform)
         {
-            FactionSaveData factionSaveData = new FactionSaveData();
+            FactionSaveData factionSaveData = new();
             factionSaveData.Id = faction.GetComponent<ObjectStorage>().GetObject<FactionSO>().Id;
 
             FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
             foreach (Transform armyTransform in factionArmyReference.ReferencedArmies)
             {
                 // ignore the player to be saved here, we save him seperately
-                if (armyTransform.GetComponent<PlayerNearby>() == null) { Debug.Log("Ignore player in army saving.."); continue; }
+                if (armyTransform.GetComponent<PlayerNearby>() == null) { continue; }
 
-                ArmySaveData armySaveData = new ArmySaveData();
+                SquadStorage squadStorage = armyTransform.GetComponent<SquadStorage>();
+
+                ArmySaveData armySaveData = new();
                 armySaveData.GUID = armyTransform.GetComponent<GUID>().Id;
                 armySaveData.Position = Util.GetFloatArray(armyTransform.transform.position);
                 armySaveData.Rotation = Util.GetFloatArray(armyTransform.transform.rotation);
+
+                // save squads with soldiers
+                foreach (Squad squad in squadStorage.Squads)
+                {
+                    SquadSaveData squadSaveData = new(squad.GetSoldiers());
+                    armySaveData.Squads.Add(squadSaveData);
+                }
 
                 factionSaveData.Armies.Add(armySaveData);
             }
