@@ -5,7 +5,7 @@ using static RelationshipData;
 
 public class FactionRelationship : MonoBehaviour
 {
-    [field: SerializeField] public List<RelationshipConnectionData> relationships { private get; set; }
+    [field: SerializeField] public List<RelationshipConnectionData> relationships { get; set; }
 
     public void AlterRelationshipWithFaction(string factionId, int relationValue)
     {

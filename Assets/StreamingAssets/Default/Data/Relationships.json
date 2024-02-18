@@ -4,8 +4,12 @@
         "Active": true,
         "Relationships": [
             {
+                "FactionId": "Base_Player",
+                "RelationshipValue": 100
+            },
+            {
                 "FactionId": "Base_Hunter",
-                "RelationshipValue": 0
+                "RelationshipValue": -25
             }
         ]
     },
@@ -13,6 +17,10 @@
         "Id": "Base_Hunter",
         "Active": true,
         "Relationships": [
+            {
+                "FactionId": "Base_Hunter",
+                "RelationshipValue": 100
+            },
             {
                 "FactionId": "Base_Player",
                 "RelationshipValue": -25

@@ -119,8 +119,12 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
     {
         foreach (Transform faction in FactionParentTransform)
         {
+            FactionRelationship factionRelationship = faction.GetComponent<FactionRelationship>();
+
             FactionSaveData factionSaveData = new();
             factionSaveData.Id = faction.GetComponent<ObjectStorage>().GetObject<FactionSO>().Id;
+            factionSaveData.Relationships = new RelationshipSaveData(factionRelationship.relationships);
+
 
             FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
             foreach (Transform armyTransform in factionArmyReference.ReferencedArmies)

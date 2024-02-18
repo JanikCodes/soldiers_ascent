@@ -9,4 +9,5 @@ public class FactionSaveData
 {
     public string Id;
     public List<ArmySaveData> Armies = new();
+    public RelationshipSaveData Relationships;
 }
