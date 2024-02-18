@@ -10,17 +10,18 @@ GameObject:
   m_Component:
   - component: {fileID: 6493242571054521624}
   - component: {fileID: 903041979703107967}
+  - component: {fileID: 2148874464943102388}
   - component: {fileID: -5966224704882633144}
   - component: {fileID: -6034477381611678391}
   - component: {fileID: 2297019498178805571}
   - component: {fileID: 2367907936342222870}
   - component: {fileID: -7384652360093634738}
-  - component: {fileID: 2148874464943102388}
   - component: {fileID: 3403799450766788195}
   - component: {fileID: 3592817065014123498}
   - component: {fileID: -1978276720701989056}
   - component: {fileID: 2001851387136850044}
   - component: {fileID: 7915794090243196948}
+  - component: {fileID: -5069677706571469295}
   m_Layer: 6
   m_Name: ArmyRoot
   m_TagString: Untagged
@@ -58,6 +59,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedBehaviourTree: {fileID: 11400000, guid: 2c0d3a3ae77d5ee468767276e4deac28,
     type: 2}
+--- !u!65 &2148874464943102388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &-5966224704882633144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,27 +197,6 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
---- !u!65 &2148874464943102388
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8310213461941167532}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3403799450766788195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryMaxSize: 54
+  items: []
 --- !u!114 &7915794090243196948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07291250d8e83294c989fc6f26cbf5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5069677706571469295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0286283fc2eb447a54a399f3ee8740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: 
 --- !u!1001 &7391246704776987692
 PrefabInstance:
   m_ObjectHideFlags: 0

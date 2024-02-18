@@ -43,5 +43,7 @@ public class WorldService : MonoBehaviour
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
 
+        // cache saveable objects
+        SaveService.Instance.CacheAllSaveObjects();
     }
 }

@@ -17,14 +17,3 @@ public class FactionData : BaseData
     public int MaxSquadAmount;
     public string[] FactionArmySpawnType;
 }
-
-/// <summary>
-/// DataContainer class for <see cref="FactionData"/> saving dynamic data
-/// </summary>
-[Serializable]
-public class FactionSaveData
-{
-    public string Id;
-    public int CurrencyAmount;
-    // . . .
-}

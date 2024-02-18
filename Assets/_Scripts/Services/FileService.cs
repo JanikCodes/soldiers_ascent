@@ -16,11 +16,34 @@ public class FileService
     protected const string DATA_FILE_EXTENSION = ".json";
 
     // Mod data
-    protected static string MOD_DATA_PATH = Application.persistentDataPath;
+    protected static string PERSISTENT_DATA_PATH = Application.persistentDataPath;
     protected const string MOD_FOLDER_NAME = "Mods";
 
     // Save data
     protected const string SAVE_DATA_FOLDER_NAME = "Saves";
+
+    public static void SaveToFile(Save save)
+    {
+        save.LastTimePlayed = DateTime.Now.ToBinary();
+
+        string tempPath = Path.Combine(PERSISTENT_DATA_PATH, SAVE_DATA_FOLDER_NAME);
+        tempPath = Path.Combine(tempPath, "Save.json");
+
+        //Convert To Json then to bytes
+        string jsonData = JsonConvert.SerializeObject(save);
+        byte[] jsonByte = Encoding.ASCII.GetBytes(jsonData);
+
+        try
+        {
+            File.WriteAllBytes(tempPath, jsonByte);
+            Debug.Log("Saved Data to: " + tempPath.Replace("/", "\\"));
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Failed to save Data to: " + tempPath.Replace("/", "\\"));
+            Debug.LogWarning("Error: " + e.Message);
+        }
+    }
 
     /// <summary>
     /// Creates the 'mod' and 'save' folder in the persistantDataPath if they have not been created yet.
@@ -38,7 +61,7 @@ public class FileService
             Directory.CreateDirectory(modsFolderPath);
         }
 
-        if(!Directory.Exists(saveFolderPath))
+        if (!Directory.Exists(saveFolderPath))
         {
             Debug.Log("Created save directory");
             Directory.CreateDirectory(saveFolderPath);
@@ -69,12 +92,12 @@ public class FileService
 
     protected static List<T> LoadDataGeneric<T>(string path)
     {
-        if(!DoesDirectoryExist(path))
+        if (!DoesDirectoryExist(path))
         {
             return null;
         }
 
-        if(!DoesFileExist(path))
+        if (!DoesFileExist(path))
         {
             return null;
         }
@@ -92,7 +115,7 @@ public class FileService
         }
 
         string jsonData = Encoding.ASCII.GetString(jsonByte);
-        
+
         List<T> resultValue = JsonConvert.DeserializeObject<List<T>>(jsonData);
 
         return resultValue;

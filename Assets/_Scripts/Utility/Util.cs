@@ -130,4 +130,22 @@ public static class Util
         float terrainHeightPosition = Terrain.activeTerrain.SampleHeight(position);
         return new Vector3(position.x, terrainHeightPosition, position.z);
     }
+
+    /// <summary>
+    /// Returns a float array based on a given position
+    /// </summary>
+    /// <param name="input">Array of the three inputs representing the position (x,y,z)</param>
+    public static float[] GetFloatArray(Vector3 position)
+    {
+        return new float[] { position.x, position.y, position.z };
+    }
+
+    /// <summary>
+    /// Returns a float array based on a given quaternion
+    /// </summary>
+    /// <param name="input">Array of the three inputs representing the quaternion (x,y,z)</param>
+    public static float[] GetFloatArray(Quaternion rotation)
+    {
+        return new float[] { rotation.x, rotation.y, rotation.z };
+    }
 }

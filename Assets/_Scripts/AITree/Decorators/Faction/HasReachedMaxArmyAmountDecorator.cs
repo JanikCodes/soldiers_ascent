@@ -25,7 +25,7 @@ public class HasReachedMaxArmyAmountDecorator : ConditionDecorator
 
     protected override bool CalculateResult()
     {
-        return factionArmyReference.GetArmyCount() >= objectStorage.GetObject<FactionSO>().MaxArmyCountOnOverworld;
+        return factionArmyReference.ReferencedArmies.Count >= objectStorage.GetObject<FactionSO>().MaxArmyCountOnOverworld;
     }
 
     protected override void OnFlowUpdate() { }

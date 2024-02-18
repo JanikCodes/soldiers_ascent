@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class FactionArmyReference : MonoBehaviour
 {
-    [SerializeField] private List<Transform> referencedArmies = new List<Transform>();
+    [field: SerializeField] public List<Transform> ReferencedArmies { get; set; }
 
     private ObjectStorage objectStorage;
 
     private void Awake()
     {
         objectStorage = GetComponent<ObjectStorage>();
+
+        ReferencedArmies = new List<Transform>();
     }
 
     private void OnEnable()
@@ -25,16 +27,11 @@ public class FactionArmyReference : MonoBehaviour
         FactionService.OnNewArmySpawned -= ArmySpawnedHandler;
     }
 
-    public int GetArmyCount()
-    {
-        return referencedArmies.Count;
-    }
-
     private void ArmySpawnedHandler(Transform armyTransform, string factionId)
     {
         if (objectStorage.GetObject<FactionSO>().Id.Equals(factionId))
         {
-            referencedArmies.Add(armyTransform);
+            ReferencedArmies.Add(armyTransform);
 
             Debug.Log("Added new army reference to referencedArmies");
         }
@@ -44,7 +41,7 @@ public class FactionArmyReference : MonoBehaviour
     {
         if (objectStorage.GetObject<FactionSO>().Id.Equals(factionId))
         {
-            referencedArmies.Remove(armyTransform);
+            ReferencedArmies.Remove(armyTransform);
 
             Debug.Log("Removed army reference from referencedArmies");
         }

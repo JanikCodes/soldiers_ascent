@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class FactionService : ScriptableObjectService<FactionSO>
+public class FactionService : ScriptableObjectService<FactionSO>, ISave
 {
     public static OnNewArmySpawnedDelegate OnNewArmySpawned;
     public delegate void OnNewArmySpawnedDelegate(Transform armyTransform, string factionId);
@@ -112,5 +113,30 @@ public class FactionService : ScriptableObjectService<FactionSO>
         OnNewArmySpawned?.Invoke(army.transform, factionId);
 
         return army;
+    }
+
+    public void Save(Save save)
+    {
+        foreach (Transform faction in FactionParentTransform)
+        {
+            FactionSaveData factionSaveData = new FactionSaveData();
+            factionSaveData.Id = faction.GetComponent<ObjectStorage>().GetObject<FactionSO>().Id;
+
+            FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
+            foreach (Transform armyTransform in factionArmyReference.ReferencedArmies)
+            {
+                // ignore the player to be saved here, we save him seperately
+                if (armyTransform.GetComponent<PlayerNearby>() == null) { Debug.Log("Ignore player in army saving.."); continue; }
+
+                ArmySaveData armySaveData = new ArmySaveData();
+                armySaveData.GUID = armyTransform.GetComponent<GUID>().Id;
+                armySaveData.Position = Util.GetFloatArray(armyTransform.transform.position);
+                armySaveData.Rotation = Util.GetFloatArray(armyTransform.transform.rotation);
+
+                factionSaveData.Armies.Add(armySaveData);
+            }
+
+            save.Factions.Add(factionSaveData);
+        }
     }
 }

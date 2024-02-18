@@ -15,13 +15,13 @@ public class DataService : FileService
 
         // Loop trough the mods and check if id exists, if not then create new data
         // If exist, update it.
-        foreach(string folder in Directory.GetDirectories(Path.Combine(MOD_DATA_PATH, MOD_FOLDER_NAME)))
+        foreach(string folder in Directory.GetDirectories(Path.Combine(PERSISTENT_DATA_PATH, MOD_FOLDER_NAME)))
         {
             string moddedFolderName = Path.GetFileName(folder);
 
             Debug.Log($"Found mod folder: {moddedFolderName}");
 
-            string modPath = Path.Combine(MOD_DATA_PATH, MOD_FOLDER_NAME, moddedFolderName, dataPath);
+            string modPath = Path.Combine(PERSISTENT_DATA_PATH, MOD_FOLDER_NAME, moddedFolderName, dataPath);
             List<T> moddedData = LoadDataGeneric<T>(modPath);
             
             if(moddedData == null) { continue; }
