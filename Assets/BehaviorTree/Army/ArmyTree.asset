@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 1027.5, y: 107}
+  nodePosition: {x: 1366, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -58,6 +58,28 @@ MonoBehaviour:
   transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
   targetType: 0000000001000000
+--- !u!114 &-7281406025580570335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4629aabc36526ad45848a09be8b202f8, type: 3}
+  m_Name: GetSoldierCountTask
+  m_EditorClassIdentifier: 
+  nodeName: Get Soldier Count
+  nodePosition: {x: 232, y: 759}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  transformKey: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  outputCount: {fileID: 4634943304275439130, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-6893879772899372232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,11 +113,56 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 708, y: 735}
+  nodePosition: {x: 1385, y: 735}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
+--- !u!114 &-6450780376509441930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4629aabc36526ad45848a09be8b202f8, type: 3}
+  m_Name: GetSoldierCountTask
+  m_EditorClassIdentifier: 
+  nodeName: Get Soldier Count
+  nodePosition: {x: 0, y: 759}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  transformKey: {fileID: 1841044251922876451, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  outputCount: {fileID: -4179438067853436908, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+--- !u!114 &-6278276183377534260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7e86709298cb74e9330c813af09998, type: 3}
+  m_Name: IntOperatorDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Less soldiers?
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  firstInput: {fileID: -4179438067853436908, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  operation: 1
+  secondInput: {fileID: 4634943304275439130, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-6178300087193399284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +217,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Check relation with army
-  nodePosition: {x: 145.5, y: 421}
+  nodePosition: {x: 484, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 7239031301377395939}
@@ -171,7 +238,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Visit Transform Task
-  nodePosition: {x: 1614, y: 578}
+  nodePosition: {x: 2291, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: 4518725200463289126}
@@ -191,7 +258,7 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 1175, y: 735}
+  nodePosition: {x: 1852, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -199,6 +266,30 @@ MonoBehaviour:
   key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   acceptableRadius: 0.2
   includeAIRadius: 1
+--- !u!114 &-4055866749786257599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d6fb2b92296be46a6ec82485924396, type: 3}
+  m_Name: GetTransformPositionService
+  m_EditorClassIdentifier: 
+  nodeName: Get Transform Position
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  interval: 0.5
+  randomDeviation: 0
+  callTickOnEntry: 0
+  restartTimerOnEntry: 0
+  transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  outputPosition: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-3871046672405974330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +320,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Friendly or Neutral
-  nodePosition: {x: 289, y: 602}
+  nodePosition: {x: 966, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -7521158917470855991}
@@ -249,7 +340,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 936, y: 225}
+  nodePosition: {x: 1274.5, y: 225}
   breakpoint: 0
   decorators: []
   services:
@@ -272,7 +363,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 578, y: 735}
+  nodePosition: {x: 1255, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -343,7 +434,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Roam Task
-  nodePosition: {x: 1152, y: 578}
+  nodePosition: {x: 1829, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6893879772899372232}
@@ -365,7 +456,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 1403, y: 735}
+  nodePosition: {x: 2080, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -383,7 +474,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Wait Task
-  nodePosition: {x: 634, y: 578}
+  nodePosition: {x: 1311, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6178300087193399284}
@@ -438,9 +529,38 @@ MonoBehaviour:
   - {fileID: 4518725200463289126}
   - {fileID: 6451935942018094749}
   - {fileID: 2707570553815690497}
+  - {fileID: 4519652459709247089}
+  - {fileID: 315891282934303918}
+  - {fileID: -6450780376509441930}
+  - {fileID: -7281406025580570335}
+  - {fileID: 4767561356998810413}
+  - {fileID: -6278276183377534260}
+  - {fileID: 5823946738359157824}
+  - {fileID: -4055866749786257599}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
+--- !u!114 &315891282934303918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Flee
+  nodePosition: {x: 465.5, y: 877}
+  breakpoint: 0
+  decorators:
+  - {fileID: -6278276183377534260}
+  services:
+  - {fileID: -2418909106924065986}
+  children:
+  - {fileID: 6117513977228014102}
 --- !u!114 &1525176544425191118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +596,7 @@ MonoBehaviour:
   m_Name: GetRandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Position
-  nodePosition: {x: 919, y: 735}
+  nodePosition: {x: 1596, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -497,7 +617,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1141, y: 421}
+  nodePosition: {x: 1818, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 4502913116341140585}
@@ -519,7 +639,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 1870, y: 421}
+  nodePosition: {x: 2547, y: 421}
   breakpoint: 0
   decorators: []
   services: []
@@ -572,7 +692,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 1046, y: 0}
+  nodePosition: {x: 1384.5, y: 0}
   breakpoint: 0
   child: {fileID: -8482461371860293987}
 --- !u!114 &4502913116341140585
@@ -613,6 +733,46 @@ MonoBehaviour:
   waitUntilTrue: 0
   taskType: 2
   task: {fileID: 4890251046310636152, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+--- !u!114 &4519652459709247089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1770628119ce54980deb844516c178, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  nodeName: Do we flee or pursue
+  nodePosition: {x: 588, y: 759}
+  breakpoint: 0
+  decorators: []
+  services: []
+  children:
+  - {fileID: 315891282934303918}
+  - {fileID: 4767561356998810413}
+--- !u!114 &4767561356998810413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Pursue
+  nodePosition: {x: 692, y: 877}
+  breakpoint: 0
+  decorators: []
+  services:
+  - {fileID: -4055866749786257599}
+  children:
+  - {fileID: 5823946738359157824}
 --- !u!114 &5728067466306027934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,13 +786,34 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 2103, y: 225}
+  nodePosition: {x: 2780, y: 225}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
   waitTime: {fileID: 3051239811825553075}
   randomDeviation: {fileID: 0}
+--- !u!114 &5823946738359157824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdda2d46078f0d4a917b9269723519f, type: 3}
+  m_Name: MoveToPositionTask
+  m_EditorClassIdentifier: 
+  nodeName: Move To Position
+  nodePosition: {x: 715, y: 1034}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+  acceptableRadius: 0.2
+  includeAIRadius: 1
 --- !u!114 &5963341140349979219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +830,7 @@ MonoBehaviour:
   description: 
   sync: 0
   isLocal: 1
-  value: 80
+  value: 100
 --- !u!114 &6117513977228014102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +844,7 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 30.5, y: 798}
+  nodePosition: {x: 464, y: 1073}
   breakpoint: 0
   decorators: []
   services: []
@@ -684,7 +865,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 1653, y: 735}
+  nodePosition: {x: 2330, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -704,7 +885,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 317, y: 759}
+  nodePosition: {x: 994, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -751,14 +932,15 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Hostile
-  nodePosition: {x: 0, y: 602}
+  nodePosition: {x: 338.5, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -6123833012306316449}
-  services:
-  - {fileID: -2418909106924065986}
+  services: []
   children:
-  - {fileID: 6117513977228014102}
+  - {fileID: -6450780376509441930}
+  - {fileID: -7281406025580570335}
+  - {fileID: 4519652459709247089}
 --- !u!114 &8847577234875234501
 MonoBehaviour:
   m_ObjectHideFlags: 0

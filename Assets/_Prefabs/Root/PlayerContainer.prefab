@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7090981247847346250}
   - component: {fileID: 680299856332634721}
   - component: {fileID: 7229734486945308849}
+  - component: {fileID: 4376407812398645585}
   m_Layer: 6
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryMaxSize: 54
+  items: []
 --- !u!114 &7229734486945308849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +223,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07291250d8e83294c989fc6f26cbf5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4376407812398645585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dc30332947b0a4ea51af7530f95dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Squads>k__BackingField: []
 --- !u!1 &612808887825369961
 GameObject:
   m_ObjectHideFlags: 0

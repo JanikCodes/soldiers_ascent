@@ -14,13 +14,11 @@ public class TaskQueue : MonoBehaviour
         // Initialize the queue
         Tasks = new Queue<Task>();
 
+        // TODO: remove below
+        // Temporary add hard-coded tasks
         Task task1 = new Task();
         task1.TaskType = TaskType.Wait;
         QueueTask(task1);
-
-        Task task2 = new Task();
-        task2.TaskType = TaskType.Roam;
-        QueueTask(task2);
     }
 
     public Task GetCurrentTask()
@@ -38,6 +36,10 @@ public class TaskQueue : MonoBehaviour
         if (Tasks.Count > 0)
         {
             Tasks.Dequeue();
+
+            Task taskLoop = new Task();
+            taskLoop.TaskType = TaskType.Roam;
+            QueueTask(taskLoop);
         }
     }
 }
