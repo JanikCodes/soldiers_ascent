@@ -11,4 +11,5 @@ public class ArmySaveData
     public float[] Position;
     public float[] Rotation;
     public List<SquadSaveData> Squads = new();
+    public InventorySaveData Inventory;
 }

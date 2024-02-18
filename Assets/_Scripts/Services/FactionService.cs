@@ -129,6 +129,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
                 if (armyTransform.GetComponent<PlayerNearby>() == null) { continue; }
 
                 SquadStorage squadStorage = armyTransform.GetComponent<SquadStorage>();
+                Inventory inventory = armyTransform.GetComponent<Inventory>();
 
                 ArmySaveData armySaveData = new();
                 armySaveData.GUID = armyTransform.GetComponent<GUID>().Id;
@@ -141,6 +142,9 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
                     SquadSaveData squadSaveData = new(squad.GetSoldiers());
                     armySaveData.Squads.Add(squadSaveData);
                 }
+
+                // save inventory
+                armySaveData.Inventory = new InventorySaveData(inventory.GetAllItems());
 
                 factionSaveData.Armies.Add(armySaveData);
             }
