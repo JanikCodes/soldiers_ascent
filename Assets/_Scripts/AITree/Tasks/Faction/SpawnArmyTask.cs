@@ -79,7 +79,8 @@ public class SpawnArmyTask : TaskNode
             luxuryItemCount = Util.GetRandomValue(1, 2);
         }
 
-        // TODO: calculate available item rarities based on army strength/size 
+        // TODO: calculate available item rarities based on army strength/size
+        // TODO: perhaps move logic into seperate methodes across services/components to have them reuseable 
         List<RarityType> availableRarities = new List<RarityType>();
         availableRarities.Add(RarityType.Common);
 
