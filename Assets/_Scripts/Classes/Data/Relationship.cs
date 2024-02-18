@@ -17,13 +17,3 @@ public class RelationshipData : BaseData
         public int RelationshipValue;
     }
 }
-
-/// <summary>
-/// DataContainer class for <see cref="RelationshipData"/> saving dynamic data
-/// </summary>
-[Serializable]
-public class RelationshipSaveData
-{
-    // TODO: . . .
-    // . . .
-}
