@@ -215,13 +215,15 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 }
 
                 // load inventory
-                Inventory inventory = armyRoot.GetComponent<Inventory>();
                 List<Item> items = new();
+                Inventory inventory = armyRoot.GetComponent<Inventory>();
+
                 foreach (ItemSaveData itemSaveData in armySaveData.Inventory.Items)
                 {
                     Item item = new Item(itemService.GetScriptableObject(itemSaveData.Id), itemSaveData);
                     items.Add(item);
                 }
+
                 inventory.SetItems(items);
             }
         }

@@ -26,4 +26,6 @@ public class InventorySaveData
             Items.Add(newData);
         }
     }
+
+    
 }
