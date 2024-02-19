@@ -194,6 +194,10 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 CurrencyStorage currencyStorage = armyRoot.GetComponent<CurrencyStorage>();
                 currencyStorage.SetCurrency(armySaveData.Currency);
 
+                // load guid
+                GUID guid = armyRoot.GetComponent<GUID>();
+                guid.OverwriteId(armySaveData.GUID);
+
                 // load squads & soldiers
                 SquadStorage squadStorage = armyRoot.GetComponent<SquadStorage>();
                 foreach (SquadSaveData squadSaveData in armySaveData.Squads)

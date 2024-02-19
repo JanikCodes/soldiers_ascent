@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StructureService : ScriptableObjectService<StructureSO>, ISave
+public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILoad
 {
     [SerializeField] private Transform structureParentTransform;
     [Header("Prefabs")]
@@ -10,11 +10,13 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave
 
     private FactionService factionService;
     private EconomyService economyService;
+    private ItemService itemService;
 
     private void Awake()
     {
         factionService = GetOtherService<FactionService>();
         economyService = GetOtherService<EconomyService>();
+        itemService = GetOtherService<ItemService>();
     }
 
     public void CreateStructureObjects()
@@ -113,6 +115,38 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave
             structureSaveData.Inventory = new InventorySaveData(inventory.GetItems());
 
             save.Structures.Add(structureSaveData);
+        }
+    }
+
+    public void Load(Save save)
+    {
+        foreach (Transform structureTransform in structureParentTransform)
+        {
+            StructureSO structureSO = structureTransform.GetComponent<ObjectStorage>().GetObject<StructureSO>();
+            // figure out save data for this structure
+            StructureSaveData structureSaveData = save.Structures.Find(x => x.Id.Equals(structureSO.Id));
+
+            // load faction association
+            FactionAssociation factionAssociation = structureTransform.GetComponent<FactionAssociation>();
+            factionAssociation.AssociatedFactionTransform = factionService.GetFactionTransform(structureSaveData.OwnedByFactionId);
+
+            // load inventory
+            Inventory inventory = structureTransform.GetComponent<Inventory>();
+            List<Item> items = new();
+            foreach (ItemSaveData itemSaveData in structureSaveData.Inventory.Items)
+            {
+                Item item = new Item(itemService.GetScriptableObject(itemSaveData.Id), itemSaveData);
+                items.Add(item);
+            }
+            inventory.SetItems(items);
+
+            // load currency
+            CurrencyStorage currencyStorage = structureTransform.GetComponent<CurrencyStorage>();
+            currencyStorage.SetCurrency(structureSaveData.Currency);
+
+            // load guid
+            GUID guid = structureTransform.GetComponent<GUID>();
+            guid.OverwriteId(structureSaveData.GUID);
         }
     }
 }
