@@ -9,6 +9,11 @@ public class InventorySaveData
 {
     public List<ItemSaveData> Items = new();
 
+    public InventorySaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public InventorySaveData(List<Item> items)
     {
         foreach (Item item in items)

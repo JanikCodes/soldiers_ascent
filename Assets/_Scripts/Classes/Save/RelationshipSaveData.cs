@@ -10,6 +10,11 @@ public class RelationshipSaveData
 {
     public List<RelationshipConnectionData> Relationships;
 
+    public RelationshipSaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public RelationshipSaveData(List<RelationshipConnectionData> relationships)
     {
         Relationships = relationships;

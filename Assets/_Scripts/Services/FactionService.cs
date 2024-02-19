@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class FactionService : ScriptableObjectService<FactionSO>, ISave
+public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
 {
     public static OnNewArmySpawnedDelegate OnNewArmySpawned;
     public delegate void OnNewArmySpawnedDelegate(Transform armyTransform, string factionId);
@@ -18,6 +18,8 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
     private FactionSquadPresetService factionSquadPresetService;
     private RelationshipService relationshipService;
     private EconomyService economyService;
+    private SoldierService soldierService;
+    private ItemService itemService;
 
     private void Awake()
     {
@@ -25,6 +27,8 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
         factionSquadPresetService = GetOtherService<FactionSquadPresetService>();
         relationshipService = GetOtherService<RelationshipService>();
         economyService = GetOtherService<EconomyService>();
+        soldierService = GetOtherService<SoldierService>();
+        itemService = GetOtherService<ItemService>();
     }
 
     public override void CreateScriptableObjects()
@@ -74,7 +78,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
             currencyStorage.ModifyCurrency(data.StartCurrencyAmount);
 
             FactionRelationship factionRelationship = obj.GetComponent<FactionRelationship>();
-            factionRelationship.relationships = relationshipService.GetScriptableObject(data.Id).Relationships;
+            factionRelationship.Relationships = relationshipService.GetScriptableObject(data.Id).Relationships;
         }
     }
 
@@ -123,8 +127,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
 
             FactionSaveData factionSaveData = new();
             factionSaveData.Id = faction.GetComponent<ObjectStorage>().GetObject<FactionSO>().Id;
-            factionSaveData.Relationships = new RelationshipSaveData(factionRelationship.relationships);
-
+            factionSaveData.Relationships = new RelationshipSaveData(factionRelationship.Relationships);
 
             FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
             foreach (Transform armyTransform in factionArmyReference.ReferencedArmies)
@@ -156,6 +159,67 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave
             }
 
             save.Factions.Add(factionSaveData);
+        }
+    }
+
+    public void Load(Save save)
+    {
+
+        foreach (Transform faction in FactionParentTransform)
+        {
+            FactionSO factionSO = faction.GetComponent<ObjectStorage>().GetObject<FactionSO>();
+            // figure out save data for this faction
+            FactionSaveData factionSaveData = save.Factions.Find(x => x.Id.Equals(factionSO.Id));
+
+            // load relationships
+            FactionRelationship factionRelationship = faction.GetComponent<FactionRelationship>();
+            factionRelationship.Relationships = factionSaveData.Relationships.Relationships;
+
+            // clean up armies
+            FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
+            factionArmyReference.ReferencedArmies = new();
+            foreach (Transform armyTransform in ArmyParentTransform)
+            {
+                Destroy(armyTransform.gameObject);
+            }
+
+            foreach (ArmySaveData armySaveData in factionSaveData.Armies)
+            {
+                Vector3 position = Util.GetVector3FromFloatArray(armySaveData.Position);
+
+                // load root and position
+                GameObject armyRoot = CreateAndSpawnArmy(position, factionSO.Id);
+
+                // load currency
+                CurrencyStorage currencyStorage = armyRoot.GetComponent<CurrencyStorage>();
+                currencyStorage.SetCurrency(armySaveData.Currency);
+
+                // load squads & soldiers
+                SquadStorage squadStorage = armyRoot.GetComponent<SquadStorage>();
+                foreach (SquadSaveData squadSaveData in armySaveData.Squads)
+                {
+                    Squad squad = new();
+
+                    foreach (SoldierSaveData soldierSaveData in squadSaveData.Soldiers)
+                    {
+                        SoldierSO soldierSO = soldierService.GetScriptableObject(soldierSaveData.Id);
+                        Soldier soldier = new Soldier(soldierSO, soldierSaveData);
+                        squad.AddSoldier(soldier);
+                    }
+
+                    squadStorage.AddSquad(squad);
+                }
+
+                // load inventory
+                Inventory inventory = armyRoot.GetComponent<Inventory>();
+                List<Item> items = new();
+                foreach (ItemSaveData itemSaveData in armySaveData.Inventory.Items)
+                {
+                    Item item = new Item(itemService.GetScriptableObject(itemSaveData.Id), itemSaveData);
+                    items.Add(item);
+                }
+                inventory.SetItems(items);
+            }
         }
     }
 }

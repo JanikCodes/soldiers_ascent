@@ -45,6 +45,29 @@ public class FileService
         }
     }
 
+    public static Save LoadFromFile()
+    {
+        string tempPath = Path.Combine(PERSISTENT_DATA_PATH, SAVE_DATA_FOLDER_NAME);
+        tempPath = Path.Combine(tempPath, "Save.json");
+
+        //Load saved Json
+        byte[] jsonByte = null;
+        try
+        {
+            jsonByte = File.ReadAllBytes(tempPath);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Failed To Load Save File from: " + tempPath.Replace("/", "\\"));
+            Debug.LogWarning("Error: " + e.Message);
+        }
+
+        //Convert to json string
+        string jsonData = Encoding.ASCII.GetString(jsonByte);
+        //Convert to Object
+        return JsonConvert.DeserializeObject<Save>(jsonData);
+    }
+
     /// <summary>
     /// Creates the 'mod' and 'save' folder in the persistantDataPath if they have not been created yet.
     /// </summary>

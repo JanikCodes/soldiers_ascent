@@ -19,6 +19,11 @@ public class Inventory : MonoBehaviour
         return items;
     }
 
+    public void SetItems(List<Item> items)
+    {
+        this.items = items;
+    }
+
     /// <summary>
     /// Automatically add a new item to the inventory, taking <see cref="Item.Count"/> and <see cref="Item.MaxStackSize"/> into account.
     /// It also finds the first empty slot and assigns it.

@@ -148,4 +148,22 @@ public static class Util
     {
         return new float[] { rotation.x, rotation.y, rotation.z };
     }
+
+    /// <summary>
+    /// Returns a vector3 based on a given float[]
+    /// </summary>
+    /// <param name="position">Float Array</param>
+    public static Vector3 GetVector3FromFloatArray(float[] position)
+    {
+        return new Vector3(position[0], position[1], position[2]);
+    }
+
+    /// <summary>
+    /// Returns a quaternion based on a given float[]
+    /// </summary>
+    /// <param name="position">Float Array</param>
+    public static Quaternion GetQuaternionFromFloatArray(float[] rotation)
+    {
+        return Quaternion.Euler(rotation[0], rotation[1], rotation[2]);
+    }
 }

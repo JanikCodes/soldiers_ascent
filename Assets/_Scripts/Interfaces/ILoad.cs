@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ILoad
 {
-    void Load();
+    void Load(Save save);
 }

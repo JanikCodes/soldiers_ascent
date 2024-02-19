@@ -18,4 +18,9 @@ public class CurrencyStorage : MonoBehaviour
     {
         Currency += value;
     }
+
+    public void SetCurrency(int value)
+    {
+        Currency = value;
+    }
 }

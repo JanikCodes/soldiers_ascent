@@ -24,11 +24,24 @@ public class Soldier
     public int Health;
     public int Moral;
 
+    public Soldier()
+    {
+        // empty constructor for serialization
+    }
+
     public Soldier(SoldierSO data)
     {
         SoldierBaseData = data;
         Name = data.Name;
         Health = data.MaxHealth;
         Moral = 100;
+    }
+
+    public Soldier(SoldierSO data, SoldierSaveData save)
+    {
+        SoldierBaseData = data;
+        Name = save.Name;
+        Health = save.Health;
+        Moral = save.Moral;
     }
 }

@@ -9,11 +9,16 @@ public class SquadSaveData
 {
     public List<SoldierSaveData> Soldiers = new();
 
+    public SquadSaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public SquadSaveData(List<Soldier> soldiers)
     {
         foreach (Soldier soldier in soldiers)
         {
-            SoldierSaveData soldierSaveData = new();
+            SoldierSaveData soldierSaveData = new SoldierSaveData();
             soldierSaveData.Id = soldier.SoldierBaseData.Id;
             soldierSaveData.Name = soldier.Name;
             soldierSaveData.Health = soldier.Health;

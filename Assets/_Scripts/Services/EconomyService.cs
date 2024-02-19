@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// This service will keep track of all item prices and will also update those prices over time. Other components can use <see cref="EconomyServiceReference"/> to check prices while trading or whatever.
 /// </summary>
-public class EconomyService : MonoBehaviour, ISave
+public class EconomyService : MonoBehaviour, ISave, ILoad
 {
     [Serializable]
     public struct ItemRecord
@@ -85,5 +85,10 @@ public class EconomyService : MonoBehaviour, ISave
     public void Save(Save save)
     {
         save.Economy = itemRecords;
+    }
+
+    public void Load(Save save)
+    {
+        itemRecords = save.Economy;
     }
 }

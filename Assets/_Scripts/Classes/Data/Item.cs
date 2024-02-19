@@ -25,6 +25,18 @@ public class Item
     public int Count;
     public int SlotIndex;
 
+    public Item()
+    {
+        // empty constructor for serialization
+    }
+
+    public Item(ItemSO data, ItemSaveData save)
+    {
+        ItemBaseData = data;
+        Count = save.Count;
+        SlotIndex = save.SlotIndex;
+    }
+
     public object Clone()
     {
         return MemberwiseClone();

@@ -11,6 +11,7 @@ public class SaveService : MonoBehaviour
     public static SaveService Instance { get; private set; }
 
     private List<ISave> saveObjects = new();
+    private List<ILoad> loadObjects = new();
 
     private void Awake()
     {
@@ -39,10 +40,26 @@ public class SaveService : MonoBehaviour
         FileService.SaveToFile(save);
     }
 
+    public void Load()
+    {
+        Save save = FileService.LoadFromFile();
+
+        foreach (ILoad loadable in loadObjects)
+        {
+            loadable.Load(save);
+        }
+    }
+
     public void CacheAllSaveObjects()
     {
         IEnumerable<ISave> objects = FindObjectsOfType<MonoBehaviour>().OfType<ISave>();
-        saveObjects = new List<ISave>(objects); 
+        saveObjects = new List<ISave>(objects);
+    }
+
+    public void CacheAllLoadObjects()
+    {
+        IEnumerable<ILoad> objects = FindObjectsOfType<MonoBehaviour>().OfType<ILoad>();
+        loadObjects = new List<ILoad>(objects);
     }
 }
 
@@ -58,6 +75,11 @@ public class CustomInspectorButton : Editor
         if (GUILayout.Button("Save"))
         {
             myScript.Save();
+        }
+
+        if (GUILayout.Button("Load"))
+        {
+            myScript.Load();
         }
     }
 }

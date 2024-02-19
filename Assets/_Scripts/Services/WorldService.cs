@@ -45,5 +45,6 @@ public class WorldService : MonoBehaviour
 
         // cache saveable objects
         SaveService.Instance.CacheAllSaveObjects();
+        SaveService.Instance.CacheAllLoadObjects();
     }
 }
