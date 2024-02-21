@@ -14,4 +14,5 @@ public class StructureData : BaseData
     public float Rotation;
     public string OwnedByFactionId;
     public string AssignedPrefabId;
+    public string AssignedDialogueId;
 }

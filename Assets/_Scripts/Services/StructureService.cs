@@ -11,12 +11,14 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
     private FactionService factionService;
     private EconomyService economyService;
     private ItemService itemService;
+    private DialogueService dialogueService;
 
     private void Awake()
     {
         factionService = GetOtherService<FactionService>();
         economyService = GetOtherService<EconomyService>();
         itemService = GetOtherService<ItemService>();
+        dialogueService = GetOtherService<DialogueService>();
     }
 
     public void CreateStructureObjects()
@@ -38,8 +40,11 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             FactionAssociation factionAssociation = obj.GetComponent<FactionAssociation>();
             factionAssociation.AssociatedFactionTransform = factionService.GetFactionTransform(data.InitiallyOwnedByFaction);
 
-            EconomyServiceReference economyServiceReference = obj.GetComponentInChildren<EconomyServiceReference>();
+            EconomyServiceReference economyServiceReference = obj.GetComponent<EconomyServiceReference>();
             economyServiceReference.Service = economyService;
+
+            DialogueTrigger dialogueTrigger = obj.GetComponent<DialogueTrigger>();
+            dialogueTrigger.Dialogue = data.AssignedDialogue;
         }
     }
 
@@ -59,6 +64,7 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             structure.Position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
             structure.Rotation = Quaternion.Euler(0, data.Rotation, 0);
             structure.InitiallyOwnedByFaction = data.OwnedByFactionId;
+            structure.AssignedDialogue = dialogueService.GetScriptableObject(data.AssignedDialogueId);
             // structure.AssignedPrefab = modelCore.GetPrefabFromId(data.AssignedPrefabId);
 
             scriptableObjects.Add(structure);

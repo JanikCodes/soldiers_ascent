@@ -6,6 +6,7 @@
         "Description": "It's just village A.",
         "OwnedByFactionId": "Base_Player",
         "AssignedPrefabId": "BaseCity",
+        "AssignedDialogueId": "Base_Dialogue_City",
         "Position": [
             2.58,
             0,
@@ -20,6 +21,7 @@
         "Description": "It's just village B.",
         "OwnedByFactionId": "Base_Hunter",
         "AssignedPrefabId": "BaseCity",
+        "AssignedDialogueId": "Base_Dialogue_City",
         "Position": [
             32.86,
             0,
@@ -34,6 +36,7 @@
         "Description": "It's just village C.",
         "OwnedByFactionId": "Base_Hunter",
         "AssignedPrefabId": "BaseCity_2",
+        "AssignedDialogueId": "Base_Dialogue_City",
         "Position": [
             -14,
             0,

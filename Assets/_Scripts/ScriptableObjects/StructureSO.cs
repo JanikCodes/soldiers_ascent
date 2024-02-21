@@ -12,4 +12,5 @@ public class StructureSO : DataSO
     public Vector3 Position;
     public Quaternion Rotation;
     public GameObject AssignedPrefab;
+    public DialogueSO AssignedDialogue;
 }
