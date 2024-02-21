@@ -1,0 +1,10 @@
+[
+    {
+        "Id": "Base_Dialogue_City",
+        "Active": true
+    },
+    {
+        "Id": "Base_Dialogue_City_Talk",
+        "Active": true
+    }
+]

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WorldService : MonoBehaviour
 {
+    private DialogueService dialogueService;
     private ItemService itemService;
     private EconomyService economyService;
     private RelationshipService relationshipService;
@@ -15,6 +16,7 @@ public class WorldService : MonoBehaviour
 
     private void Start()
     {
+        dialogueService = GetComponentInChildren<DialogueService>();
         itemService = GetComponentInChildren<ItemService>();
         economyService = GetComponentInChildren<EconomyService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
@@ -26,6 +28,8 @@ public class WorldService : MonoBehaviour
 
         // created neccesary file directories on startup
         FileService.CreateDirectories();
+
+        dialogueService.CreateScriptableObjects();
 
         itemService.CreateScriptableObjects();
         economyService.InitEconomy();

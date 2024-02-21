@@ -811,7 +811,7 @@ MonoBehaviour:
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+  key: {fileID: 0}
   acceptableRadius: 0.2
   includeAIRadius: 1
 --- !u!114 &5963341140349979219
@@ -849,7 +849,7 @@ MonoBehaviour:
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
+  key: {fileID: 0}
   acceptableRadius: 0.2
   includeAIRadius: 1
 --- !u!114 &6451935942018094749

@@ -1,0 +1,30 @@
+[
+    {
+        "Id": "Base_Choice_City_Talk",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City",
+        "ChoiceText": "Talk",
+        "JumpToDialogueId": "BD_Village_Talk"
+    },
+    {
+        "Id": "Base_Choice_City_Leave",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City",
+        "ChoiceText": "Leave",
+        "JumpToDialogueId": ""
+    },
+    {
+        "Id": "Base_Choice_City_Talk_Fight",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City_Talk",
+        "ChoiceText": "Let's fight! Haha just kidding..",
+        "JumpToDialogueId": "Base_Dialogue_City"
+    },
+    {
+        "Id": "Base_Choice_City_Talk_Nevermind",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City_Talk",
+        "ChoiceText": "Nevermind..",
+        "JumpToDialogueId": "Base_Dialogue_City"
+    }
+]
