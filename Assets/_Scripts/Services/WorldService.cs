@@ -47,8 +47,16 @@ public class WorldService : MonoBehaviour
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
 
-        // cache saveable objects
-        SaveService.Instance.CacheAllSaveObjects();
-        SaveService.Instance.CacheAllLoadObjects();
+        if(SaveService.Instance)
+        {
+            // cache saveable objects
+            SaveService.Instance.CacheAllSaveObjects();
+            SaveService.Instance.CacheAllLoadObjects();
+        }
+        else
+        {
+            Debug.LogWarning("Loaded wrong scene! You're playing without the usage of the SaveService!");
+        }
+
     }
 }
