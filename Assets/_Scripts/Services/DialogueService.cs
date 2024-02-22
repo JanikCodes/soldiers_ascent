@@ -82,7 +82,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
             // try to populate the object with its properties
             foreach (KeyValuePair<string, object> property in requirementData.Properties)
             {
-                if (!WriteValueToField(type, requirementType, requirementSO, property))
+                if (!Util.WriteValueToField(type, requirementType, requirementSO, property))
                 {
                     continue;
                 }
@@ -92,34 +92,5 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
         }
 
         return results;
-    }
-
-    private bool WriteValueToField<T>(string type, Type requirementType, T requirement, KeyValuePair<string, object> property)
-    {
-        FieldInfo fieldInfo = requirementType.GetField(property.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-
-        if (fieldInfo == null)
-        {
-            Debug.LogWarning($"Field {property.Key} not found in requirement {type}. Using the default value.");
-            return false;
-        }
-
-        Type fieldInfoType = fieldInfo.FieldType;
-        object value = property.Value;
-
-        try
-        {
-            // Convert the value to the type of the field ( int64 -> int32 )
-            value = Convert.ChangeType(value, fieldInfoType);
-        }
-        catch (InvalidCastException)
-        {
-            Debug.LogWarning($"Type mismatch for field {property.Key} in requirement {type}. Using the default value.");
-            return false;
-        }
-
-        fieldInfo.SetValue(requirement, value);
-
-        return true;
     }
 }

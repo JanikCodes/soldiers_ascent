@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldService : MonoBehaviour
 {
     private DialogueService dialogueService;
+    private QuestService questService;
     private ItemService itemService;
     private EconomyService economyService;
     private RelationshipService relationshipService;
@@ -17,6 +18,7 @@ public class WorldService : MonoBehaviour
     private void Start()
     {
         dialogueService = GetComponentInChildren<DialogueService>();
+        questService = GetComponentInChildren<QuestService>();
         itemService = GetComponentInChildren<ItemService>();
         economyService = GetComponentInChildren<EconomyService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
@@ -30,6 +32,7 @@ public class WorldService : MonoBehaviour
         FileService.CreateDirectories();
 
         dialogueService.CreateScriptableObjects();
+        questService.CreateScriptableObjects();
 
         itemService.CreateScriptableObjects();
         economyService.InitEconomy();
@@ -47,7 +50,7 @@ public class WorldService : MonoBehaviour
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();
 
-        if(SaveService.Instance)
+        if (SaveService.Instance)
         {
             // cache saveable objects
             SaveService.Instance.CacheAllSaveObjects();

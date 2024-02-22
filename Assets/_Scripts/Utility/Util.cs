@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public static class Util
@@ -165,5 +166,34 @@ public static class Util
     public static Quaternion GetQuaternionFromFloatArray(float[] rotation)
     {
         return Quaternion.Euler(rotation[0], rotation[1], rotation[2]);
+    }
+
+    public static bool WriteValueToField<T>(string type, Type typeObject, T scriptableObject, KeyValuePair<string, object> property)
+    {
+        FieldInfo fieldInfo = typeObject.GetField(property.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+        if (fieldInfo == null)
+        {
+            Debug.LogWarning($"Field {property.Key} not found in requirement {type}. Using the default value.");
+            return false;
+        }
+
+        Type fieldInfoType = fieldInfo.FieldType;
+        object value = property.Value;
+
+        try
+        {
+            // Convert the value to the type of the field ( int64 -> int32 )
+            value = Convert.ChangeType(value, fieldInfoType);
+        }
+        catch (InvalidCastException)
+        {
+            Debug.LogWarning($"Type mismatch for field {property.Key} in requirement {type}. Using the default value.");
+            return false;
+        }
+
+        fieldInfo.SetValue(scriptableObject, value);
+
+        return true;
     }
 }

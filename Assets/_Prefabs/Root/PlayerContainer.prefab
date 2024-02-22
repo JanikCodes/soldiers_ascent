@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 3920102730017312978}
   - component: {fileID: 4942752396363100195}
   - component: {fileID: 2496151040432374707}
+  - component: {fileID: 7646875756530215429}
   m_Layer: 6
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -294,6 +295,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTriggerDistance: 5
   active: 0
+--- !u!114 &7646875756530215429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c17f683723df234e9d2d503d6fb7c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612808887825369961
 GameObject:
   m_ObjectHideFlags: 0

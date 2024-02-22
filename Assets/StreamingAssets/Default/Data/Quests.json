@@ -6,22 +6,24 @@
         "Description": "This is a small tutorial quest which will get you started learning the basics.",
         "Steps": [
             {
-                "Steps": [
+                "Objectives": [
                     {
-                        "Type": "InstantiateDialogue",
-                        "Text": "Visit City A"
-                    },
-                    {
-                        "Type": "InstantiateDialogue",
-                        "Text": "Visit City B"
+                        "Text": "Talk to the people at city A.",
+                        "Type": "VisitStructure",
+                        "Properties": {
+                            "Target": "Base_Village_A"
+                        }
                     }
                 ]
             },
             {
-                "Steps": [
+                "Objectives": [
                     {
-                        "Type": "Currency",
-                        "Text": "Aquire 2000 currency"
+                        "Text": "Hear what city B has to say.",
+                        "Type": "VisitStructure",
+                        "Properties": {
+                            "Target": "Base_Village_B"
+                        }
                     }
                 ]
             }
