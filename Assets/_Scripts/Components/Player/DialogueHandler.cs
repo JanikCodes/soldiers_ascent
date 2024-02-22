@@ -36,9 +36,11 @@ public class DialogueHandler : MonoBehaviour
     /// <summary>
     /// This methode can be executed by the player or from other armies as well.
     /// </summary>
-    public void InstantiateDialogue(Transform dialoguePartner)
+    public void InstantiateDialogue(Transform other)
     {
         active = true;
+        dialoguePartner = other;
+        
         Debug.Log("Instantiating dialogue with " + dialoguePartner.name);
     }
 
