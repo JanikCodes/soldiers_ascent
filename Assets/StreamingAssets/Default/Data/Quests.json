@@ -1,0 +1,31 @@
+[
+    {
+        "Id": "Base_Quest_Tutorial",
+        "Active": true,
+        "Title": "Let's get started.",
+        "Description": "This is a small tutorial quest which will get you started learning the basics.",
+        "Steps": [
+            {
+                "Steps": [
+                    {
+                        "Type": "InstantiateDialogue",
+                        "Text": "Visit City A"
+                    },
+                    {
+                        "Type": "InstantiateDialogue",
+                        "Text": "Visit City B"
+                    }
+                ]
+            },
+            {
+                "Steps": [
+                    {
+                        "Type": "Currency",
+                        "Text": "Aquire 2000 currency"
+                    }
+                ]
+            }
+        ],
+        "AutoComplete": true
+    }
+]
