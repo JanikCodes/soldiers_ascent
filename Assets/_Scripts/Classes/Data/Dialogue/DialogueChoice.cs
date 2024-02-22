@@ -11,4 +11,5 @@ public class DialogueChoiceData : BaseData
     public string AssignedDialogueId;
     public string ChoiceText;
     public string JumpToDialogueId;
+    public DialogueRequirementData[] Requirements;
 }

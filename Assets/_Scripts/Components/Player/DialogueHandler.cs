@@ -14,6 +14,7 @@ public class DialogueHandler : MonoBehaviour
     private AIDestinationSetter aIDestinationSetter;
 
     private Transform dialoguePartner;
+    private DialogueSO dialogue;
 
     private void Awake()
     {
@@ -38,10 +39,29 @@ public class DialogueHandler : MonoBehaviour
     /// </summary>
     public void InstantiateDialogue(Transform other)
     {
+        if (active) { return; }
+
+        DialogueTrigger dialogueTrigger = other.GetComponent<DialogueTrigger>();
+        if (!dialogueTrigger)
+        {
+            Debug.LogWarning("Couldn't instantiate dialogue because DialogueTrigger is missing on the partner.");
+            return;
+        }
+
         active = true;
         dialoguePartner = other;
-        
+        dialogue = dialogueTrigger.Dialogue;
+
         Debug.Log("Instantiating dialogue with " + dialoguePartner.name);
+
+        List<DialogueChoiceSO> choices = dialogue.GetChoices();
+        Debug.Log("### CHOICES ###");
+        foreach (DialogueChoiceSO choice in choices)
+        {
+            Debug.Log(choice.ChoiceText);
+        }
+
+        Debug.Log("### STOP CHOICES ###");
     }
 
     private bool ShouldTriggerDialogue()

@@ -8,5 +8,6 @@ public class DialogueChoiceSO : DataSO
 {
     [NonSerialized] public DialogueSO JumpToDialogue;
     public string ChoiceText;
-    public string rawJumpToDialogueId { get; set; }
+    public string RawJumpToDialogueId;
+    public List<DialogueRequirementSO> Requirements = new();
 }
