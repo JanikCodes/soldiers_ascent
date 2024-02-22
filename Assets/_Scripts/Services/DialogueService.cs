@@ -70,6 +70,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
                 continue;
             }
 
+            // generate object based on requirementType
             DialogueRequirementSO requirementSO = ScriptableObject.CreateInstance(requirementType) as DialogueRequirementSO;
 
             if (requirementSO == null)
@@ -78,6 +79,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
                 continue;
             }
 
+            // try to populate the object with its properties
             foreach (KeyValuePair<string, object> property in requirementData.Properties)
             {
                 if (!WriteValueToField(type, requirementType, requirementSO, property))
@@ -116,7 +118,6 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
             return false;
         }
 
-        // Set the value to the field
         fieldInfo.SetValue(requirement, value);
 
         return true;
