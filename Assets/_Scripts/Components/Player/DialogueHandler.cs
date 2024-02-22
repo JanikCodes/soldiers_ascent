@@ -13,7 +13,6 @@ public class DialogueHandler : MonoBehaviour
 
     private AIDestinationSetter aIDestinationSetter;
 
-    private Transform dialoguePartner;
     private DialogueSO dialogue;
 
     private void Awake()
@@ -49,12 +48,11 @@ public class DialogueHandler : MonoBehaviour
         }
 
         active = true;
-        dialoguePartner = other;
         dialogue = dialogueTrigger.Dialogue;
 
-        Debug.Log("Instantiating dialogue with " + dialoguePartner.name);
+        Debug.Log("Instantiating dialogue with " + other.name);
 
-        List<DialogueChoiceSO> choices = dialogue.GetChoices();
+        List<DialogueChoiceSO> choices = dialogue.GetChoices(transform, other);
         Debug.Log("### CHOICES ###");
         foreach (DialogueChoiceSO choice in choices)
         {

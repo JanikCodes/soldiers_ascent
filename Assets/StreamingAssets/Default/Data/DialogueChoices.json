@@ -12,13 +12,6 @@
                     "Self": true,
                     "RequiredCurrency": 6969
                 }
-            },
-            {
-                "Type": "Currency",
-                "Properties": {
-                    "Self": false,
-                    "RequiredCurrency": 1234
-                }
             }
         ]
     },

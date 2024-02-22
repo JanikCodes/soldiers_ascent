@@ -10,4 +10,21 @@ public class DialogueChoiceSO : DataSO
     public string ChoiceText;
     public string RawJumpToDialogueId;
     public List<DialogueRequirementSO> Requirements = new();
+
+    public bool MeetsRequirements(Transform self, Transform other)
+    {
+        bool valid = true;
+
+        // Check if any requirement is false
+        foreach (DialogueRequirementSO requirementSO in Requirements)
+        {
+            if (!requirementSO.CheckRequirements(self, other))
+            {
+                valid = false;
+                break;
+            }
+        }
+
+        return valid;
+    }
 }
