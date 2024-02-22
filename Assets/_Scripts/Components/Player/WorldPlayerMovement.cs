@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-[RequireComponent(typeof(IAstarAI))]
+[RequireComponent(typeof(IAstarAI), typeof(AIDestinationSetter))]
 public class WorldPlayerMovement : MonoBehaviour
 {
     private IAstarAI ai;
+    private AIDestinationSetter aIDestinationSetter;
     private WorldPlayerInput input;
 
     private void Awake()
@@ -15,6 +16,7 @@ public class WorldPlayerMovement : MonoBehaviour
         input = WorldPlayerInput.Instance;
 
         ai = GetComponent<IAstarAI>();
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
 
     private void OnEnable()
@@ -35,12 +37,25 @@ public class WorldPlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(input.GetMousePosition());
         if (Physics.Raycast(ray, out hit, 1000))
         {
-            SetDestination(hit.point);
+            DialogueTrigger dialogueTrigger = hit.transform.GetComponent<DialogueTrigger>();
+            if (dialogueTrigger)
+            {
+                // follow target
+                aIDestinationSetter.target = hit.transform;
+            }
+            else
+            {
+                // free movement
+                SetCustomDestination(hit.point);
+            }
         }
     }
 
-    private void SetDestination(Vector3 position)
+    private void SetCustomDestination(Vector3 position)
     {
         ai.destination = position;
+
+        // clear target
+        aIDestinationSetter.target = null;
     }
 }

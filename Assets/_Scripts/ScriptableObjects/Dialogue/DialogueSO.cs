@@ -8,13 +8,16 @@ public class DialogueSO : DataSO
 {
     public List<DialogueChoiceSO> Choices = new();
 
-    public List<DialogueChoiceSO> GetChoices()
+    public List<DialogueChoiceSO> GetChoices(Transform self, Transform other)
     {
         List<DialogueChoiceSO> choices = new List<DialogueChoiceSO>();
 
         foreach (DialogueChoiceSO choice in Choices)
         {
-            choices.Add(choice);
+            if (choice.MeetsRequirements(self, other))
+            {
+                choices.Add(choice);
+            }
         }
 
         return choices;

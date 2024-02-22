@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4376407812398645585}
   - component: {fileID: 1206411651288806680}
   - component: {fileID: 3920102730017312978}
+  - component: {fileID: 4942752396363100195}
+  - component: {fileID: 2496151040432374707}
   m_Layer: 6
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -263,7 +265,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d5268bda341584390353d24e9543c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Currency>k__BackingField: 0
+  <Currency>k__BackingField: 1000
+--- !u!114 &4942752396363100195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
+--- !u!114 &2496151040432374707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4462c8b9da28c7458ca432779c580bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTriggerDistance: 5
+  active: 0
 --- !u!1 &612808887825369961
 GameObject:
   m_ObjectHideFlags: 0

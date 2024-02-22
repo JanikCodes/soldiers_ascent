@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 1366, y: 107}
+  nodePosition: {x: 1468, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 1385, y: 735}
+  nodePosition: {x: 1589, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Check relation with army
-  nodePosition: {x: 484, y: 421}
+  nodePosition: {x: 586, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 7239031301377395939}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Visit Transform Task
-  nodePosition: {x: 2291, y: 578}
+  nodePosition: {x: 2495, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: 4518725200463289126}
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 1852, y: 735}
+  nodePosition: {x: 2056, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Friendly or Neutral
-  nodePosition: {x: 966, y: 602}
+  nodePosition: {x: 1170, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -7521158917470855991}
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1274.5, y: 225}
+  nodePosition: {x: 1376.5, y: 225}
   breakpoint: 0
   decorators: []
   services:
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1255, y: 735}
+  nodePosition: {x: 1459, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Roam Task
-  nodePosition: {x: 1829, y: 578}
+  nodePosition: {x: 2033, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6893879772899372232}
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 2080, y: 735}
+  nodePosition: {x: 2284, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Wait Task
-  nodePosition: {x: 1311, y: 578}
+  nodePosition: {x: 1515, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6178300087193399284}
@@ -537,6 +537,7 @@ MonoBehaviour:
   - {fileID: -6278276183377534260}
   - {fileID: 5823946738359157824}
   - {fileID: -4055866749786257599}
+  - {fileID: 5952187636469909972}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
@@ -596,7 +597,7 @@ MonoBehaviour:
   m_Name: GetRandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Position
-  nodePosition: {x: 1596, y: 735}
+  nodePosition: {x: 1800, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -617,7 +618,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1818, y: 421}
+  nodePosition: {x: 2022, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 4502913116341140585}
@@ -639,7 +640,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 2547, y: 421}
+  nodePosition: {x: 2751, y: 421}
   breakpoint: 0
   decorators: []
   services: []
@@ -692,7 +693,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 1384.5, y: 0}
+  nodePosition: {x: 1486.5, y: 0}
   breakpoint: 0
   child: {fileID: -8482461371860293987}
 --- !u!114 &4502913116341140585
@@ -746,7 +747,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Do we flee or pursue
-  nodePosition: {x: 588, y: 759}
+  nodePosition: {x: 690, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -766,13 +767,14 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Pursue
-  nodePosition: {x: 692, y: 877}
+  nodePosition: {x: 794, y: 877}
   breakpoint: 0
   decorators: []
   services:
   - {fileID: -4055866749786257599}
   children:
   - {fileID: 5823946738359157824}
+  - {fileID: 5952187636469909972}
 --- !u!114 &5728067466306027934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +788,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 2780, y: 225}
+  nodePosition: {x: 2984, y: 225}
   breakpoint: 0
   decorators: []
   services: []
@@ -806,14 +808,33 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 715, y: 1034}
+  nodePosition: {x: 692, y: 1034}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: 0}
+  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   acceptableRadius: 0.2
   includeAIRadius: 1
+--- !u!114 &5952187636469909972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7fbc62501c0124bb44b132f33d272a, type: 3}
+  m_Name: InstantiateDialogueTask
+  m_EditorClassIdentifier: 
+  nodeName: Instantiate Dialogue
+  nodePosition: {x: 920, y: 1034}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  target: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
 --- !u!114 &5963341140349979219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,7 +886,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 2330, y: 735}
+  nodePosition: {x: 2534, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -885,7 +906,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 994, y: 759}
+  nodePosition: {x: 1198, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -932,7 +953,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Hostile
-  nodePosition: {x: 338.5, y: 602}
+  nodePosition: {x: 440.5, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -6123833012306316449}
