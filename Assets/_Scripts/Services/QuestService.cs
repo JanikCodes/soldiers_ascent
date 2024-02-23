@@ -22,6 +22,8 @@ public class QuestService : ScriptableObjectService<QuestSO>
 
             foreach (QuestStepData questStepData in data.Steps)
             {
+                if (!questStepData.Active) { continue; }
+
                 QuestStepSO questStep = ScriptableObject.CreateInstance<QuestStepSO>();
                 questStep.name = questStepData.Id;
                 questStep.Id = questStepData.Id;
@@ -29,7 +31,7 @@ public class QuestService : ScriptableObjectService<QuestSO>
                 quest.Steps.Add(questStep);
             }
 
-            quest.UnlockedFromStart = data.UnlockedFromStart;
+            quest.AcceptedFromStart = data.AcceptedFromStart;
             quest.AutoComplete = data.AutoComplete;
 
             scriptableObjects.Add(quest);

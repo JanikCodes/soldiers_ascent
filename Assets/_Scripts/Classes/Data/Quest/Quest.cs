@@ -11,7 +11,7 @@ public class QuestData : BaseData
     public string Title;
     public string Description;
     public QuestStepData[] Steps;
-    public bool UnlockedFromStart;
+    public bool AcceptedFromStart;
     public bool AutoComplete;
 }
 
@@ -20,12 +20,12 @@ public class Quest
 {
     public QuestSO QuestBaseData;
     public List<QuestStep> Steps = new();
-    public bool Unlocked;
+    public bool Accepted;
 
     public Quest(Transform self, QuestSO data)
     {
         QuestBaseData = data;
-        Unlocked = data.UnlockedFromStart;
+        Accepted = data.AcceptedFromStart;
 
         foreach (QuestStepSO questStepSO in data.Steps)
         {
@@ -38,7 +38,7 @@ public class Quest
 
     public void UpdateSteps()
     {
-        if (!Unlocked) { return; }
+        if (!Accepted) { return; }
 
         // cycle through steps
         foreach (QuestStep questStep in Steps)
@@ -64,5 +64,38 @@ public class Quest
             }
         }
         return true;
+    }
+
+    public bool IsAtQuestStep(string stepId)
+    {
+        // do we have this step in our quest?
+        QuestStep foundStep = Steps.Find(step => step.QuestStepBaseData.Id.Equals(stepId));
+        if (foundStep == null)
+        {
+            return false;
+        }
+
+        // check if we're at the current step
+        bool valid = true;
+        foreach (QuestStep questStep in Steps)
+        {
+            if (!questStep.Equals(foundStep))
+            {
+                if (questStep.IsCompleted())
+                {
+                    continue;
+                }
+                else
+                {
+                    valid = false;
+                }
+            }
+            else
+            {
+                return valid;
+            }
+        }
+
+        return valid;
     }
 }

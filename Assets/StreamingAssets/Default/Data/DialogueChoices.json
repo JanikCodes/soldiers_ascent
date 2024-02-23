@@ -16,6 +16,22 @@
         ]
     },
     {
+        "Id": "Base_Choice_City_Tutorial_Quest",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City",
+        "ChoiceText": "Soo, what did you hear from city A?",
+        "JumpToDialogueId": "",
+        "Requirements": [
+            {
+                "Type": "IsAtQuestStep",
+                "Properties": {
+                    "Self": true,
+                    "QuestStepId": "Base_Quest_Tutorial_Step_2"
+                }
+            }
+        ]
+    },
+    {
         "Id": "Base_Choice_City_Leave",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City",

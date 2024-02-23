@@ -14,10 +14,13 @@ public class QuestStepData : BaseData
 [Serializable]
 public class QuestStep
 {
+    public QuestStepSO QuestStepBaseData;
     public List<QuestObjective> Objectives = new();
 
     public QuestStep(Transform self, QuestStepSO data)
     {
+        QuestStepBaseData = data;
+        
         foreach (QuestObjectiveSO questObjectiveSO in data.Objectives)
         {
             QuestObjective questObjective = new(self, questObjectiveSO);

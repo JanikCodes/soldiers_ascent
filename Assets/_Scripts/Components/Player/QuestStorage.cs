@@ -25,6 +25,19 @@ public class QuestStorage : MonoBehaviour, ISave
         }
     }
 
+    public bool IsAtQuestStep(string stepId)
+    {
+        foreach (Quest quest in Quests)
+        {
+            if (quest.IsAtQuestStep(stepId))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void Update()
     {
         UpdateQuests();

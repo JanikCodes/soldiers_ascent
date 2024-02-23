@@ -39,7 +39,7 @@
                 ]
             }
         ],
-        "UnlockedFromStart": true,
+        "AcceptedFromStart": true,
         "AutoComplete": true
     }
 ]
