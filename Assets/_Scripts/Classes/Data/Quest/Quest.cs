@@ -22,14 +22,14 @@ public class Quest
     public List<QuestStep> Steps = new();
     public bool Unlocked;
 
-    public Quest(QuestSO data)
+    public Quest(Transform self, QuestSO data)
     {
         QuestBaseData = data;
         Unlocked = data.UnlockedFromStart;
 
         foreach (QuestStepSO questStepSO in data.Steps)
         {
-            QuestStep questStep = new(questStepSO);
+            QuestStep questStep = new(self, questStepSO);
             questStep.InitializeObjectives();
 
             Steps.Add(questStep);

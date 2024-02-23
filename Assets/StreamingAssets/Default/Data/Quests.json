@@ -13,6 +13,13 @@
                         "Properties": {
                             "Target": "Base_Village_A"
                         }
+                    },
+                    {
+                        "Text": "Earn some cash along the way",
+                        "Type": "AquireCurrency",
+                        "Properties": {
+                            "Amount": 5000
+                        }
                     }
                 ]
             },

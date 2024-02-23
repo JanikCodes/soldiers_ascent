@@ -16,11 +16,11 @@ public class QuestStep
 {
     public List<QuestObjective> Objectives = new();
 
-    public QuestStep(QuestStepSO data)
+    public QuestStep(Transform self, QuestStepSO data)
     {
         foreach (QuestObjectiveSO questObjectiveSO in data.Objectives)
         {
-            QuestObjective questObjective = new(questObjectiveSO);
+            QuestObjective questObjective = new(self, questObjectiveSO);
             Objectives.Add(questObjective);
         }
     }

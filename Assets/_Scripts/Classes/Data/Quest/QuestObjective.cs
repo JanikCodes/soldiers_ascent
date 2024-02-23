@@ -19,11 +19,13 @@ public class QuestObjective
 {
     public QuestObjectiveSO QuestObjectiveBaseData;
     public bool VisitedTarget;
-    public int AquireCurrencyRemaining;
+    public int CurrencyRemaining;
+    public Transform Self;
 
-    public QuestObjective(QuestObjectiveSO data)
+    public QuestObjective(Transform self, QuestObjectiveSO data)
     {
         QuestObjectiveBaseData = data;
+        Self = self;
     }
 
     public bool IsCompleted()

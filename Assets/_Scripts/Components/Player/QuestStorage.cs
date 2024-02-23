@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestStorage : MonoBehaviour
+public class QuestStorage : MonoBehaviour, ISave
 {
     [field: SerializeField] public List<Quest> Quests { get; private set; }
 
@@ -20,7 +20,7 @@ public class QuestStorage : MonoBehaviour
     {
         foreach (QuestSO questSO in data)
         {
-            Quest quest = new Quest(questSO);
+            Quest quest = new Quest(transform, questSO);
             Quests.Add(quest);
         }
     }
@@ -39,5 +39,10 @@ public class QuestStorage : MonoBehaviour
         {
             quest.UpdateSteps();
         }
+    }
+
+    public void Save(Save save)
+    {
+        throw new NotImplementedException();
     }
 }
