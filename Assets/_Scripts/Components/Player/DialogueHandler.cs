@@ -15,6 +15,10 @@ public class DialogueHandler : MonoBehaviour
 
     private DialogueSO dialogue;
 
+    // events
+    public static event OnDialogueInstantiatedDelegate OnDialogueInstantiated;
+    public delegate void OnDialogueInstantiatedDelegate(Transform other);
+
     private void Awake()
     {
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
@@ -46,6 +50,9 @@ public class DialogueHandler : MonoBehaviour
             Debug.LogWarning("Couldn't instantiate dialogue because DialogueTrigger is missing on the partner.");
             return;
         }
+
+        // invoke event to notify subscribers
+        OnDialogueInstantiated?.Invoke(other);
 
         active = true;
         dialogue = dialogueTrigger.Dialogue;

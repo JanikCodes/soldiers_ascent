@@ -9,5 +9,6 @@ public class QuestSO : DataSO
     public string Title;
     public string Description;
     public List<QuestStepSO> Steps = new();
+    public bool UnlockedFromStart;
     public bool AutoComplete;
 }

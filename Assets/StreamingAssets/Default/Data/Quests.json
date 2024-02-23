@@ -28,6 +28,7 @@
                 ]
             }
         ],
+        "UnlockedFromStart": true,
         "AutoComplete": true
     }
 ]

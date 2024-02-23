@@ -27,6 +27,7 @@ public class QuestService : ScriptableObjectService<QuestSO>
                 quest.Steps.Add(questStep);
             }
 
+            quest.UnlockedFromStart = data.UnlockedFromStart;
             quest.AutoComplete = data.AutoComplete;
 
             scriptableObjects.Add(quest);

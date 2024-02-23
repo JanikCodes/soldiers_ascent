@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 /// <summary>
@@ -11,4 +12,32 @@ public class QuestObjectiveData
     public string Text;
     public string Type;
     public Dictionary<string, object> Properties;
+}
+
+[Serializable]
+public class QuestObjective
+{
+    public QuestObjectiveSO QuestObjectiveBaseData;
+    public bool VisitedTarget;
+    public int AquireCurrencyRemaining;
+
+    public QuestObjective(QuestObjectiveSO data)
+    {
+        QuestObjectiveBaseData = data;
+    }
+
+    public bool IsCompleted()
+    {
+        return QuestObjectiveBaseData.IsComplete(this);
+    }
+
+    public void UpdateObjective()
+    {
+        QuestObjectiveBaseData.UpdateObjective(this);
+    }
+
+    public void Initialize()
+    {
+        QuestObjectiveBaseData.Initialize(this);
+    }
 }

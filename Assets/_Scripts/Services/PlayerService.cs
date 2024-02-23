@@ -11,6 +11,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
     private EconomyService economyService;
     private SoldierService soldierService;
     private ItemService itemService;
+    private QuestService questService;
 
     private GameObject playerReference;
     private const string PLAYER_ROOT_NAME = "PlayerRoot";
@@ -21,6 +22,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         economyService = GetOtherService<EconomyService>();
         soldierService = GetOtherService<SoldierService>();
         itemService = GetOtherService<ItemService>();
+        questService = GetOtherService<QuestService>();
     }
 
     public override void CreateScriptableObjects()
@@ -50,6 +52,9 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
 
         EconomyServiceReference economyServiceReference = playerReference.GetComponentInChildren<EconomyServiceReference>();
         economyServiceReference.Service = economyService;
+
+        QuestStorage questStorage = playerReference.GetComponentInChildren<QuestStorage>();
+        questStorage.InstantiateQuests(questService.GetAllScriptableObjects());
     }
 
     public void Save(Save save)

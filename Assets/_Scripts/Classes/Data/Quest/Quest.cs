@@ -11,5 +11,58 @@ public class QuestData : BaseData
     public string Title;
     public string Description;
     public QuestStepData[] Steps;
+    public bool UnlockedFromStart;
     public bool AutoComplete;
+}
+
+[Serializable]
+public class Quest
+{
+    public QuestSO QuestBaseData;
+    public List<QuestStep> Steps = new();
+    public bool Unlocked;
+
+    public Quest(QuestSO data)
+    {
+        QuestBaseData = data;
+        Unlocked = data.UnlockedFromStart;
+
+        foreach (QuestStepSO questStepSO in data.Steps)
+        {
+            QuestStep questStep = new(questStepSO);
+            questStep.InitializeObjectives();
+
+            Steps.Add(questStep);
+        }
+    }
+
+    public void UpdateSteps()
+    {
+        if (!Unlocked) { return; }
+
+        // cycle through steps
+        foreach (QuestStep questStep in Steps)
+        {
+            // check if index is completed yet
+            if (!questStep.IsCompleted())
+            {
+                questStep.UpdateObjectives();
+
+                // stop updating other steps
+                return;
+            }
+        }
+    }
+
+    public bool IsCompleted()
+    {
+        foreach (var objective in Steps)
+        {
+            if (!objective.IsCompleted())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

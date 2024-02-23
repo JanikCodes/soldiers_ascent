@@ -5,26 +5,26 @@ using UnityEngine;
 public class WorldService : MonoBehaviour
 {
     private DialogueService dialogueService;
-    private QuestService questService;
     private ItemService itemService;
     private EconomyService economyService;
     private RelationshipService relationshipService;
     private SoldierService soldierService;
     private FactionSquadPresetService factionSquadPresetService;
     private FactionService factionService;
+    private QuestService questService;
     private PlayerService playerService;
     private StructureService structureService;
 
     private void Start()
     {
         dialogueService = GetComponentInChildren<DialogueService>();
-        questService = GetComponentInChildren<QuestService>();
         itemService = GetComponentInChildren<ItemService>();
         economyService = GetComponentInChildren<EconomyService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
         soldierService = GetComponentInChildren<SoldierService>();
         factionSquadPresetService = GetComponentInChildren<FactionSquadPresetService>();
         factionService = GetComponentInChildren<FactionService>();
+        questService = GetComponentInChildren<QuestService>();
         playerService = GetComponentInChildren<PlayerService>();
         structureService = GetComponentInChildren<StructureService>();
 
@@ -32,7 +32,6 @@ public class WorldService : MonoBehaviour
         FileService.CreateDirectories();
 
         dialogueService.CreateScriptableObjects();
-        questService.CreateScriptableObjects();
 
         itemService.CreateScriptableObjects();
         economyService.InitEconomy();
@@ -43,6 +42,8 @@ public class WorldService : MonoBehaviour
 
         factionService.CreateScriptableObjects();
         factionService.CreateFactionObjects();
+
+        questService.CreateScriptableObjects();
 
         playerService.CreateScriptableObjects();
         playerService.SpawnPlayerIntoWorld();
