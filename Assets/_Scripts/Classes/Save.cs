@@ -12,4 +12,5 @@ public class Save
     public List<FactionSaveData> Factions = new();
     public List<StructureSaveData> Structures = new();
     public List<ItemRecord> Economy = new();
+    public List<QuestSaveData> Quests = new();
 }

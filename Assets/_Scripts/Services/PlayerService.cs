@@ -66,6 +66,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         CurrencyStorage currencyStorage = playerRoot.GetComponent<CurrencyStorage>();
         SquadStorage squadStorage = playerRoot.GetComponent<SquadStorage>();
         Inventory inventory = playerRoot.GetComponent<Inventory>();
+        QuestStorage questStorage = playerRoot.GetComponent<QuestStorage>();
 
         PlayerSaveData playerSaveData = new();
         playerSaveData.GUID = guid.Id;
@@ -83,6 +84,13 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
 
         // save inventory
         playerSaveData.Inventory = new InventorySaveData(inventory.GetItems());
+
+        // save quests
+        foreach (Quest quest in questStorage.Quests)
+        {
+            QuestSaveData questSaveData = new(quest);
+            playerSaveData.Quests.Add(questSaveData);
+        }
 
         save.Player = playerSaveData;
     }

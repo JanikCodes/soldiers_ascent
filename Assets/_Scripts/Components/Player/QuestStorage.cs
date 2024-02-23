@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestStorage : MonoBehaviour, ISave
+public class QuestStorage : MonoBehaviour
 {
     [field: SerializeField] public List<Quest> Quests { get; private set; }
 
@@ -52,10 +52,5 @@ public class QuestStorage : MonoBehaviour, ISave
         {
             quest.UpdateSteps();
         }
-    }
-
-    public void Save(Save save)
-    {
-        throw new NotImplementedException();
     }
 }

@@ -14,6 +14,7 @@ public class PlayerSaveData
     public int Currency;
     public List<SquadSaveData> Squads = new();
     public InventorySaveData Inventory;
+    public List<QuestSaveData> Quests = new();
 
     public PlayerSaveData()
     {
