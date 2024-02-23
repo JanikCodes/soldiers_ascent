@@ -23,6 +23,8 @@ public class QuestService : ScriptableObjectService<QuestSO>
             foreach (QuestStepData questStepData in data.Steps)
             {
                 QuestStepSO questStep = ScriptableObject.CreateInstance<QuestStepSO>();
+                questStep.name = questStepData.Id;
+                questStep.Id = questStepData.Id;
                 questStep.Objectives = GenerateQuestObjectives(questStepData.Objectives);
                 quest.Steps.Add(questStep);
             }

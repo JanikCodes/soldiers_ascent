@@ -6,6 +6,8 @@
         "Description": "This is a small tutorial quest which will get you started learning the basics.",
         "Steps": [
             {
+                "Id": "Base_Quest_Tutorial_Step_1",
+                "Active": true,
                 "Objectives": [
                     {
                         "Text": "Talk to the people at city A.",
@@ -24,6 +26,8 @@
                 ]
             },
             {
+                "Id": "Base_Quest_Tutorial_Step_2",
+                "Active": true,
                 "Objectives": [
                     {
                         "Text": "Hear what city B has to say.",

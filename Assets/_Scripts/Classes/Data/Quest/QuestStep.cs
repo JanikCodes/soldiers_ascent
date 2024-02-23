@@ -6,7 +6,7 @@ using UnityEngine;
 /// Class that is used to generate the ScriptableObject <see cref="QuestStepSO"/> at runtime from.
 /// </summary>
 [Serializable]
-public class QuestStepData
+public class QuestStepData : BaseData
 {
     public QuestObjectiveData[] Objectives;
 }
