@@ -10,11 +10,16 @@ public class QuestStepSaveData
     public string Id;
     public List<QuestObjectiveSaveData> Objectives = new();
 
+    public QuestStepSaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public QuestStepSaveData(QuestStep questStep)
     {
         Id = questStep.QuestStepBaseData.Id;
-        
-        foreach(QuestObjective questObjective in questStep.Objectives)
+
+        foreach (QuestObjective questObjective in questStep.Objectives)
         {
             QuestObjectiveSaveData questObjectiveSaveData = new(questObjective);
             Objectives.Add(questObjectiveSaveData);

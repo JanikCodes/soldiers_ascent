@@ -38,6 +38,40 @@ public class QuestStorage : MonoBehaviour
         return false;
     }
 
+    public void LoadQuestProgress(QuestSaveData questSaveData)
+    {
+        Quest quest = Quests.Find(quest => quest.QuestBaseData.Id.Equals(questSaveData.Id));
+        if (quest == null)
+        {
+            Debug.LogWarning("Couldn't find quest ID: " + questSaveData.Id + " to update the progress from SaveData");
+            return;
+        }
+
+        foreach (QuestStepSaveData questStepSaveData in questSaveData.Steps)
+        {
+            QuestStep questStep = quest.Steps.Find(step => step.QuestStepBaseData.Id.Equals(questStepSaveData.Id));
+            if (questStep == null)
+            {
+                Debug.LogWarning("Couldn't find quest step ID: " + questStepSaveData.Id + " to update the progress from SaveData");
+                continue;
+            }
+
+            for (int i = 0; i < questStepSaveData.Objectives.Count; i++)
+            {
+                QuestObjectiveSaveData questObjectiveSaveData = questStepSaveData.Objectives[i];
+                QuestObjective questObjective = questStep.Objectives[i];
+                if (questObjective == null)
+                {
+                    Debug.LogWarning("Couldn't find quest objective at index: " + i + " to update the progress from SaveData");
+                    continue;
+                }
+
+                questObjective.CurrencyRemaining = questObjectiveSaveData.CurrencyRemaining;
+                questObjective.VisitedTarget = questObjectiveSaveData.VisitedTarget;
+            }
+        }
+    }
+
     private void Update()
     {
         UpdateQuests();

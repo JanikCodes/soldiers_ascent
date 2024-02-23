@@ -14,6 +14,11 @@ public class QuestObjectiveSaveData
     public bool VisitedTarget;
     public int CurrencyRemaining;
 
+    public QuestObjectiveSaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public QuestObjectiveSaveData(QuestObjective questObjective)
     {
         VisitedTarget = questObjective.VisitedTarget;

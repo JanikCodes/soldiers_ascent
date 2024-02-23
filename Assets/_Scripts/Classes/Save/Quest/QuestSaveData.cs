@@ -11,11 +11,16 @@ public class QuestSaveData
     public List<QuestStepSaveData> Steps = new();
     public bool Accepted;
 
+    public QuestSaveData()
+    {
+        // empty constructor for serialization
+    }
+
     public QuestSaveData(Quest quest)
     {
         Id = quest.QuestBaseData.Id;
-        
-        foreach(QuestStep questStep in quest.Steps)
+
+        foreach (QuestStep questStep in quest.Steps)
         {
             QuestStepSaveData questStepSaveData = new(questStep);
             Steps.Add(questStepSaveData);

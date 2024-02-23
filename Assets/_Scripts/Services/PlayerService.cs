@@ -85,7 +85,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         // save inventory
         playerSaveData.Inventory = new InventorySaveData(inventory.GetItems());
 
-        // save quests
+        // save quest progress
         foreach (Quest quest in questStorage.Quests)
         {
             QuestSaveData questSaveData = new(quest);
@@ -141,5 +141,12 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         }
 
         inventory.SetItems(items);
+
+        // load quest progress
+        QuestStorage questStorage = playerRoot.GetComponent<QuestStorage>();
+        foreach (QuestSaveData questSaveData in playerSaveData.Quests)
+        {
+            questStorage.LoadQuestProgress(questSaveData);
+        }
     }
 }
