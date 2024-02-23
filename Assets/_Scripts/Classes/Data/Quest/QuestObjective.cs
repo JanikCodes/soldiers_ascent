@@ -18,9 +18,12 @@ public class QuestObjectiveData
 public class QuestObjective
 {
     public QuestObjectiveSO QuestObjectiveBaseData;
+    public Transform Self;
+
+    [Header("Dynamid Objective Data")]
     public bool VisitedTarget;
     public int CurrencyRemaining;
-    public Transform Self;
+    // add more if neccesary . . 
 
     public QuestObjective(Transform self, QuestObjectiveSO data)
     {

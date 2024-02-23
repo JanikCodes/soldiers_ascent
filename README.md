@@ -16,6 +16,8 @@ Our quest system is flexible and completly modable. We're storing all quests ins
 To create a new quest objective type you simply create a new script with the naming scheme `Quest[YOUR_OBJECTIVE_TYPE]TypeSO.cs`.
 The class needs to inherite from `QuestObjectiveSO.cs`.
 
+Additionally most `ObjectiveTypes` needs extra variables to determine the `IsCompleted()`. We add all required variables for calculation in `QuestObjective.cs` ( Examples: `VisitedTarget` or `CurrencyRemaining`)
+
 To use this new quest objective simply use `[YOUR_OBJECTIVE_TYPE]` in the `Quests.json`. 
 
 Example:
