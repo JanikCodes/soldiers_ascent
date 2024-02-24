@@ -65,35 +65,8 @@ public class SpawnArmyTask : TaskNode
             squadStorage.AddSquad(squad);
         }
 
-        // fill inventory based on present soldiers
-        int soldierCount = squadStorage.GetTotalSoldierCount();
-
-        int foodItemCount = soldierCount / 3;
-        int resourceItemCount = soldierCount / 3;
-        int luxuryItemCount = 0;
-
-        // calculate luxury chance
-        int luxuryChance = Util.GetRandomValue(0, 100);
-        if (luxuryChance <= 25)
-        {
-            luxuryItemCount = Util.GetRandomValue(1, 2);
-        }
-
-        // TODO: calculate available item rarities based on army strength/size
-        // TODO: perhaps move logic into seperate methodes across services/components to have them reuseable 
-        List<RarityType> availableRarities = new();
-        availableRarities.Add(RarityType.Common);
-
-        List<Item> totalItems = new();
-        totalItems.AddRange(itemService.GetItemsByType(ItemType.Food, availableRarities, foodItemCount));
-        totalItems.AddRange(itemService.GetItemsByType(ItemType.Resource, availableRarities, resourceItemCount));
-        totalItems.AddRange(itemService.GetItemsByType(ItemType.Luxury, availableRarities, luxuryItemCount));
-
-        // add all items to the inventory
-        foreach (Item item in totalItems)
-        {
-            inventory.AddItem(item);
-        }
+        // set items based on army
+        inventory.SetItems(itemService.GetEconomyInventory(squadStorage: squadStorage));
 
         return State.Success;
     }

@@ -53,6 +53,10 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             // populate buildings in structure that have field 'AutoBuildOnStart' as true
             BuildingStorage buildingStorage = obj.GetComponent<BuildingStorage>();
             buildingStorage.Buildings = structureBuildingService.GetAutoBuildAtStartStructureBuildings(data.Id);
+
+            // set items based on buildings
+            Inventory inventory = obj.GetComponent<Inventory>();
+            inventory.SetItems(itemService.GetEconomyInventory(buildingStorage: buildingStorage));
         }
     }
 

@@ -21,7 +21,10 @@ public class Inventory : MonoBehaviour
 
     public void SetItems(List<Item> items)
     {
-        this.items = items;
+        foreach (Item item in items)
+        {
+            AddItem(item);
+        }
     }
 
     /// <summary>

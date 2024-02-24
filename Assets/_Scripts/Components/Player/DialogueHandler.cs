@@ -51,6 +51,12 @@ public class DialogueHandler : MonoBehaviour
             return;
         }
 
+        if (!dialogueTrigger.Dialogue)
+        {
+            Debug.LogWarning("Couldn't instantiate dialogue because the dialogue is missing on the partner.");
+            return;
+        }
+
         // invoke event to notify subscribers
         OnDialogueInstantiated?.Invoke(other);
 
