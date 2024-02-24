@@ -9,6 +9,7 @@ public class WorldService : MonoBehaviour
     private EconomyService economyService;
     private RelationshipService relationshipService;
     private SoldierService soldierService;
+    private BuildingService buildingService;
     private FactionSquadPresetService factionSquadPresetService;
     private FactionService factionService;
     private QuestService questService;
@@ -22,6 +23,7 @@ public class WorldService : MonoBehaviour
         economyService = GetComponentInChildren<EconomyService>();
         relationshipService = GetComponentInChildren<RelationshipService>();
         soldierService = GetComponentInChildren<SoldierService>();
+        buildingService = GetComponentInChildren<BuildingService>();
         factionSquadPresetService = GetComponentInChildren<FactionSquadPresetService>();
         factionService = GetComponentInChildren<FactionService>();
         questService = GetComponentInChildren<QuestService>();
@@ -34,10 +36,15 @@ public class WorldService : MonoBehaviour
         dialogueService.CreateScriptableObjects();
 
         itemService.CreateScriptableObjects();
+
         economyService.InitEconomy();
 
         relationshipService.CreateScriptableObjects();
+
         soldierService.CreateScriptableObjects();
+
+        buildingService.CreateScriptableObjects();
+
         factionSquadPresetService.CreateScriptableObjects();
 
         factionService.CreateScriptableObjects();
@@ -61,6 +68,5 @@ public class WorldService : MonoBehaviour
         {
             Debug.LogWarning("Loaded wrong scene! You're playing without the usage of the SaveService!");
         }
-
     }
 }

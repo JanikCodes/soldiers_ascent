@@ -55,6 +55,17 @@
         "FoodValue": 0
     },
     {
+        "Id": "Base_Beer",
+        "Active": true,
+        "Name": "Beer",
+        "Description": "Now that's what I'm talking about!",
+        "BaseValue": 75,
+        "MaxStackSize": 6,
+        "ItemType": "Luxury",
+        "Rarity": "Common",
+        "FoodValue": 0
+    },
+    {
         "Id": "Base_Wool",
         "Active": true,
         "Name": "Wool",
@@ -108,5 +119,49 @@
         "ItemType": "Food",
         "Rarity": "Rare",
         "FoodValue": 40
+    },
+    {
+        "Id": "Base_Milk",
+        "Active": true,
+        "Name": "Milk",
+        "Description": "Moooh.",
+        "BaseValue": 60,
+        "MaxStackSize": 5,
+        "ItemType": "Food",
+        "Rarity": "Common",
+        "FoodValue": 20
+    },
+    {
+        "Id": "Base_Eggs",
+        "Active": true,
+        "Name": "Eggs",
+        "Description": "Gog Gog.",
+        "BaseValue": 52,
+        "MaxStackSize": 24,
+        "ItemType": "Food",
+        "Rarity": "Common",
+        "FoodValue": 32
+    },
+    {
+        "Id": "Base_Cow_Meat",
+        "Active": true,
+        "Name": "Cow Meat",
+        "Description": "Moooh. Ahhh!",
+        "BaseValue": 108,
+        "MaxStackSize": 32,
+        "ItemType": "Food",
+        "Rarity": "Common",
+        "FoodValue": 62
+    },
+    {
+        "Id": "Base_Bread",
+        "Active": true,
+        "Name": "Bread",
+        "Description": "Good smelling bread.",
+        "BaseValue": 44,
+        "MaxStackSize": 32,
+        "ItemType": "Food",
+        "Rarity": "Common",
+        "FoodValue": 46
     }
 ]
