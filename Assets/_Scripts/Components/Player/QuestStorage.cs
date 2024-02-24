@@ -66,8 +66,8 @@ public class QuestStorage : MonoBehaviour
                     continue;
                 }
 
-                questObjective.CurrencyRemaining = questObjectiveSaveData.CurrencyRemaining;
-                questObjective.VisitedTarget = questObjectiveSaveData.VisitedTarget;
+                questObjective.IntCheck = questObjectiveSaveData.CurrencyRemaining;
+                questObjective.BoolCheck = questObjectiveSaveData.VisitedTarget;
             }
         }
     }

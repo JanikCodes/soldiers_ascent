@@ -12,4 +12,5 @@ public class StructureSaveData
     public string OwnedByFactionId;
     public int Currency;
     public InventorySaveData Inventory;
+    public List<BuildingSaveData> Buildings = new();
 }

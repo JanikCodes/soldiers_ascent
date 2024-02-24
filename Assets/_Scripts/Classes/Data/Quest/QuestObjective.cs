@@ -21,8 +21,9 @@ public class QuestObjective
     public Transform Self;
 
     [Header("Dynamid Objective Data")]
-    public bool VisitedTarget;
-    public int CurrencyRemaining;
+    // maybe change this simply to bool, int ? Because what else would I need usually?
+    public bool BoolCheck;
+    public int IntCheck;
     // add more if neccesary . . 
 
     public QuestObjective(Transform self, QuestObjectiveSO data)

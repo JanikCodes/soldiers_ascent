@@ -21,7 +21,7 @@ public class QuestObjectiveSaveData
 
     public QuestObjectiveSaveData(QuestObjective questObjective)
     {
-        VisitedTarget = questObjective.VisitedTarget;
-        CurrencyRemaining = questObjective.CurrencyRemaining;
+        VisitedTarget = questObjective.BoolCheck;
+        CurrencyRemaining = questObjective.IntCheck;
     }
 }

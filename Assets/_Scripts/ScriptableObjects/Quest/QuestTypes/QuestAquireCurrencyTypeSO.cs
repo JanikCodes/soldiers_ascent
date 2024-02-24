@@ -12,7 +12,7 @@ public class QuestAquireCurrencyTypeSO : QuestObjectiveSO
     {
         data = questObjective;
 
-        data.CurrencyRemaining = Amount;
+        data.IntCheck = Amount;
         data.Self.GetComponent<CurrencyStorage>().OnCurrencyChanged += HandleCurrenyChange;
     }
 
@@ -23,15 +23,15 @@ public class QuestAquireCurrencyTypeSO : QuestObjectiveSO
 
     public override bool IsComplete(QuestObjective questObjective)
     {
-        return data.CurrencyRemaining == 0;
+        return data.IntCheck == 0;
     }
 
     private void HandleCurrenyChange(int changedAmount)
     {
         if (changedAmount > 0)
         {
-            int remaining = Mathf.Max(0, data.CurrencyRemaining - changedAmount);
-            data.CurrencyRemaining = remaining;
+            int remaining = Mathf.Max(0, data.IntCheck - changedAmount);
+            data.IntCheck = remaining;
         }
     }
 }

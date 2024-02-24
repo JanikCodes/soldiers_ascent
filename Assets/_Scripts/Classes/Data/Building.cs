@@ -36,6 +36,24 @@ public class BuildingData : BaseData
 }
 
 [Serializable]
+public class Building
+{
+    public BuildingSO BuildingBaseData;
+    public int BuildingProgress;
+
+    public Building()
+    {
+        // empty constructor for serialization
+    }
+
+    public Building(BuildingSO buildingSO, BuildingSaveData buildingSaveData)
+    {
+        BuildingBaseData = buildingSO;
+        BuildingProgress = buildingSaveData.BuildingProgress;
+    }
+}
+
+[Serializable]
 public class BuildingProductionItem
 {
     public ItemSO ItemBaseData;

@@ -54,4 +54,30 @@ public class StructureBuildingService : ScriptableObjectService<StructureBuildin
 
         return buildings;
     }
+
+    /// <summary>
+    /// Receives all buildings for a structure where <see cref="StructureBuildingSO.AutoBuildAtStart"/> is true.
+    /// </summary>
+    public List<Building> GetAutoBuildAtStartStructureBuildings(string structureId)
+    {
+        List<Building> buildings = new();
+        List<StructureBuildingSO> structureBuildings = scriptableObjects.FindAll(data => data.StructureId.Equals(structureId) && data.AutoBuildAtStart);
+        foreach (StructureBuildingSO structureBuilding in structureBuildings)
+        {
+            BuildingSO buildingSO = buildingService.GetScriptableObject(structureBuilding.BuildingId);
+            if (buildingSO == null)
+            {
+                Debug.LogWarning("Unable to find building with ID: " + structureBuilding.BuildingId);
+                continue;
+            }
+
+            Building building = new();
+            building.BuildingBaseData = buildingSO;
+            building.BuildingProgress = 100;
+
+            buildings.Add(building);
+        }
+
+        return buildings;
+    }
 }

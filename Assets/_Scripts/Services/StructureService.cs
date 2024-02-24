@@ -49,6 +49,10 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
 
             DialogueTrigger dialogueTrigger = obj.GetComponent<DialogueTrigger>();
             dialogueTrigger.Dialogue = data.AssignedDialogue;
+
+            // populate buildings in structure that have field 'AutoBuildOnStart' as true
+            BuildingStorage buildingStorage = obj.GetComponent<BuildingStorage>();
+            buildingStorage.Buildings = structureBuildingService.GetAutoBuildAtStartStructureBuildings(data.Id);
         }
     }
 
@@ -125,6 +129,14 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             // save inventory
             structureSaveData.Inventory = new InventorySaveData(inventory.GetItems());
 
+            // save buildings
+            BuildingStorage buildingStorage = structureTransform.GetComponent<BuildingStorage>();
+            foreach (Building building in buildingStorage.Buildings)
+            {
+                BuildingSaveData buildingSaveData = new(building);
+                structureSaveData.Buildings.Add(buildingSaveData);
+            }
+
             save.Structures.Add(structureSaveData);
         }
     }
@@ -158,6 +170,18 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             // load guid
             GUID guid = structureTransform.GetComponent<GUID>();
             guid.OverwriteId(structureSaveData.GUID);
+
+            // load buildings
+            BuildingStorage buildingStorage = structureTransform.GetComponent<BuildingStorage>();
+            // clear existing buildings
+            buildingStorage.Buildings.Clear();
+
+            foreach (BuildingSaveData buildingSaveData in structureSaveData.Buildings)
+            {
+                BuildingSO buildingSO = buildingService.GetScriptableObject(buildingSaveData.BuildingId);
+                Building building = new(buildingSO, buildingSaveData);
+                buildingStorage.Buildings.Add(building);
+            }
         }
     }
 }

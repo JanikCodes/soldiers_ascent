@@ -22,7 +22,7 @@ public class QuestVisitStructureTypeSO : QuestObjectiveSO
 
         if (otherDataSO.Id.Equals(Target))
         {
-            data.VisitedTarget = true;
+            data.BoolCheck = true;
         }
         else
         {
@@ -32,7 +32,7 @@ public class QuestVisitStructureTypeSO : QuestObjectiveSO
 
     public override bool IsComplete(QuestObjective questObjective)
     {
-        return questObjective.VisitedTarget;
+        return questObjective.BoolCheck;
     }
 
     private void HandleInstantiatedDialogue(Transform other)
