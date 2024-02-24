@@ -19,9 +19,15 @@ public class Inventory : MonoBehaviour
         return items;
     }
 
-    public void SetItems(List<Item> items)
+    /// <summary>
+    /// Completely re-set the inventory. Also clears the previous items.
+    /// </summary>
+    public void SetItems(List<Item> itemData)
     {
-        foreach (Item item in items)
+        // clears previous items
+        items.Clear();
+
+        foreach (Item item in itemData)
         {
             AddItem(item);
         }
