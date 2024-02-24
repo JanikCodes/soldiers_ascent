@@ -14,6 +14,7 @@ public class WorldService : MonoBehaviour
     private FactionService factionService;
     private QuestService questService;
     private PlayerService playerService;
+    private StructureBuildingService structureBuildingService;
     private StructureService structureService;
 
     private void Start()
@@ -28,6 +29,7 @@ public class WorldService : MonoBehaviour
         factionService = GetComponentInChildren<FactionService>();
         questService = GetComponentInChildren<QuestService>();
         playerService = GetComponentInChildren<PlayerService>();
+        structureBuildingService = GetComponentInChildren<StructureBuildingService>();
         structureService = GetComponentInChildren<StructureService>();
 
         // created neccesary file directories on startup
@@ -54,6 +56,8 @@ public class WorldService : MonoBehaviour
 
         playerService.CreateScriptableObjects();
         playerService.SpawnPlayerIntoWorld();
+
+        structureBuildingService.CreateScriptableObjects();
 
         structureService.CreateScriptableObjects();
         structureService.CreateStructureObjects();

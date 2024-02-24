@@ -12,6 +12,8 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
     private EconomyService economyService;
     private ItemService itemService;
     private DialogueService dialogueService;
+    private StructureBuildingService structureBuildingService;
+    private BuildingService buildingService;
 
     private void Awake()
     {
@@ -19,6 +21,8 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
         economyService = GetOtherService<EconomyService>();
         itemService = GetOtherService<ItemService>();
         dialogueService = GetOtherService<DialogueService>();
+        structureBuildingService = GetOtherService<StructureBuildingService>();
+        buildingService = GetOtherService<BuildingService>();
     }
 
     public void CreateStructureObjects()
@@ -65,6 +69,7 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             structure.Rotation = Quaternion.Euler(0, data.Rotation, 0);
             structure.InitiallyOwnedByFaction = data.OwnedByFactionId;
             structure.AssignedDialogue = dialogueService.GetScriptableObject(data.AssignedDialogueId);
+            structure.PossibleBuildings = structureBuildingService.GetPossibleStructureBuildings(data.Id);
             // structure.AssignedPrefab = modelCore.GetPrefabFromId(data.AssignedPrefabId);
 
             scriptableObjects.Add(structure);

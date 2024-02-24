@@ -13,4 +13,5 @@ public class StructureSO : DataSO
     public Quaternion Rotation;
     public GameObject AssignedPrefab;
     public DialogueSO AssignedDialogue;
+    public List<BuildingSO> PossibleBuildings = new();
 }
