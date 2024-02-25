@@ -153,7 +153,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 }
 
                 // save inventory
-                armySaveData.Inventory = new InventorySaveData(inventory.GetItems());
+                armySaveData.Inventory = new InventorySaveData(inventory.Items);
 
                 factionSaveData.Armies.Add(armySaveData);
             }

@@ -131,7 +131,7 @@ public class StructureService : ScriptableObjectService<StructureSO>, ISave, ILo
             structureSaveData.Currency = structureTransform.GetComponent<CurrencyStorage>().Currency;
 
             // save inventory
-            structureSaveData.Inventory = new InventorySaveData(inventory.GetItems());
+            structureSaveData.Inventory = new InventorySaveData(inventory.Items);
 
             // save buildings
             BuildingStorage buildingStorage = structureTransform.GetComponent<BuildingStorage>();

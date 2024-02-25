@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,18 +6,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public event Action OnNewItemAdded;
+
     [SerializeField] private int inventoryMaxSize = 54;
 
-    [SerializeField] private List<Item> items = new();
+    [field: SerializeField] public List<Item> Items { get; private set; }
 
-    public void ClearStorage()
-    {
-        items.Clear();
-    }
+    private const float SPEED_PENALTY_PER_ITEM = 0.01f;
 
-    public List<Item> GetItems()
+    private void Awake()
     {
-        return items;
+        Items = new();
     }
 
     /// <summary>
@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
     public void SetItems(List<Item> itemData)
     {
         // clears previous items
-        items.Clear();
+        Items.Clear();
 
         foreach (Item item in itemData)
         {
@@ -47,12 +47,12 @@ public class Inventory : MonoBehaviour
         {
             Item newItem = (Item)item.Clone();
             newItem.SlotIndex = FindFirstEmptySlotIndex();
-            items.Add(newItem);
+            Items.Add(newItem);
 
             return;
         }
 
-        foreach (Item itemData in items)
+        foreach (Item itemData in Items)
         {
             if (itemData.ItemBaseData.Equals(item.ItemBaseData))
             {
@@ -81,7 +81,7 @@ public class Inventory : MonoBehaviour
                 Item newItem = (Item)item.Clone();
                 newItem.SlotIndex = FindFirstEmptySlotIndex();
                 newItem.Count = item.ItemBaseData.MaxStackSize;
-                items.Add(newItem);
+                Items.Add(newItem);
 
                 remainingAmount -= newItem.ItemBaseData.MaxStackSize;
             }
@@ -91,8 +91,10 @@ public class Inventory : MonoBehaviour
                 Item newItem = (Item)item.Clone();
                 newItem.SlotIndex = FindFirstEmptySlotIndex();
                 newItem.Count = remainingAmount;
-                items.Add(newItem);
+                Items.Add(newItem);
             }
+
+            OnNewItemAdded?.Invoke();
         }
     }
 
@@ -100,7 +102,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < inventoryMaxSize; i++)
         {
-            if (!items.Any(x => x.SlotIndex.Equals(i)))
+            if (!Items.Any(x => x.SlotIndex.Equals(i)))
             {
                 return i;
             }
@@ -108,5 +110,10 @@ public class Inventory : MonoBehaviour
 
         Debug.LogError("Couldn't find a valid empty slot index!");
         return -99;
+    }
+
+    public float GetSpeedPenalty()
+    {
+        return Items.Count * SPEED_PENALTY_PER_ITEM;
     }
 }

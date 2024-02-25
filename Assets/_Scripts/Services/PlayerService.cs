@@ -83,7 +83,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         }
 
         // save inventory
-        playerSaveData.Inventory = new InventorySaveData(inventory.GetItems());
+        playerSaveData.Inventory = new InventorySaveData(inventory.Items);
 
         // save quest progress
         foreach (Quest quest in questStorage.Quests)
