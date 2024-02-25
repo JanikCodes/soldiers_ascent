@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 2496151040432374707}
   - component: {fileID: 7646875756530215429}
   - component: {fileID: 3896748186582084638}
+  - component: {fileID: 7058772522371260855}
+  - component: {fileID: 1994569422340698260}
   m_Layer: 6
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -324,6 +326,30 @@ MonoBehaviour:
   BaseSpeed: 5
   squadStoragePenalty: 0
   inventoryPenalty: 0
+--- !u!114 &7058772522371260855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193978f9d3bd63e46bc395c33078cb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1994569422340698260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356828974209717190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6732b3eab4a9f540927eb290957f8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612808887825369961
 GameObject:
   m_ObjectHideFlags: 0

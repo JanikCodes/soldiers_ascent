@@ -12,6 +12,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
     private SoldierService soldierService;
     private ItemService itemService;
     private QuestService questService;
+    private TimeService timeService;
 
     private GameObject playerReference;
     private const string PLAYER_ROOT_NAME = "PlayerRoot";
@@ -23,6 +24,7 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
         soldierService = GetOtherService<SoldierService>();
         itemService = GetOtherService<ItemService>();
         questService = GetOtherService<QuestService>();
+        timeService = GetOtherService<TimeService>();
     }
 
     public override void CreateScriptableObjects()
@@ -52,6 +54,9 @@ public class PlayerService : ScriptableObjectService<PlayerSO>, ISave, ILoad
 
         EconomyServiceReference economyServiceReference = playerReference.GetComponentInChildren<EconomyServiceReference>();
         economyServiceReference.Service = economyService;
+
+        TimeServiceReference timeServiceReference = playerReference.GetComponentInChildren<TimeServiceReference>();
+        timeServiceReference.Service = timeService;
 
         QuestStorage questStorage = playerReference.GetComponentInChildren<QuestStorage>();
         questStorage.InstantiateQuests(questService.GetAllScriptableObjects());

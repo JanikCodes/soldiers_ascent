@@ -12,6 +12,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField, ReadOnlyField] private bool active;
 
     private AIDestinationSetter aIDestinationSetter;
+    private TimeServiceReference timeServiceReference;
 
     private DialogueSO dialogue;
 
@@ -22,6 +23,7 @@ public class DialogueHandler : MonoBehaviour
     private void Awake()
     {
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
+        timeServiceReference = GetComponent<TimeServiceReference>();
     }
 
     private void Update()
@@ -56,6 +58,8 @@ public class DialogueHandler : MonoBehaviour
             Debug.LogWarning("Couldn't instantiate dialogue because the dialogue is missing on the partner.");
             return;
         }
+
+        timeServiceReference.Service.SetTime(TimeState.Paused, true);
 
         // invoke event to notify subscribers
         OnDialogueInstantiated?.Invoke(other);

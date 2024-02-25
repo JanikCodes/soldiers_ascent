@@ -24,6 +24,7 @@ public class SaveService : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // temporary till we have a proper scene service
         SceneManager.LoadSceneAsync("WorldScene");
     }
 
