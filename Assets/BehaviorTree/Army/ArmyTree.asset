@@ -558,6 +558,7 @@ MonoBehaviour:
   - {fileID: 8618980322284841112}
   - {fileID: 5386354305755734312}
   - {fileID: 2859346249436576894}
+  - {fileID: 888021141595220279}
   groups: []
   notes: []
   selectedNode: {fileID: 0}
@@ -582,6 +583,26 @@ MonoBehaviour:
   - {fileID: -2418909106924065986}
   children:
   - {fileID: 6117513977228014102}
+--- !u!114 &888021141595220279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e81e67f9ca86d540bc8ccea91e84f67, type: 3}
+  m_Name: IsPlayerDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is Player
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &1525176544425191118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,7 +911,8 @@ MonoBehaviour:
   nodeName: Instantiate Dialogue
   nodePosition: {x: 920, y: 1034}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: 888021141595220279}
   services: []
   ignoreAbortSelf: 0
   target: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}

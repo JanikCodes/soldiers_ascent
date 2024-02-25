@@ -19,7 +19,7 @@
         "Active": true,
         "Name": "Village B",
         "Description": "It's just village B.",
-        "OwnedByFactionId": "Base_Hunter",
+        "OwnedByFactionId": "Base_Matronos",
         "AssignedPrefabId": "BaseCity",
         "AssignedDialogueId": "Base_Dialogue_City",
         "Position": [

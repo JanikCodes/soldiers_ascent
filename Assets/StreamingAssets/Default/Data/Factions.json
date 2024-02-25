@@ -27,5 +27,19 @@
         "FactionArmySpawnType": [
             "OwnedStructures"
         ]
+    },
+    {
+        "Id": "Base_Matronos",
+        "Active": true,
+        "Name": "Matronos",
+        "Visible": true,
+        "Description": "Nothing to say about.",
+        "MaxArmyCountOnOverworld": 3,
+        "StartCurrencyAmount": 35000,
+        "MinSquadAmount": 2,
+        "MaxSquadAmount": 4,
+        "FactionArmySpawnType": [
+            "OwnedStructures"
+        ]
     }
 ]
