@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using RenownedGames.AITree;
 using UnityEngine;
+using static IntOperatorDecorator;
 
-[NodeContent(name: "Int Operator", path: "Base/Generic/Int Operator", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
-public class IntOperatorDecorator : ConditionDecorator
+[NodeContent(name: "Float Operator", path: "Base/Generic/Float Operator", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
+public class FloatOperatorDecorator : ConditionDecorator
 {
     [Header("Variables")]
     [SerializeField]
-    private IntKey firstInput;
+    private FloatKey firstInput;
 
     [SerializeField]
     private OperationTypes operation;
 
     [SerializeField]
-    private IntKey secondInput;
+    private FloatKey secondInput;
 
     protected override void OnInitialize()
     {
@@ -28,8 +29,8 @@ public class IntOperatorDecorator : ConditionDecorator
 
     protected override bool CalculateResult()
     {
-        int firstValue = firstInput.GetValue();
-        int secondValue = secondInput.GetValue();
+        float firstValue = firstInput.GetValue();
+        float secondValue = secondInput.GetValue();
 
         switch (operation)
         {
