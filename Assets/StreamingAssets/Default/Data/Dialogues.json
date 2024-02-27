@@ -6,5 +6,9 @@
     {
         "Id": "Base_Dialogue_City_Talk",
         "Active": true
+    },
+    {
+        "Id": "Base_Dialogue_Generic_Army",
+        "Active": true
     }
 ]

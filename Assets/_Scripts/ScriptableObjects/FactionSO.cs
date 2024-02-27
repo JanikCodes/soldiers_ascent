@@ -15,4 +15,5 @@ public class FactionSO : DataSO
     public int MaxSquadAmount;
     public FactionArmySpawnType[] FactionArmySpawnType;
     public List<FactionSquadPresetSO> SquadPresets;
+    public DialogueSO AssignedArmyDialogue;
 }

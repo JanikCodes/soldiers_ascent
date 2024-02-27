@@ -53,5 +53,21 @@
         "ChoiceText": "Nevermind..",
         "JumpToDialogueId": "Base_Dialogue_City",
         "Requirements": []
+    },
+    {
+        "Id": "Base_Choice_Generic_Army_Talk",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_Generic_Army",
+        "ChoiceText": "Let's talk first..",
+        "JumpToDialogueId": "Base_Dialogue_Generic_Army",
+        "Requirements": []
+    },
+    {
+        "Id": "Base_Choice_Generic_Army_Bye",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_Generic_Army",
+        "ChoiceText": "Bye!!",
+        "JumpToDialogueId": "Base_Dialogue_Generic_Army",
+        "Requirements": []
     }
 ]

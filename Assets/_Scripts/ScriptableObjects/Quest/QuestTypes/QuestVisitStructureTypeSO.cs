@@ -13,7 +13,7 @@ public class QuestVisitStructureTypeSO : QuestObjectiveSO
     {
         data = questObjective;
 
-        DialogueHandler.OnDialogueInstantiated += HandleInstantiatedDialogue;
+        PlayerDialogueHandler.OnDialogueInstantiated += HandleInstantiatedDialogue;
     }
 
     public override void UpdateObjective(QuestObjective questObjective)

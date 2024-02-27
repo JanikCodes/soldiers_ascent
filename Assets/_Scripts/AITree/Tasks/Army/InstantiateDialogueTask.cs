@@ -9,13 +9,13 @@ public class InstantiateDialogueTask : TaskNode
     private TransformKey target;
 
     // Stored required components.
-    private Transform transform;
+    private IDialogueHandler dialogueHandler;
 
     protected override void OnInitialize()
     {
         base.OnInitialize();
 
-        transform = GetOwner().transform;
+        dialogueHandler = GetOwner().GetComponent<IDialogueHandler>();
     }
 
     protected override void OnEntry()
@@ -25,14 +25,13 @@ public class InstantiateDialogueTask : TaskNode
 
     protected override State OnUpdate()
     {
-        DialogueHandler dialogueHandler = target.GetValue().GetComponent<DialogueHandler>();
-        if (!dialogueHandler)
+        if (dialogueHandler == null)
         {
             return State.Failure;
         }
 
-        // force start dialogue and pass themself
-        dialogueHandler.InstantiateDialogue(transform);
+        // instantiate dialogue
+        dialogueHandler.TalkTo(target.GetValue());
 
         return State.Success;
     }

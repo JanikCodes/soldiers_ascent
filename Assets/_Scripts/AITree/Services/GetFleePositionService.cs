@@ -36,6 +36,10 @@ public class GetFleePositionService : IntervalServiceNode
 
         Vector3 fleeDirection = playerPos - targetPos;
 
+        // introduce a random offset to the flee direction
+        float randomAngle = UnityEngine.Random.Range(-75f, 75f);
+        fleeDirection = Quaternion.Euler(0f, randomAngle, 0f) * fleeDirection;
+
         // normalize the flee direction to get a unit vector in that direction
         Vector3 normalizedFleeDirection = fleeDirection.normalized;
 

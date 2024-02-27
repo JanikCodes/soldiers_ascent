@@ -21,7 +21,7 @@ public class IntOperatorDecorator : ConditionDecorator
     private IntKey firstInput;
 
     [SerializeField]
-    private OperationTypes operation = OperationTypes.Greater;
+    private OperationTypes operation;
 
     [SerializeField]
     private IntKey secondInput;

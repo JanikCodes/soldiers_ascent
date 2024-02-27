@@ -20,6 +20,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
     private EconomyService economyService;
     private SoldierService soldierService;
     private ItemService itemService;
+    private DialogueService dialogueService;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
         economyService = GetOtherService<EconomyService>();
         soldierService = GetOtherService<SoldierService>();
         itemService = GetOtherService<ItemService>();
+        dialogueService = GetOtherService<DialogueService>();
     }
 
     public override void CreateScriptableObjects()
@@ -51,6 +53,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
             faction.MaxSquadAmount = data.MaxSquadAmount;
             faction.FactionArmySpawnType = Util.ReturnEnumValuesFromStringValues<FactionArmySpawnType>(data.FactionArmySpawnType);
             faction.SquadPresets = factionSquadPresetService.GetFactionSquadPresets(data.Id);
+            faction.AssignedArmyDialogue = dialogueService.GetScriptableObject(data.AssignedArmyDialogueId);
 
             scriptableObjects.Add(faction);
         }
@@ -103,6 +106,8 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
         GameObject selectedPrefab = prefab ? prefab : ArmyRootPrefab;
         // get faction transform based on given factionId
         Transform factionTransform = GetFactionTransform(factionId);
+
+        FactionSO factionSO = factionTransform.GetComponent<ObjectStorage>().GetObject<FactionSO>();
 
         GameObject army = Instantiate(selectedPrefab, ArmyParentTransform);
         army.transform.position = Util.CalculatePositionOnTerrain(rawPosition);

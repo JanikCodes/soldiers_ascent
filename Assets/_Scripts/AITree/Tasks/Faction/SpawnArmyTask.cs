@@ -68,6 +68,10 @@ public class SpawnArmyTask : TaskNode
         // set items based on army
         inventory.SetItems(itemService.GetEconomyInventory(squadStorage: squadStorage));
 
+        // set dialogue
+        DialogueTrigger dialogueTrigger = armyRoot.GetComponent<DialogueTrigger>();
+        dialogueTrigger.Dialogue = factionData.AssignedArmyDialogue;
+
         return State.Success;
     }
 

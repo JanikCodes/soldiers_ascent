@@ -41,6 +41,11 @@ public class GetClosestArmyService : IntervalServiceNode
             // ignore itself
             if (transform.Equals(armyColliders[i].transform)) { continue; }
 
+            // ignore armies that are in dialogue
+            IDialogueHandler dialogueHandler = armyColliders[i].GetComponent<IDialogueHandler>();
+            if (dialogueHandler == null) { continue; }
+            if (dialogueHandler.IsInDialogue()) { continue; }
+
             float distanceSqr = (transform.position - armyColliders[i].transform.position).sqrMagnitude;
             if (distanceSqr < currentClosestRange)
             {

@@ -12,7 +12,8 @@
         "FactionArmySpawnType": [
             "OutsidePlayerView",
             "OwnedStructures"
-        ]
+        ],
+        "AssignedArmyDialogueId": "Base_Dialogue_Generic_Army"
     },
     {
         "Id": "Base_Hunter",
@@ -26,7 +27,8 @@
         "MaxSquadAmount": 5,
         "FactionArmySpawnType": [
             "OwnedStructures"
-        ]
+        ],
+        "AssignedArmyDialogueId": "Base_Dialogue_Generic_Army"
     },
     {
         "Id": "Base_Matronos",
@@ -40,6 +42,7 @@
         "MaxSquadAmount": 4,
         "FactionArmySpawnType": [
             "OwnedStructures"
-        ]
+        ],
+        "AssignedArmyDialogueId": "Base_Dialogue_Generic_Army"
     }
 ]

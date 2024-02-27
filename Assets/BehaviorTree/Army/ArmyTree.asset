@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8717929335237107393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2c8428071ab524b95ad2ab99059dba, type: 3}
+  m_Name: ResetDestinationTask
+  m_EditorClassIdentifier: 
+  nodeName: Reset Destination
+  nodePosition: {x: 1635, y: 1073}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-8482461371860293987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +33,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sequencer
-  nodePosition: {x: 1578.5, y: 107}
+  nodePosition: {x: 2043, y: 107}
   breakpoint: 0
   decorators: []
   services: []
@@ -37,7 +57,7 @@ MonoBehaviour:
   sync: 0
   isLocal: 1
   value: 30
---- !u!114 &-7873392908255500350
+--- !u!114 &-8147332353925430072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,14 +66,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
-  m_Name: randomDeviation
+  m_Script: {fileID: 11500000, guid: 6e7e86709298cb74e9330c813af09998, type: 3}
+  m_Name: IntOperatorDecorator
   m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 1
+  nodeName: Int Operator
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+  firstInput: {fileID: -4179438067853436908, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+  operation: 0
+  secondInput: {fileID: 4634943304275439130, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-7521158917470855991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +114,7 @@ MonoBehaviour:
   m_Name: GetSoldierCountTask
   m_EditorClassIdentifier: 
   nodeName: Get Soldier Count
-  nodePosition: {x: 232, y: 759}
+  nodePosition: {x: 697, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -130,7 +156,7 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 1589, y: 735}
+  nodePosition: {x: 2518, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -148,7 +174,7 @@ MonoBehaviour:
   m_Name: GetSoldierCountTask
   m_EditorClassIdentifier: 
   nodeName: Get Soldier Count
-  nodePosition: {x: 0, y: 759}
+  nodePosition: {x: 465, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -177,7 +203,7 @@ MonoBehaviour:
   waitUntilTrue: 0
   firstInput: {fileID: -4179438067853436908, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
-  operation: 1
+  operation: 3
   secondInput: {fileID: 4634943304275439130, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
 --- !u!114 &-6178300087193399284
@@ -221,6 +247,27 @@ MonoBehaviour:
   transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
     type: 2}
   targetType: 02000000
+--- !u!114 &-5750734378439615703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Sequencer
+  nodePosition: {x: 133.5, y: 421}
+  breakpoint: 0
+  decorators:
+  - {fileID: 845056173951004441}
+  services: []
+  children:
+  - {fileID: -4202051093150278089}
+  - {fileID: -3865938300859135977}
 --- !u!114 &-5486308673255982984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +281,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Check relation with army
-  nodePosition: {x: 586, y: 421}
+  nodePosition: {x: 1283, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 7239031301377395939}
@@ -242,6 +289,26 @@ MonoBehaviour:
   children:
   - {fileID: 8129699521764964780}
   - {fileID: -3660461986205072495}
+--- !u!114 &-5229051286690889707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2c8428071ab524b95ad2ab99059dba, type: 3}
+  m_Name: ResetDestinationTask
+  m_EditorClassIdentifier: 
+  nodeName: Reset Destination
+  nodePosition: {x: 1867, y: 1073}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  transform: {fileID: 1841044251922876451, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
 --- !u!114 &-5202855308120486140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,13 +322,51 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Visit Transform Task
-  nodePosition: {x: 2495, y: 578}
+  nodePosition: {x: 3424, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: 4518725200463289126}
   services: []
   children:
   - {fileID: 6451935942018094749}
+--- !u!114 &-4202051093150278089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2c8428071ab524b95ad2ab99059dba, type: 3}
+  m_Name: ResetDestinationTask
+  m_EditorClassIdentifier: 
+  nodeName: Reset Destination
+  nodePosition: {x: 0, y: 578}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  transform: {fileID: 1841044251922876451, guid: 42550d070b947af4ab4d5d8f948ad9d2,
+    type: 2}
+--- !u!114 &-4198136607587602800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19557b43ea6a0ed489ed3ef15f8e2e60, type: 3}
+  m_Name: IsInDialogueDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is In Dialogue
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 1
+  waitUntilTrue: 0
 --- !u!114 &-4118946825210658781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,9 +380,10 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 2056, y: 735}
+  nodePosition: {x: 2985, y: 735}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: -4198136607587602800}
   services: []
   ignoreAbortSelf: 0
   key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
@@ -323,7 +429,47 @@ MonoBehaviour:
   description: 
   sync: 0
   isLocal: 1
-  value: 10
+  value: 30
+--- !u!114 &-3865938300859135977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8862e53ff24744d44833ea7524aa71dd, type: 3}
+  m_Name: FinishWithResultTask
+  m_EditorClassIdentifier: 
+  nodeName: Finish With Result
+  nodePosition: {x: 232, y: 578}
+  breakpoint: 0
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  result: 0
+--- !u!114 &-3773643699917333435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Sequencer
+  nodePosition: {x: 930.5, y: 877}
+  breakpoint: 0
+  decorators:
+  - {fileID: -6278276183377534260}
+  services:
+  - {fileID: -2418909106924065986}
+  children:
+  - {fileID: 6117513977228014102}
 --- !u!114 &-3660461986205072495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +483,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Friendly or Neutral
-  nodePosition: {x: 1170, y: 602}
+  nodePosition: {x: 2099, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -7521158917470855991}
@@ -357,13 +503,14 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 1376.5, y: 225}
+  nodePosition: {x: 1841, y: 225}
   breakpoint: 0
   decorators: []
   services:
   - {fileID: -2466645102769060132}
   - {fileID: 1525176544425191118}
   children:
+  - {fileID: -5750734378439615703}
   - {fileID: -5486308673255982984}
   - {fileID: 2474855644660186959}
   - {fileID: 2707570553815690497}
@@ -380,7 +527,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1459, y: 735}
+  nodePosition: {x: 2388, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -451,7 +598,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Roam Task
-  nodePosition: {x: 2033, y: 578}
+  nodePosition: {x: 2962, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6893879772899372232}
@@ -473,11 +620,28 @@ MonoBehaviour:
   m_Name: CompleteTaskTask
   m_EditorClassIdentifier: 
   nodeName: Complete Task
-  nodePosition: {x: 2284, y: 735}
+  nodePosition: {x: 3213, y: 735}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
+--- !u!114 &-787062132655415656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
+  m_Name: waitTime
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 0.2
 --- !u!114 &-121468016573310788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +655,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Wait Task
-  nodePosition: {x: 1515, y: 578}
+  nodePosition: {x: 2444, y: 578}
   breakpoint: 0
   decorators:
   - {fileID: -6178300087193399284}
@@ -547,10 +711,8 @@ MonoBehaviour:
   - {fileID: 6451935942018094749}
   - {fileID: 2707570553815690497}
   - {fileID: 4519652459709247089}
-  - {fileID: 315891282934303918}
   - {fileID: -6450780376509441930}
   - {fileID: -7281406025580570335}
-  - {fileID: 4767561356998810413}
   - {fileID: -6278276183377534260}
   - {fileID: 5823946738359157824}
   - {fileID: -4055866749786257599}
@@ -558,11 +720,58 @@ MonoBehaviour:
   - {fileID: 8618980322284841112}
   - {fileID: 5386354305755734312}
   - {fileID: 2859346249436576894}
-  - {fileID: 888021141595220279}
+  - {fileID: -4198136607587602800}
+  - {fileID: -8147332353925430072}
+  - {fileID: -3865938300859135977}
+  - {fileID: 845056173951004441}
+  - {fileID: 1040148916994096490}
+  - {fileID: -3773643699917333435}
+  - {fileID: -5750734378439615703}
+  - {fileID: 743453304936884689}
+  - {fileID: 3503298995021675939}
+  - {fileID: -8717929335237107393}
+  - {fileID: -5229051286690889707}
+  - {fileID: -4202051093150278089}
   groups: []
   notes: []
-  selectedNode: {fileID: 5952187636469909972}
---- !u!114 &315891282934303918
+  selectedNode: {fileID: 0}
+--- !u!114 &743453304936884689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19557b43ea6a0ed489ed3ef15f8e2e60, type: 3}
+  m_Name: IsInDialogueDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is In Dialogue
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 1
+  waitUntilTrue: 0
+--- !u!114 &845056173951004441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19557b43ea6a0ed489ed3ef15f8e2e60, type: 3}
+  m_Name: IsInDialogueDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Is In Dialogue
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 0
+  waitUntilTrue: 0
+--- !u!114 &1040148916994096490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -574,35 +783,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
-  nodeName: Flee
-  nodePosition: {x: 465.5, y: 877}
+  nodeName: Sequencer
+  nodePosition: {x: 1491, y: 877}
   breakpoint: 0
   decorators:
-  - {fileID: -6278276183377534260}
+  - {fileID: -8147332353925430072}
   services:
-  - {fileID: -2418909106924065986}
+  - {fileID: -4055866749786257599}
   children:
-  - {fileID: 6117513977228014102}
---- !u!114 &888021141595220279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e81e67f9ca86d540bc8ccea91e84f67, type: 3}
-  m_Name: IsPlayerDecorator
-  m_EditorClassIdentifier: 
-  nodeName: Is Player
-  nodePosition: {x: 0, y: 0}
-  breakpoint: 0
-  child: {fileID: 0}
-  inverseCondition: 0
-  waitUntilTrue: 0
-  transform: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2,
-    type: 2}
+  - {fileID: 5823946738359157824}
+  - {fileID: 5952187636469909972}
+  - {fileID: -8717929335237107393}
+  - {fileID: -5229051286690889707}
 --- !u!114 &1525176544425191118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +830,7 @@ MonoBehaviour:
   m_Name: GetRandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Get Random Position
-  nodePosition: {x: 1800, y: 735}
+  nodePosition: {x: 2729, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -659,7 +851,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 2022, y: 421}
+  nodePosition: {x: 2951, y: 421}
   breakpoint: 0
   decorators:
   - {fileID: 4502913116341140585}
@@ -681,7 +873,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 2751, y: 421}
+  nodePosition: {x: 3680, y: 421}
   breakpoint: 0
   decorators: []
   services: []
@@ -705,7 +897,7 @@ MonoBehaviour:
   child: {fileID: 0}
   inverseCondition: 0
   waitUntilTrue: 0
---- !u!114 &3051239811825553075
+--- !u!114 &3503298995021675939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -714,14 +906,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
-  m_Name: waitTime
+  m_Script: {fileID: 11500000, guid: 19557b43ea6a0ed489ed3ef15f8e2e60, type: 3}
+  m_Name: IsInDialogueDecorator
   m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 1
+  nodeName: Is In Dialogue
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  child: {fileID: 0}
+  inverseCondition: 1
+  waitUntilTrue: 0
 --- !u!114 &4064712222198614105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +945,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 1597, y: 0}
+  nodePosition: {x: 2061.5, y: 0}
   breakpoint: 0
   child: {fileID: -8482461371860293987}
 --- !u!114 &4502913116341140585
@@ -806,34 +999,13 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Do we flee or pursue
-  nodePosition: {x: 690, y: 759}
+  nodePosition: {x: 1387, y: 759}
   breakpoint: 0
   decorators: []
   services: []
   children:
-  - {fileID: 315891282934303918}
-  - {fileID: 4767561356998810413}
---- !u!114 &4767561356998810413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  nodeName: Pursue
-  nodePosition: {x: 794, y: 877}
-  breakpoint: 0
-  decorators: []
-  services:
-  - {fileID: -4055866749786257599}
-  children:
-  - {fileID: 5823946738359157824}
-  - {fileID: 5952187636469909972}
+  - {fileID: -3773643699917333435}
+  - {fileID: 1040148916994096490}
 --- !u!114 &5386354305755734312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +1019,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 2984, y: 343}
+  nodePosition: {x: 3913, y: 343}
   breakpoint: 0
   decorators:
   - {fileID: 2859346249436576894}
@@ -868,13 +1040,13 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 3205, y: 343}
+  nodePosition: {x: 4134, y: 343}
   breakpoint: 0
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  waitTime: {fileID: 3051239811825553075}
-  randomDeviation: {fileID: -7873392908255500350}
+  waitTime: {fileID: -787062132655415656}
+  randomDeviation: {fileID: 0}
 --- !u!114 &5823946738359157824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,9 +1060,10 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 692, y: 1034}
+  nodePosition: {x: 1157, y: 1073}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: 3503298995021675939}
   services: []
   ignoreAbortSelf: 0
   key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
@@ -909,10 +1082,9 @@ MonoBehaviour:
   m_Name: InstantiateDialogueTask
   m_EditorClassIdentifier: 
   nodeName: Instantiate Dialogue
-  nodePosition: {x: 920, y: 1034}
+  nodePosition: {x: 1385, y: 1073}
   breakpoint: 0
-  decorators:
-  - {fileID: 888021141595220279}
+  decorators: []
   services: []
   ignoreAbortSelf: 0
   target: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
@@ -946,12 +1118,13 @@ MonoBehaviour:
   m_Name: MoveToPositionTask
   m_EditorClassIdentifier: 
   nodeName: Move To Position
-  nodePosition: {x: 464, y: 1073}
+  nodePosition: {x: 929, y: 1073}
   breakpoint: 0
-  decorators: []
+  decorators:
+  - {fileID: 743453304936884689}
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: 0}
+  key: {fileID: 4166571183891067754, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
   acceptableRadius: 0.2
   includeAIRadius: 1
 --- !u!114 &6451935942018094749
@@ -967,7 +1140,7 @@ MonoBehaviour:
   m_Name: DebugLogTask
   m_EditorClassIdentifier: 
   nodeName: Debug Log
-  nodePosition: {x: 2534, y: 735}
+  nodePosition: {x: 3463, y: 735}
   breakpoint: 0
   decorators: []
   services: []
@@ -1004,7 +1177,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 1198, y: 759}
+  nodePosition: {x: 2127, y: 759}
   breakpoint: 0
   decorators: []
   services: []
@@ -1051,7 +1224,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Hostile
-  nodePosition: {x: 440.5, y: 602}
+  nodePosition: {x: 1137.5, y: 602}
   breakpoint: 0
   decorators:
   - {fileID: -6123833012306316449}
@@ -1073,7 +1246,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 3080, y: 225}
+  nodePosition: {x: 4009, y: 225}
   breakpoint: 0
   decorators: []
   services: []

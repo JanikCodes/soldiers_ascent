@@ -16,4 +16,5 @@ public class FactionData : BaseData
     public int MinSquadAmount;
     public int MaxSquadAmount;
     public string[] FactionArmySpawnType;
+    public string AssignedArmyDialogueId;
 }

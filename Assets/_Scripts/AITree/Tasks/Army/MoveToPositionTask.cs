@@ -30,11 +30,6 @@ public class MoveToPositionTask : TaskNode
 
     protected override State OnUpdate()
     {
-        if(ai == null || key == null)
-        {
-            return State.Failure;
-        }
-
         if (!ai.pathPending || ai.hasPath || ai.reachedEndOfPath)
         {
             float tolerance = acceptableRadius;
