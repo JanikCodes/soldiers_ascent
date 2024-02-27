@@ -22,6 +22,8 @@ public class ArmySpeed : MonoBehaviour
         ai = GetComponent<IAstarAI>();
         squadStorage = GetComponent<SquadStorage>();
         inventory = GetComponent<Inventory>();
+
+        HandleSpeedChange();
     }
 
     private void OnEnable()
