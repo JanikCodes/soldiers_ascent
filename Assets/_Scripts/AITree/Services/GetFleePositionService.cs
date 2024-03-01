@@ -31,6 +31,8 @@ public class GetFleePositionService : IntervalServiceNode
 
     protected override void OnTick()
     {
+        if (targetToFleeFrom.GetValue() == null) { return; }
+
         Vector3 playerPos = transform.position;
         Vector3 targetPos = targetToFleeFrom.GetValue().position;
 

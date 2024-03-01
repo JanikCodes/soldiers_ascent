@@ -23,6 +23,8 @@ public class GetTransformPositionService : IntervalServiceNode
 
     protected override void OnTick()
     {
+        if (transform.GetValue() == null) { return; }
+
         Vector3 targetPos = transform.GetValue().position;
         outputPosition.SetValue(targetPos);
     }

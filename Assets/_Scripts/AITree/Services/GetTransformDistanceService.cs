@@ -25,6 +25,8 @@ public class GetTransformDistanceService : IntervalServiceNode
 
     protected override void OnTick()
     {
+        if (firstTransform.GetValue() == null || secondTransform.GetValue() == null) { return; }
+
         Vector3 firstPos = firstTransform.GetValue().position;
         Vector3 secondPos = secondTransform.GetValue().position;
 
