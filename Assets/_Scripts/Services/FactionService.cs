@@ -124,6 +124,24 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
         return army;
     }
 
+    public Transform GetArmyTransform(string guid)
+    {
+        foreach (Transform army in ArmyParentTransform)
+        {
+            GUID armyGUID = army.GetComponent<GUID>();
+            if (armyGUID == null) { continue; }
+
+            if (armyGUID.Id.Equals(guid))
+            {
+                return army;
+            }
+        }
+
+        Debug.LogError("Couldn't find army transform where GUID Id is: " + guid);
+
+        return null;
+    }
+
     public void Save(Save save)
     {
         foreach (Transform faction in FactionParentTransform)
@@ -138,17 +156,30 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
             foreach (Transform armyTransform in factionArmyReference.ReferencedArmies)
             {
                 // ignore the player to be saved here, we save him seperately
-                if (armyTransform.GetComponent<PlayerNearby>() == null) { continue; }
+                if (armyTransform.GetComponentInChildren<PlayerNearbyEmitter>() != null) { continue; }
 
                 SquadStorage squadStorage = armyTransform.GetComponent<SquadStorage>();
                 Inventory inventory = armyTransform.GetComponent<Inventory>();
                 CurrencyStorage currencyStorage = armyTransform.GetComponent<CurrencyStorage>();
+                ArmyDialogueHandler armyDialogueHandler = armyTransform.GetComponent<ArmyDialogueHandler>();
 
                 ArmySaveData armySaveData = new();
                 armySaveData.GUID = armyTransform.GetComponent<GUID>().Id;
                 armySaveData.Currency = currencyStorage.Currency;
                 armySaveData.Position = Util.GetFloatArray(armyTransform.transform.position);
                 armySaveData.Rotation = Util.GetFloatArray(armyTransform.transform.rotation);
+
+                // save army dialogue
+                if (armyDialogueHandler.IsInDialogue())
+                {
+                    armySaveData.DialogueActive = true;
+                    armySaveData.DialogueType = armyDialogueHandler.dialogueType.ToString();
+                    GUID otherGUID = armyDialogueHandler.other.GetComponent<GUID>();
+                    if (otherGUID)
+                    {
+                        armySaveData.DialogueOtherGUID = otherGUID.Id;
+                    }
+                }
 
                 // save squads with soldiers
                 foreach (Squad squad in squadStorage.Squads)
@@ -169,6 +200,11 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
 
     public void Load(Save save)
     {
+        // clean up armies
+        foreach (Transform armyTransform in ArmyParentTransform)
+        {
+            Destroy(armyTransform.gameObject);
+        }
 
         foreach (Transform faction in FactionParentTransform)
         {
@@ -180,13 +216,8 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
             FactionRelationship factionRelationship = faction.GetComponent<FactionRelationship>();
             factionRelationship.Relationships = factionSaveData.Relationships.Relationships;
 
-            // clean up armies
             FactionArmyReference factionArmyReference = faction.GetComponent<FactionArmyReference>();
             factionArmyReference.ReferencedArmies = new();
-            foreach (Transform armyTransform in ArmyParentTransform)
-            {
-                Destroy(armyTransform.gameObject);
-            }
 
             foreach (ArmySaveData armySaveData in factionSaveData.Armies)
             {
@@ -230,6 +261,27 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 }
 
                 inventory.SetItems(items);
+            }
+
+            foreach (ArmySaveData armySaveData in factionSaveData.Armies)
+            {
+                // is army not in dialogue?
+                if (!armySaveData.DialogueActive) { continue; }
+
+                // find armySaveData transform
+                Transform armyTransform = GetArmyTransform(armySaveData.GUID);
+                if (armyTransform == null) { continue; }
+
+                // find transform based on guid
+                Transform other = GetArmyTransform(armySaveData.DialogueOtherGUID);
+                if (other == null) { continue; }
+
+                ArmyDialogueHandler armyDialogueHandler = armyTransform.GetComponent<ArmyDialogueHandler>();
+                if (armyDialogueHandler == null) { continue; }
+
+                DialogueType dialogueType = Util.ReturnEnumValueFromStringValue<DialogueType>(armySaveData.DialogueType);
+
+                armyDialogueHandler.TalkTo(other, dialogueType);
             }
         }
     }

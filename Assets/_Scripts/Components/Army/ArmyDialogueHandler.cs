@@ -6,13 +6,23 @@ using UnityEngine;
 public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
 {
     [Tooltip("True if a dialogue is actively running.")]
-    [SerializeField, ReadOnlyField] private bool active;
+    [field: SerializeField, ReadOnlyField] public bool active { get; private set; }
+    [field: SerializeField, ReadOnlyField] public DialogueType dialogueType { get; private set; }
+    [field: SerializeField, ReadOnlyField] public Transform other { get; private set; }
+    [field: SerializeField, ReadOnlyField] public DialogueImmunity dialogueImmunity { get; private set; }
 
-    public void BeingTalkedTo(Transform other)
+    private void Awake()
+    {
+        dialogueImmunity = GetComponent<DialogueImmunity>();
+    }
+
+    public void BeingTalkedTo(Transform other, DialogueType type)
     {
         if (active) { return; }
 
         active = true;
+        dialogueType = type;
+        this.other = other;
 
         Debug.Log("AI is being talked by ... " + other.name);
     }
@@ -22,13 +32,7 @@ public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
         return active;
     }
 
-    public void ProcessDialogue()
-    {
-        // empty
-        // TODO: based on type, do nothing or calculate battle result
-    }
-
-    public void TalkTo(Transform other)
+    public void TalkTo(Transform other, DialogueType type)
     {
         if (active) { return; }
 
@@ -43,11 +47,41 @@ public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
         if (otherDialogueHandler.IsInDialogue()) { return; }
 
         // notify other that we're talking to him
-        otherDialogueHandler.BeingTalkedTo(transform);
+        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
 
         // set states
         active = true;
+        dialogueType = type;
+        this.other = other;
 
         Debug.Log("AI is talking to ... " + other.name);
+    }
+
+    public DialogueType GetDialogueType()
+    {
+        return dialogueType;
+    }
+
+    public void ExitDialogue()
+    {
+        dialogueImmunity.SetImmunity(25f);
+        other = null;
+        active = false;
+
+        Debug.Log("AI exited dialogue ...");
+
+        NotifyOtherAboutExit();
+    }
+
+    private void NotifyOtherAboutExit()
+    {
+        if (other == null) { return; }
+
+        IDialogueHandler otherDialogueHandler = other.GetComponent<IDialogueHandler>();
+
+        if (otherDialogueHandler == null) { return; }
+        if (!otherDialogueHandler.IsInDialogue()) { return; }
+
+        otherDialogueHandler.ExitDialogue();
     }
 }

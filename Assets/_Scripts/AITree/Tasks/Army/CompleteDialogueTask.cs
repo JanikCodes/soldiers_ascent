@@ -1,16 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using RenownedGames.AITree;
 using UnityEngine;
 
-[NodeContent("Instantiate Dialogue", "Tasks/Base/Army/Instantiate Dialogue", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
-public class InstantiateDialogueTask : TaskNode
+[NodeContent("Complete Dialogue", "Tasks/Base/Army/Complete Dialogue", IconPath = "Images/Icons/Node/SendMessageIcon.png")]
+public class CompleteDialogueTask : TaskNode
 {
-    [Header("Variables")]
-    [SerializeField]
-    private TransformKey target;
-
-    [SerializeField]
-    private DialogueType dialogueType;
-
     // Stored required components.
     private IDialogueHandler dialogueHandler;
 
@@ -33,8 +28,7 @@ public class InstantiateDialogueTask : TaskNode
             return State.Failure;
         }
 
-        // instantiate dialogue
-        dialogueHandler.TalkTo(target.GetValue(), dialogueType);
+        dialogueHandler.ExitDialogue();
 
         return State.Success;
     }

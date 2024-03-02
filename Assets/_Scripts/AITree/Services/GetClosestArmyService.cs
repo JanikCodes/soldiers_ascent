@@ -46,6 +46,11 @@ public class GetClosestArmyService : IntervalServiceNode
             if (dialogueHandler == null) { continue; }
             if (dialogueHandler.IsInDialogue()) { continue; }
 
+            // ignore armies that are immune to dialogue
+            DialogueImmunity dialogueImmunity = armyColliders[i].GetComponent<DialogueImmunity>();
+            if (dialogueImmunity == null) { continue; }
+            if (dialogueImmunity.Immune) { continue; }
+
             float distanceSqr = (transform.position - armyColliders[i].transform.position).sqrMagnitude;
             if (distanceSqr < currentClosestRange)
             {

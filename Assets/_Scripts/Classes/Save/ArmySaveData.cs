@@ -13,4 +13,7 @@ public class ArmySaveData
     public int Currency;
     public List<SquadSaveData> Squads = new();
     public InventorySaveData Inventory;
+    public bool DialogueActive = false;
+    public string DialogueType;
+    public string DialogueOtherGUID;
 }

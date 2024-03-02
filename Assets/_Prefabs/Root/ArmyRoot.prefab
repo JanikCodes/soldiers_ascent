@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: -3121249714310162098}
   - component: {fileID: 3440082026064254587}
   - component: {fileID: -4279671018905292497}
+  - component: {fileID: 6558827048643863680}
   m_Layer: 6
   m_Name: ArmyRoot
   m_TagString: Untagged
@@ -332,6 +333,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+--- !u!114 &6558827048643863680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310213461941167532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d0a0425d3766843b3548b91c94a9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Immune>k__BackingField: 0
 --- !u!1001 &7391246704776987692
 PrefabInstance:
   m_ObjectHideFlags: 0

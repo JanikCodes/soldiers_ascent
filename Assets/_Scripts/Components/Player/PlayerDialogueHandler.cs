@@ -13,8 +13,11 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
     private AIDestinationSetter aIDestinationSetter;
     private TimeServiceReference timeServiceReference;
+    private DialogueImmunity dialogueImmunity;
 
+    private Transform other;
     private DialogueSO dialogue;
+    private DialogueType dialogueType;
 
     // events
     public static event OnDialogueInstantiatedDelegate OnDialogueInstantiated;
@@ -24,6 +27,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     {
         aIDestinationSetter = GetComponent<AIDestinationSetter>();
         timeServiceReference = GetComponent<TimeServiceReference>();
+        dialogueImmunity = GetComponent<DialogueImmunity>();
     }
 
     private void Update()
@@ -35,19 +39,14 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
         if (trigger)
         {
-            TalkTo(aIDestinationSetter.target);
+            TalkTo(aIDestinationSetter.target, DialogueType.Player);
         }
     }
 
-    public void ProcessDialogue()
+    public void BeingTalkedTo(Transform other, DialogueType type)
     {
-        // empty
-    }
+        if (active) { return; }
 
-    public void BeingTalkedTo(Transform other)
-    {
-        if(active) { return; }
-        
         DialogueTrigger dialogueTrigger = other.GetComponent<DialogueTrigger>();
         if (!dialogueTrigger)
         {
@@ -70,6 +69,8 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         // set states
         active = true;
         dialogue = dialogueTrigger.Dialogue;
+        dialogueType = type;
+        this.other = other;
 
         Debug.Log("Player is being talked to by ... " + other.name);
     }
@@ -82,7 +83,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     /// <summary>
     /// This methode is ONLY executed by the player.
     /// </summary>
-    public void TalkTo(Transform other)
+    public void TalkTo(Transform other, DialogueType type)
     {
         if (active) { return; }
 
@@ -107,7 +108,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         }
 
         // notify other that we're talking to him
-        otherDialogueHandler.BeingTalkedTo(transform);
+        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
 
         // notify subscribers and quest progress
         OnDialogueInstantiated?.Invoke(other);
@@ -118,6 +119,8 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         // set states
         active = true;
         dialogue = dialogueTrigger.Dialogue;
+        dialogueType = type;
+        this.other = other;
 
         Debug.Log("Player is talking to ... " + other.name);
     }
@@ -125,5 +128,30 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     private bool ShouldTriggerDialogue()
     {
         return Vector3.Distance(aIDestinationSetter.target.position, transform.position) <= dialogueTriggerDistance;
+    }
+
+    public DialogueType GetDialogueType()
+    {
+        return dialogueType;
+    }
+
+    public void ExitDialogue()
+    {
+        dialogueImmunity.SetImmunity(25f);
+        active = false;
+
+        NotifyOtherAboutExit();
+    }
+
+    private void NotifyOtherAboutExit()
+    {
+        if (other == null) { return; }
+
+        IDialogueHandler otherDialogueHandler = other.GetComponent<IDialogueHandler>();
+
+        if (otherDialogueHandler == null) { return; }
+        if (!otherDialogueHandler.IsInDialogue()) { return; }
+
+        otherDialogueHandler.ExitDialogue();
     }
 }
