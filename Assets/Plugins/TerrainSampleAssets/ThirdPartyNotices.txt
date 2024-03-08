@@ -1,5 +1,5 @@
 ﻿
-# The Terrain Tools Sample Asset Pack and all its art assets are governed by the standard Unity Asset Store EULA; however, the following components are governed by custom licenses as listed below:
+# The Unity Terrain - URP Demo Scene and all its art assets are governed by the standard Unity Asset Store EULA; however, the following components are governed by custom licenses as listed below:
 
 ================================================
 
