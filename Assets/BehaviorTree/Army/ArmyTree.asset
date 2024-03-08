@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 604, y: 657}
+  nodePosition: {x: 635.05005, y: 704.15}
   breakpoint: 0
   decorators: []
   services: []
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Player
-  nodePosition: {x: 967, y: 500}
+  nodePosition: {x: 1100.4, y: 508.05002}
   breakpoint: 0
   decorators:
   - {fileID: 2673834391402232878}
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: CompleteDialogueTask
   m_EditorClassIdentifier: 
   nodeName: Complete Dialogue
-  nodePosition: {x: 362, y: 657}
+  nodePosition: {x: 311.74503, y: 667.57996}
   breakpoint: 0
   decorators: []
   services: []
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Talking
-  nodePosition: {x: 298, y: 500}
+  nodePosition: {x: 247.745, y: 510.58}
   breakpoint: 0
   decorators:
   - {fileID: -7840774668061650336}
@@ -485,7 +485,7 @@ MonoBehaviour:
   services: []
   ignoreAbortSelf: 0
   target: {fileID: 734021378081510310, guid: 42550d070b947af4ab4d5d8f948ad9d2, type: 2}
-  dialogueType: 0
+  dialogueType: 1
 --- !u!114 &-4118946825210658781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Do nothing
-  nodePosition: {x: 997.5, y: 657}
+  nodePosition: {x: 1131.4, y: 665.05}
   breakpoint: 0
   decorators: []
   services: []
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Fighting
-  nodePosition: {x: 665.5, y: 500}
+  nodePosition: {x: 697.05, y: 547.15}
   breakpoint: 0
   decorators:
   - {fileID: 2204502945999000263}
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Name: FinishWithResultTask
   m_EditorClassIdentifier: 
   nodeName: Finish With Result
-  nodePosition: {x: 734, y: 657}
+  nodePosition: {x: 765.05, y: 704.15}
   breakpoint: 0
   decorators: []
   services: []
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 232, y: 657}
+  nodePosition: {x: 181.74501, y: 667.57996}
   breakpoint: 0
   decorators: []
   services: []
