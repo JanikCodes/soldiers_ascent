@@ -60,6 +60,11 @@ namespace RenownedGames.AITree.Nodes
         /// </summary>
         public override bool CalculateResult()
         {
+            if(keyQuery == null || key == null)
+            {
+                return false;
+            }
+
             return keyQuery.Result(key);
         }
         #endregion

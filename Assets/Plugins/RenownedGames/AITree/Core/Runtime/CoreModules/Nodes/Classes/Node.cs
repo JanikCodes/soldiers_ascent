@@ -158,6 +158,15 @@ namespace RenownedGames.AITree
             visiter(this);
         }
 
+        /// <summary>
+        /// Progress of node execution.
+        /// </summary>
+        /// <returns>If node support progress line, return value of normalized progress. Otherwise null.</returns>
+        protected internal virtual float? GetProgress()
+        {
+            return null;
+        }
+
 #if UNITY_EDITOR
         /// <summary>
         /// Editor only method called when the value in the inspector or changes.

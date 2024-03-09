@@ -42,6 +42,11 @@ namespace RenownedGames.AITree.Nodes
         /// <returns>State.</returns>
         protected override State OnUpdate()
         {
+            if(keyQuery == null || key == null)
+            {
+                return State.Failure;
+            }
+
             if (keyQuery.Result(key))
             {
                 UpdateChild();

@@ -38,7 +38,7 @@ namespace RenownedGames.AITree.Nodes
         /// <returns>State.</returns>
         protected override State OnUpdate()
         {
-            if (blackboardKey == null)
+            if (keyReceiver == null || blackboardKey == null)
             {
                 return State.Failure;
             }

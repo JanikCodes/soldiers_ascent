@@ -12,6 +12,11 @@ public class Squad
         soldiers.Add(soldier);
     }
 
+    public void RemoveSoldier(Soldier soldier)
+    {
+        soldiers.Remove(soldier);
+    }
+
     public List<Soldier> GetSoldiers()
     {
         return soldiers;

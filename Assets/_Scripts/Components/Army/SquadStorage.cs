@@ -7,6 +7,7 @@ using UnityEngine;
 public class SquadStorage : MonoBehaviour
 {
     public event Action OnNewSquadAdded;
+    public event Action OnSoldierRemoved;
 
     [field: SerializeField] public List<Squad> Squads { get; private set; }
 
@@ -27,6 +28,27 @@ public class SquadStorage : MonoBehaviour
     public int GetTotalSoldierCount()
     {
         return Squads.Sum(squad => squad.GetSoldierCount());
+    }
+
+    /// <summary>
+    /// Remove a random soldier from a random squad
+    /// </summary>
+    /// <returns>True if it successfully removed a soldier.</returns>
+    public bool RemoveRandomSoldier()
+    {
+        foreach (Squad squad in Squads)
+        {
+            if (squad.GetSoldierCount() > 0)
+            {
+                Soldier randomSoldier = Util.GetRandomValue<Soldier>(squad.GetSoldiers());
+                squad.RemoveSoldier(randomSoldier);
+
+                OnSoldierRemoved?.Invoke();
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public float GetSpeedPenalty()

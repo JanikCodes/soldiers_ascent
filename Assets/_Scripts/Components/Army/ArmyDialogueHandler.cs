@@ -24,7 +24,7 @@ public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
         dialogueType = type;
         this.other = other;
 
-        Debug.Log("AI is being talked by ... " + other.name);
+        Debug.Log("AI is being talked by ... " + other.name + " with type: " + type);
     }
 
     public bool IsInDialogue()
@@ -46,15 +46,15 @@ public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
         // is other not already in dialogue?
         if (otherDialogueHandler.IsInDialogue()) { return; }
 
-        // notify other that we're talking to him
-        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
-
         // set states
         active = true;
         dialogueType = type;
         this.other = other;
 
-        Debug.Log("AI is talking to ... " + other.name);
+        Debug.Log("AI is talking to ... " + other.name + " with type: " + type);
+
+        // notify other that we're talking to him
+        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
     }
 
     public DialogueType GetDialogueType()
@@ -65,15 +65,17 @@ public class ArmyDialogueHandler : MonoBehaviour, IDialogueHandler
     public void ExitDialogue()
     {
         dialogueImmunity.SetImmunity(25f);
+
+        Transform cacheOther = other;
+
         other = null;
         active = false;
 
         Debug.Log("AI exited dialogue ...");
-
-        NotifyOtherAboutExit();
+        NotifyOtherAboutExit(cacheOther);
     }
 
-    private void NotifyOtherAboutExit()
+    private void NotifyOtherAboutExit(Transform other)
     {
         if (other == null) { return; }
 

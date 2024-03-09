@@ -10,8 +10,6 @@
 using RenownedGames.AITree;
 using RenownedGames.ExLibEditor.Windows;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.UIElements;
@@ -49,10 +47,12 @@ namespace RenownedGames.AITreeEditor
         private int frameCount;
         private int lastRunnerID;
         private BehaviourTree selectedTree;
+        private AITreeSettings settings;
 
         private Styles styles;
         private BehaviourTreeGraph graph;
         private Label treeName;
+        private Label nodeDescription;
         private ToolbarMenu toolbarAssets;
         private ToolbarButton saveButton;
         private ToolbarToggle autoSaveToggle;
@@ -96,6 +96,7 @@ namespace RenownedGames.AITreeEditor
             EditorApplication.playModeStateChanged -= OnPlayMoveStateChanged;
             EditorApplication.playModeStateChanged += OnPlayMoveStateChanged;
 
+            settings = AITreeSettings.instance;
         }
 
         /// <summary>
@@ -103,6 +104,11 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         private void OnFocus()
         {
+            if(settings == null)
+            {
+                settings = AITreeSettings.instance;
+            }
+
             if (HasUnloadedVisualElements())
             {
                 LoadVisualElements();
@@ -111,6 +117,25 @@ namespace RenownedGames.AITreeEditor
             if (HasOpenInstances() && selectedTree != null && graph != null)
             {
                 graph.PopulateView(selectedTree);
+            }
+
+            if(treeName != null)
+            {
+                switch (settings.GetTreeNameMode())
+                {
+                    case AITreeSettings.TreeNameMode.Normal:
+                        treeName.style.fontSize = 50;
+                        treeName.visible = true;
+                        break;
+                    case AITreeSettings.TreeNameMode.Small:
+                        treeName.style.fontSize = 25;
+                        treeName.visible = true;
+                        break;
+                    case AITreeSettings.TreeNameMode.Disable:
+                        treeName.style.fontSize = 50;
+                        treeName.visible = false;
+                        break;
+                }
             }
         }
 
@@ -391,6 +416,7 @@ namespace RenownedGames.AITreeEditor
 
             graph = rootVisualElement.Q<BehaviourTreeGraph>();
             treeName = rootVisualElement.Q<Label>("tree-name");
+            nodeDescription = rootVisualElement.Q<Label>("node-description");
             toolbarAssets = rootVisualElement.Q<ToolbarMenu>("toolbar-assets");
             saveButton = rootVisualElement.Q<ToolbarButton>("save-button");
             autoSaveToggle = rootVisualElement.Q<ToolbarToggle>("auto-save-toggle");
@@ -406,6 +432,9 @@ namespace RenownedGames.AITreeEditor
 
             saveButton.SetEnabled(false);
             saveButton.clicked += SaveChanges;
+
+            nodeDescription.visible = false;
+            nodeDescription.text = string.Empty;
         }
 
         /// <summary>
@@ -462,6 +491,8 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         private void OnNodeSelectionChanged(Node node)
         {
+            nodeDescription.text = string.Empty;
+            nodeDescription.visible = false;
             if (node != null)
             {
                 if (node is RootNode)
@@ -471,6 +502,18 @@ namespace RenownedGames.AITreeEditor
                 else
                 {
                     NodeInspectorWindow.NotifyTrackEditor(node);
+
+                    if((AITreeSettings.instance.GetNodeTooltipMode() & AITreeSettings.NodeTooltipMode.GraphOverlay) != 0)
+                    {
+                        if (NodeTypeCache.TryGetNodeInfo(node.GetType(), out NodeTypeCache.NodeInfo nodeInfo))
+                        {
+                            if (nodeInfo.tooltipAttribute != null)
+                            {
+                                nodeDescription.visible = true;
+                                nodeDescription.text = nodeInfo.tooltipAttribute.text;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -532,10 +575,22 @@ namespace RenownedGames.AITreeEditor
         [MenuItem("Tools/AI Tree/Windows/Behaviour Tree", false, 20)]
         public static void Open()
         {
-            BehaviourTreeWindow window = CreateWindow();
-            window.saveChangesMessage = "Behaviour tree has unsaved changes. Would you like to save?";
-            window.MoveToCenter();
-            window.Show();
+            if (HasOpenInstances())
+            {
+                BehaviourTreeWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    BehaviourTreeWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -578,14 +633,16 @@ namespace RenownedGames.AITreeEditor
             }
         }
 
-
         /// <summary>
         /// Create new instance of Node Behaviour Tree.
         /// </summary>
         /// <returns>Instance of BehaviourTreeWindow.</returns>
-        private static BehaviourTreeWindow CreateWindow()
+        internal static BehaviourTreeWindow CreateWindow()
         {
             BehaviourTreeWindow window = CreateInstance<BehaviourTreeWindow>();
+            window.saveChangesMessage = "Behaviour tree has unsaved changes. Would you like to save?";
+            window.MoveToCenter();
+            window.Show();
             return window;
         }
 

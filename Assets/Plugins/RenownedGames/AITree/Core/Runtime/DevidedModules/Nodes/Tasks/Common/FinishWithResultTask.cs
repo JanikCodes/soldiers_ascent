@@ -18,7 +18,7 @@ namespace RenownedGames.AITree.Nodes
     {
         [Title("Result")]
         [SerializeField]
-        [Enum]
+        [Enum(HideValues = "GetHiddenState")]
         private State result;
 
         /// <summary>

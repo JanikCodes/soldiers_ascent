@@ -64,6 +64,10 @@ namespace RenownedGames.AITreeEditor
             {
                 AddToClassList("root");
             }
+            else if(GetNode() is TempTask)
+            {
+                AddToClassList("temp-task");
+            }
             else if (GetNode() is TaskNode)
             {
                 AddToClassList("task");

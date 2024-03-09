@@ -37,7 +37,14 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         protected override void InitializeStyles()
         {
-            AddToClassList("decorator");
+            if(GetNode() is TempDecoratorNode)
+            {
+                AddToClassList("temp-decorator");
+            }
+            else
+            {
+                AddToClassList("decorator");
+            }
         }
 
         /// <summary>

@@ -18,7 +18,6 @@ public class IsInDialogueDecorator : ConditionDecorator
 
     protected override bool CalculateResult()
     {
-        // only the player can contain this component, therefore it's a save check to see if the transform is the player.
         IDialogueHandler dialogueHandler = GetOwner().GetComponent<IDialogueHandler>();
 
         if (dialogueHandler == null)

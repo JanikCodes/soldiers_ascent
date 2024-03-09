@@ -85,3 +85,18 @@ ToolbarButton:focus {
     font-size: 50px;
     -unity-font-style: bold;
 }
+
+#node-description {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+    width: 500px;
+
+    white-space: normal;
+    text-overflow: ellipsis;
+
+    color: rgba(255, 255, 255, .5);
+    font-size: 15px;
+    -unity-font-style: italic;
+}

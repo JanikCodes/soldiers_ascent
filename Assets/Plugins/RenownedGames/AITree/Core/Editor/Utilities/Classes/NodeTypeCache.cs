@@ -24,16 +24,18 @@ namespace RenownedGames.AITreeEditor
         public readonly struct NodeInfo
         {
             public readonly Type type;
-            public readonly NodeContentAttribute attribute;
+            public readonly NodeContentAttribute contentAttribute;
+            public readonly NodeTooltipAttribute tooltipAttribute;
             public readonly Texture2D icon;
 
-            internal NodeInfo(Type type, NodeContentAttribute attribute)
+            internal NodeInfo(Type type, NodeContentAttribute contentAttribute, NodeTooltipAttribute tooltipAttribute)
             {
                 this.type = type;
-                this.attribute = attribute;
-                icon = null;
+                this.contentAttribute = contentAttribute;
+                this.tooltipAttribute = tooltipAttribute;
+                this.icon = null;
 
-                string iconPath = attribute?.IconPath ?? string.Empty;
+                string iconPath = contentAttribute?.IconPath ?? string.Empty;
 
                 if (string.IsNullOrEmpty(iconPath) && type.IsSubclassOf(typeof(TaskNode)))
                 {
@@ -135,8 +137,9 @@ namespace RenownedGames.AITreeEditor
                 }
                 UnityEngine.Object.DestroyImmediate(clone);
 
-                NodeContentAttribute attribute = nodeImpl.GetCustomAttribute<NodeContentAttribute>(false);
-                nodeTypes.Add(new NodeInfo(nodeImpl, attribute));
+                NodeContentAttribute contentAttribute = nodeImpl.GetCustomAttribute<NodeContentAttribute>(false);
+                NodeTooltipAttribute descriptionAttribute = nodeImpl.GetCustomAttribute<NodeTooltipAttribute>(false);
+                nodeTypes.Add(new NodeInfo(nodeImpl, contentAttribute, descriptionAttribute));
             }
             nodesInfo = new NodeCollection(nodeTypes);
             Application.SetStackTraceLogType(LogType.Warning, stackTraceLogType);
@@ -146,6 +149,20 @@ namespace RenownedGames.AITreeEditor
         public static NodeCollection GetNodesInfo()
         {
             return nodesInfo;
+        }
+
+        public static bool TryGetNodeInfo(Type type, out NodeInfo nodeInfo)
+        {
+            for (int i = 0; i < nodesInfo.Count ; i++) 
+            {
+                nodeInfo = nodesInfo[i];
+                if(nodeInfo.type == type)
+                {
+                    return true;
+                }
+            }
+            nodeInfo = default;
+            return false;
         }
         #endregion
     }

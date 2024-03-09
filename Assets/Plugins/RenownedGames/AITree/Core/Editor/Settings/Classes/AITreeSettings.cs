@@ -19,6 +19,28 @@ namespace RenownedGames.AITreeEditor
     [UnityEditor.FilePath("ProjectSettings/AITreeSettings.asset", UnityEditor.FilePathAttribute.Location.ProjectFolder)]
     public sealed class AITreeSettings : ScriptableSingleton<AITreeSettings>
     {
+        public enum TreeNameMode
+        {
+            Normal,
+            Small,
+            Disable
+        }
+
+        [System.Flags]
+        public enum NodeTooltipMode
+        {
+            Disabled = 0,
+            MouseOverlay = 1 << 0,
+            GraphOverlay = 1 << 1,
+            Both = ~0
+        }
+
+        public enum NodeProgressMode
+        {
+            TopToBottom,
+            BottomToTop
+        }
+
         public enum HotKeyAPI
         {
             KeyDownListener,
@@ -26,12 +48,43 @@ namespace RenownedGames.AITreeEditor
         }
 
         [SerializeField]
+        [Tooltip("How display name of tree on tree graph.")]
+        private TreeNameMode treeNameMode = TreeNameMode.Normal;
+
+        [SerializeField]
+        [Tooltip("Automatically snapping nodes within grid, when the user drags them.")]
         private bool allowNodeSnapping = false;
 
         [SerializeField]
+        [Tooltip("Minimap of tree graph, shows all nodes, groups and notes in the graph in a small window.")]
         private bool showMiniMap = false;
 
         [SerializeField]
+        [Tooltip("Show the progress bar for nodes that have a time dependency.")]
+        private bool showNodeProgress = true;
+        
+        [SerializeField]
+        [Label("Mode")]
+        [Tooltip("Filling progress bar mode.\nNote different modes has additional settings.")]
+        [ShowIf("showNodeProgress")]
+        [Indent]
+        private NodeProgressMode nodeProgressMode = NodeProgressMode.TopToBottom;
+
+        [SerializeField]
+        [Label("Gradient")]
+        [Tooltip("Use progress bar gradient [white -> yellow -> red], work only with top to bottom mode.")]
+        [ShowIf("NodeGradientPropertyConfition")]
+        [Indent]
+        private bool nodeProgressGradient = true;
+
+        [SerializeField]
+        [Tooltip("The place where to display the node tooltip, if it's available. Keep in mind that you can select several modes.")]
+        private NodeTooltipMode nodeTooltipMode = NodeTooltipMode.GraphOverlay;
+
+        [SerializeField]
+        [Tooltip("The API that will be used to process hotkeys. In Unity 2023, it's preferable to use KeyDownListener.\n" +
+            "\n[KeyDownEvent] - built-in Unity API" +
+            "\n[KeyDownListener] - internal Renowned Games API")]
         private HotKeyAPI graphHotKeyAPI = HotKeyAPI.KeyDownEvent;
 
         [SerializeField]
@@ -115,8 +168,13 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         public void Reset()
         {
+            treeNameMode = TreeNameMode.Normal;
             allowNodeSnapping = false;
             showMiniMap = false;
+            showNodeProgress = true;
+            nodeProgressMode = NodeProgressMode.TopToBottom;
+            nodeProgressGradient = true;
+            nodeTooltipMode = NodeTooltipMode.GraphOverlay;
 #if UNITY_2023
             graphHotKeyAPI = HotKeyAPI.KeyDownListener;
 #else
@@ -165,6 +223,11 @@ namespace RenownedGames.AITreeEditor
                 keyDetailsUSS != null;
         }
 
+        private bool NodeGradientPropertyConfition()
+        {
+            return showNodeProgress && nodeProgressMode == NodeProgressMode.TopToBottom;
+        }
+
         #region [Static Method]
         [System.Obsolete("Use AITreeSettings.instance property instead.")]
         public static AITreeSettings Current
@@ -198,6 +261,16 @@ namespace RenownedGames.AITreeEditor
         #endregion
 
         #region [Getter / Setter]
+        public TreeNameMode GetTreeNameMode()
+        {
+            return treeNameMode;
+        }
+
+        public void SetTreeNameMode(TreeNameMode value)
+        {
+            treeNameMode = value;
+        }
+
         public bool AllowNodeSnapping()
         {
             return allowNodeSnapping;
@@ -216,6 +289,46 @@ namespace RenownedGames.AITreeEditor
         public void ShowMiniMap(bool value)
         {
             showMiniMap = value;
+        }
+
+        public bool ShowNodeProgress()
+        {
+            return showNodeProgress;
+        }
+
+        public void ShowNodeProgress(bool value)
+        {
+            showNodeProgress = value;
+        }
+
+        public NodeProgressMode GetNodeProgressMode()
+        {
+            return nodeProgressMode;
+        }
+
+        public void SetNodeProgressMode(NodeProgressMode value)
+        {
+            nodeProgressMode = value;
+        }
+
+        public bool UseNodeProgressGradient()
+        {
+            return nodeProgressGradient;
+        }
+
+        public void UseNodeProgressGradient(bool value)
+        {
+            nodeProgressGradient = value;
+        }
+
+        public NodeTooltipMode GetNodeTooltipMode()
+        {
+            return nodeTooltipMode;
+        }
+
+        public void SetNodeTooltipMode(NodeTooltipMode value)
+        {
+            nodeTooltipMode = value;
         }
 
         public HotKeyAPI GetGraphHotKeyAPI()

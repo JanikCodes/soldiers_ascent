@@ -373,6 +373,11 @@ namespace RenownedGames.AITree
         /// </summary>
         internal void InitializeNodes()
         {
+            if(rootNode == null)
+            {
+                return;
+            }
+
             for (int i = 0; i < nodes.Count; i++)
             {
                 Node node = nodes[i];

@@ -30,6 +30,7 @@ namespace RenownedGames.AITree
         private bool restartTimerOnEntry = false;
 
         // Stored required properties.
+        private float startTime;
         private float nextTickTime;
 
         /// <summary>
@@ -74,7 +75,18 @@ namespace RenownedGames.AITree
             }
 
             nextTickTime = Time.time + Mathf.Max(time, 0);
+            startTime = Time.time;
         }
+
+        /// <summary>
+        /// Progress of node execution.
+        /// </summary>
+        /// <returns>If node support progress line, return value of normalized progress. Otherwise null.</returns>
+        protected internal override float? GetProgress()
+        {
+            return (Time.time - startTime) / (nextTickTime - startTime);
+        }
+
 
         /// <summary>
         /// Detail description of entity.

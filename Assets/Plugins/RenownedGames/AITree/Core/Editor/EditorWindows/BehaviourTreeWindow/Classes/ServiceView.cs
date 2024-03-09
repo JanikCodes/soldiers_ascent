@@ -26,7 +26,14 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         protected override void InitializeStyles()
         {
-            AddToClassList("service");
+            if (GetNode() is TempServiceNode)
+            {
+                AddToClassList("temp-service");
+            }
+            else
+            {
+                AddToClassList("service");
+            }
         }
     }
 }

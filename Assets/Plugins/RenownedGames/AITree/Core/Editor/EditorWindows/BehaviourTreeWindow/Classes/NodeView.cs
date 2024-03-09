@@ -9,11 +9,9 @@
 
 using RenownedGames.AITree;
 using RenownedGames.AITreeEditor.UIElements;
-using RenownedGames.ExLibEditor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -32,7 +30,9 @@ namespace RenownedGames.AITreeEditor
         private Label descriptionLabel;
         private VisualElement iconElement;
         private SequenceNumberView sequenceNumberView;
+        private NodeProgressView progressView;
         private BehaviourTreeGraph graph;
+        private AITreeSettings settings;
 
         /// <summary>
         /// Node view constructor.
@@ -56,11 +56,17 @@ namespace RenownedGames.AITreeEditor
             descriptionLabel = this.Q<Label>("info-description");
             sequenceNumberView = this.Q<SequenceNumberView>("sequence-number");
             sequenceNumberView?.Init(graph, this);
+            progressView = this.Q<NodeProgressView>();
+            progressView.style.display = DisplayStyle.None;
 
             LoadNameAndIcon();
             InitializeStyles();
             UpdateCapabilities();
             OnInspectorUpdate();
+
+            settings = AITreeSettings.instance;
+
+            node.GetBehaviourTree().Updating += UpdateProgessView;
         }
 
         /// <summary>
@@ -119,15 +125,15 @@ namespace RenownedGames.AITreeEditor
                 NodeTypeCache.NodeInfo nodeInfo = nodeInfos[i];
                 if(nodeInfo.type == node.GetType())
                 {
-                    if (nodeInfo.attribute != null)
+                    if (nodeInfo.contentAttribute != null)
                     {
-                        if (!string.IsNullOrWhiteSpace(nodeInfo.attribute.name))
+                        if (!string.IsNullOrWhiteSpace(nodeInfo.contentAttribute.name))
                         {
-                            defaultName = nodeInfo.attribute.name;
+                            defaultName = nodeInfo.contentAttribute.name;
                         }
-                        else if (!string.IsNullOrWhiteSpace(nodeInfo.attribute.path))
+                        else if (!string.IsNullOrWhiteSpace(nodeInfo.contentAttribute.path))
                         {
-                            defaultName = System.IO.Path.GetFileName(nodeInfo.attribute.path);
+                            defaultName = System.IO.Path.GetFileName(nodeInfo.contentAttribute.path);
                         }
                     }
                     else
@@ -177,6 +183,26 @@ namespace RenownedGames.AITreeEditor
                 description = defaultName;
             }
             descriptionLabel.text = description;
+        }
+
+        /// <summary>
+        /// Called in behaviour tree update.
+        /// </summary>
+        private void UpdateProgessView()
+        {
+            if (settings.ShowNodeProgress() && node.IsStarted())
+            {
+                float? progress = node.GetProgress();
+                if (progress.HasValue)
+                {
+                    progressView.style.display = DisplayStyle.Flex;
+                    progressView.SetValue(progress.Value);
+                }
+            }
+            else
+            {
+                progressView.style.display = DisplayStyle.None;
+            }
         }
 
         #region [IDropTarget Implementation]

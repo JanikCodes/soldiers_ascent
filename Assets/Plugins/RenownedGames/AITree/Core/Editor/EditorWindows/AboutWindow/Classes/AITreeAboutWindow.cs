@@ -29,7 +29,7 @@ namespace RenownedGames.AITreeEditor
         /// </summary>
         protected override void InitializeVersion(out string version)
         {
-            version = "Version: 1.8.10";
+            version = "Version: 1.9.1";
         }
 
         /// <summary>

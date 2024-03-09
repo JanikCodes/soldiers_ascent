@@ -63,6 +63,15 @@ namespace RenownedGames.AITree.Nodes
         }
 
         /// <summary>
+        /// Progress of node execution.
+        /// </summary>
+        /// <returns>If node support progress line, return value of normalized progress. Otherwise null.</returns>
+        protected override float? GetProgress()
+        {
+            return (Time.time - startTime) / waitTime.GetValue();
+        }
+
+        /// <summary>
         /// Detail description of entity.
         /// </summary>
         public override string GetDescription()

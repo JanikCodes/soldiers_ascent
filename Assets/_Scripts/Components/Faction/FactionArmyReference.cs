@@ -19,12 +19,14 @@ public class FactionArmyReference : MonoBehaviour
     private void OnEnable()
     {
         FactionService.OnNewArmySpawned += ArmySpawnedHandler;
+        RemoveFromFactionArmyReferenceTask.OnArmyDestroyed += ArmyDestroyedHandler;
 
     }
 
     private void OnDisable()
     {
         FactionService.OnNewArmySpawned -= ArmySpawnedHandler;
+        RemoveFromFactionArmyReferenceTask.OnArmyDestroyed -= ArmyDestroyedHandler;
     }
 
     private void ArmySpawnedHandler(Transform armyTransform, string factionId)

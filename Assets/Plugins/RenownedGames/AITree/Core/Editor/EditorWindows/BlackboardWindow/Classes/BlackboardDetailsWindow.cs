@@ -10,7 +10,6 @@
 using RenownedGames.AITree;
 using RenownedGames.ExLibEditor;
 using RenownedGames.ExLibEditor.Windows;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -417,9 +416,22 @@ namespace RenownedGames.AITreeEditor
         [MenuItem("Tools/AI Tree/Windows/Blackboard Details", false, 23)]
         public static void Open()
         {
-            BlackboardDetailsWindow window = CreateWindow();
-            window.MoveToCenter();
-            window.Show();
+            if (HasOpenInstances())
+            {
+                BlackboardDetailsWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    BlackboardDetailsWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -466,10 +478,12 @@ namespace RenownedGames.AITreeEditor
         /// <summary>
         /// Create new instance of Blackboard Details window.
         /// </summary>
-        private static BlackboardDetailsWindow CreateWindow()
+        internal static BlackboardDetailsWindow CreateWindow()
         {
             BlackboardDetailsWindow window = CreateInstance<BlackboardDetailsWindow>();
             window.minSize = new Vector2(290, 205);
+            window.MoveToCenter();
+            window.Show();
             return window;
         }
         #endregion

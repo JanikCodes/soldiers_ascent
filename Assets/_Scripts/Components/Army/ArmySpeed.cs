@@ -30,12 +30,14 @@ public class ArmySpeed : MonoBehaviour
     {
         inventory.OnNewItemAdded += HandleSpeedChange;
         squadStorage.OnNewSquadAdded += HandleSpeedChange;
+        squadStorage.OnSoldierRemoved += HandleSpeedChange;
     }
 
     private void OnDisable()
     {
         inventory.OnNewItemAdded -= HandleSpeedChange;
         squadStorage.OnNewSquadAdded -= HandleSpeedChange;
+        squadStorage.OnSoldierRemoved -= HandleSpeedChange;
     }
 
     /// <summary>

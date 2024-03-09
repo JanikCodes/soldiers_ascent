@@ -302,15 +302,15 @@ namespace RenownedGames.AITreeEditor
                 {
                     GUIContent content = new GUIContent();
                     string name = "Undefined";
-                    if(nodeInfo.attribute != null)
+                    if(nodeInfo.contentAttribute != null)
                     {
-                        if (!string.IsNullOrWhiteSpace(nodeInfo.attribute.name))
+                        if (!string.IsNullOrWhiteSpace(nodeInfo.contentAttribute.name))
                         {
-                            name = nodeInfo.attribute.name;
+                            name = nodeInfo.contentAttribute.name;
                         }
-                        else if (!string.IsNullOrWhiteSpace(nodeInfo.attribute.path))
+                        else if (!string.IsNullOrWhiteSpace(nodeInfo.contentAttribute.path))
                         {
-                            name = System.IO.Path.GetFileName(nodeInfo.attribute.path);
+                            name = System.IO.Path.GetFileName(nodeInfo.contentAttribute.path);
                         }
                     }
 
@@ -369,9 +369,22 @@ namespace RenownedGames.AITreeEditor
         [MenuItem("Tools/AI Tree/Windows/Node Inspector", false, 21)]
         public static void Open()
         {
-            NodeInspectorWindow window = CreateWindow();
-            window.MoveToCenter();
-            window.Show();
+            if (HasOpenInstances())
+            {
+                NodeInspectorWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    NodeInspectorWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -418,10 +431,12 @@ namespace RenownedGames.AITreeEditor
         /// Create new instance of Node Inspector window.
         /// </summary>
         /// <returns></returns>
-        private static NodeInspectorWindow CreateWindow()
+        internal static NodeInspectorWindow CreateWindow()
         {
             NodeInspectorWindow window = CreateInstance<NodeInspectorWindow>();
             window.minSize = new Vector2(250, 50);
+            window.MoveToCenter();
+            window.Show();
             return window;
         }
         #endregion

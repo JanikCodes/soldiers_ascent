@@ -510,9 +510,22 @@ namespace RenownedGames.AITreeEditor
         [MenuItem("Tools/AI Tree/Windows/Blackboard Viewer", false, 25)]
         public static void Open()
         {
-            BlackboardViewerWindow window = CreateWindow();
-            window.MoveToCenter();
-            window.Show();
+            if (HasOpenInstances())
+            {
+                BlackboardViewerWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    BlackboardViewerWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -559,10 +572,12 @@ namespace RenownedGames.AITreeEditor
         /// Create new instance of Blackboard Viewer window.
         /// </summary>
         /// <returns></returns>
-        private static BlackboardViewerWindow CreateWindow()
+        internal static BlackboardViewerWindow CreateWindow()
         {
             BlackboardViewerWindow window = CreateInstance<BlackboardViewerWindow>();
             window.minSize = new Vector2(252, 64);
+            window.MoveToCenter();
+            window.Show();
             return window;
         }
         #endregion

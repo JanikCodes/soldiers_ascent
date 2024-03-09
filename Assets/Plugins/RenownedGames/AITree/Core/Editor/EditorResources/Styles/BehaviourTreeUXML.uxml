@@ -14,5 +14,6 @@
             <ui:Label name="simulating-lable" text="PLAYING" picking-mode="Ignore" />
         </ui:VisualElement>
         <ui:Label name="tree-name" text="BEHAVIOUR TREE" picking-mode="Ignore" />
+        <ui:Label name="node-description" text="Node description..." picking-mode="Ignore" />
     </ui:VisualElement>
 </ui:UXML>

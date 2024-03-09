@@ -20,7 +20,6 @@ using UnityEditor.Callbacks;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
 namespace RenownedGames.AITreeEditor
 {
@@ -595,10 +594,22 @@ namespace RenownedGames.AITreeEditor
         [MenuItem("Tools/AI Tree/Windows/Blackboard", false, 22)]
         public static void Open()
         {
-            BlackboardWindow window = CreateWindow();
-            window.minSize = new Vector2(250, 90);
-            window.Show();
-            window.OnSelectionChange();
+            if (HasOpenInstances())
+            {
+                BlackboardWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    BlackboardWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -644,10 +655,13 @@ namespace RenownedGames.AITreeEditor
         /// <summary>
         /// Create new instance of Blackboard window.
         /// </summary>
-        private static BlackboardWindow CreateWindow()
+        internal static BlackboardWindow CreateWindow()
         {
             BlackboardWindow window = CreateInstance<BlackboardWindow>();
             window.minSize = new Vector2(290, 205);
+            window.minSize = new Vector2(250, 90);
+            window.Show();
+            window.OnSelectionChange();
             return window;
         }
 

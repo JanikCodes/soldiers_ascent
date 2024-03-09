@@ -21,9 +21,6 @@ namespace RenownedGames.AITree.Nodes
         private Key from;
 
         [SerializeField]
-        private IntKey duration;
-
-        [SerializeField]
         [KeyTypes(typeof(Transform), typeof(Vector3))]
         private Key to;
 
@@ -45,7 +42,7 @@ namespace RenownedGames.AITree.Nodes
             from.TryGetPosition(Space.World, out Vector3 start);
             to.TryGetPosition(Space.World, out Vector3 end);
 
-            Debug.DrawLine(start, end, color, duration.GetValue());
+            Debug.DrawLine(start, end, color);
 
             return State.Success;
         }

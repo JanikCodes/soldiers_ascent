@@ -336,9 +336,22 @@ namespace RenownedGames.AITreeEditor
         //[MenuItem("Tools/AI Tree/Windows/Key Details", false, 23)]
         public static void Open()
         {
-            KeyDetailsWindow window = CreateWindow();
-            window.MoveToCenter();
-            window.Show();
+            if (HasOpenInstances())
+            {
+                KeyDetailsWindow[] windows = GetInstances();
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    KeyDetailsWindow window = windows[i];
+                    if (!window.isLocked)
+                    {
+                        window.Focus();
+                    }
+                }
+            }
+            else
+            {
+                CreateWindow();
+            }
         }
 
         /// <summary>
@@ -385,10 +398,12 @@ namespace RenownedGames.AITreeEditor
         /// <summary>
         /// Create new instance of Key Details window.
         /// </summary>
-        private static KeyDetailsWindow CreateWindow()
+        internal static KeyDetailsWindow CreateWindow()
         {
             KeyDetailsWindow window = CreateInstance<KeyDetailsWindow>();
             window.minSize = new Vector2(290, 205);
+            window.MoveToCenter();
+            window.Show();
             return window;
         }
         #endregion

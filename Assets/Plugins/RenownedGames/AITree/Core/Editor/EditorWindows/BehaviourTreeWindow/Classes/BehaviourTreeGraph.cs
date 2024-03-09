@@ -275,28 +275,36 @@ namespace RenownedGames.AITreeEditor
                 evt.menu.AppendAction("Auto Arrange", a => AutoArrange());
 #endif
             }
-            else if (evt.target is WrapView nodeView)
+            else if (evt.target is NodeView nodeView)
             {
                 WrapNode wrapNode = nodeView.GetNode() as WrapNode;
-                if (wrapNode == null) return;
-
-                evt.menu.AppendAction("Add Decorator", a => OpenDecoratorCreationWindow(windowPosition, wrapNode));
-
-                evt.menu.AppendAction("Add Service", a => OpenSeviceCreationWindow(windowPosition, wrapNode));
-
-                if (nodeView.GetNode() is TaskNode taskNode)
+                if (wrapNode != null)
                 {
-                    evt.menu.AppendSeparator();
+                    WrapView wrapView = nodeView as WrapView;
+                    if(wrapView != null)
+                    {
+                        evt.menu.AppendAction("Add Decorator", a => OpenDecoratorCreationWindow(windowPosition, wrapNode));
 
-                    evt.menu.AppendAction("Breakpoint", a =>
-                    {
-                        taskNode.Breakpoint(!taskNode.Breakpoint());
-                        nodeView.UpdateBreakpointView();
-                    }, s =>
-                    {
-                        return taskNode.Breakpoint() ? DropdownMenuAction.Status.Checked : DropdownMenuAction.Status.Normal;
-                    });
+                        evt.menu.AppendAction("Add Service", a => OpenSeviceCreationWindow(windowPosition, wrapNode));
+
+                        if (wrapView.GetNode() is TaskNode taskNode)
+                        {
+                            evt.menu.AppendSeparator();
+
+                            evt.menu.AppendAction("Breakpoint", a =>
+                            {
+                                taskNode.Breakpoint(!taskNode.Breakpoint());
+                                wrapView.UpdateBreakpointView();
+                            }, s =>
+                            {
+                                return taskNode.Breakpoint() ? DropdownMenuAction.Status.Checked : DropdownMenuAction.Status.Normal;
+                            });
+                        }
+                    }
                 }
+
+                evt.menu.AppendSeparator();
+                evt.menu.AppendAction("Edit Script", a => OpenNodeScript(nodeView.GetNode()));
             }
         }
 
@@ -620,10 +628,10 @@ namespace RenownedGames.AITreeEditor
                 Type type = nodeInfo.type;
                 if (!type.IsAbstract && !type.IsGenericType && type.IsSubclassOf(typeof(WrapNode)))
                 {
-                    NodeContentAttribute attribute = nodeInfo.attribute;
+                    NodeContentAttribute attribute = nodeInfo.contentAttribute;
                     if (attribute != null && !attribute.Hide)
                     {
-                        GUIContent content = new GUIContent(nodeInfo.attribute.path, nodeInfo.icon);
+                        GUIContent content = new GUIContent(nodeInfo.contentAttribute.path, nodeInfo.icon);
                         nodeSearchWindow.AddEntry(content, () => CreateNode(type, nodePosition, onCreate));
                     }
                 }
@@ -654,10 +662,10 @@ namespace RenownedGames.AITreeEditor
                 Type type = nodeInfo.type;
                 if (!type.IsAbstract && !type.IsGenericType && type.IsSubclassOf(typeof(DecoratorNode)))
                 {
-                    NodeContentAttribute attribute = nodeInfo.attribute;
+                    NodeContentAttribute attribute = nodeInfo.contentAttribute;
                     if (attribute != null && !attribute.Hide)
                     {
-                        GUIContent content = new GUIContent(nodeInfo.attribute.path, nodeInfo.icon);
+                        GUIContent content = new GUIContent(nodeInfo.contentAttribute.path, nodeInfo.icon);
                         nodeSearchWindow.AddEntry(content, () => CreateDecorator(wrapNode, type));
                     }
                 }
@@ -688,15 +696,32 @@ namespace RenownedGames.AITreeEditor
                 Type type = nodeInfo.type;
                 if (!type.IsAbstract && !type.IsGenericType && type.IsSubclassOf(typeof(ServiceNode)))
                 {
-                    NodeContentAttribute attribute = nodeInfo.attribute;
+                    NodeContentAttribute attribute = nodeInfo.contentAttribute;
                     if (attribute != null && !attribute.Hide)
                     {
-                        GUIContent content = new GUIContent(nodeInfo.attribute.path, nodeInfo.icon);
+                        GUIContent content = new GUIContent(nodeInfo.contentAttribute.path, nodeInfo.icon);
                         nodeSearchWindow.AddEntry(content, () => CreateService(wrapNode, type));
                     }
                 }
             }
             nodeSearchWindow.Open(windowPosition);
+        }
+
+        /// <summary>
+        /// Opens the node script with associated application.
+        /// </summary>
+        /// <param name="node">Node reference.</param>
+        internal void OpenNodeScript(Node node)
+        {
+            MonoScript monoScript = MonoScript.FromScriptableObject(node);
+            if(monoScript != null)
+            {
+                AssetDatabase.OpenAsset(monoScript);
+            }
+            else
+            {
+                Debug.LogError($"The script pointing to {node.GetType()} node not found.");
+            }
         }
 
         /// <summary>
@@ -1431,6 +1456,8 @@ namespace RenownedGames.AITreeEditor
             wrapView.UpdateSelection += UpdateSelection;
             wrapView.ViewChanged += OnNodeViewChanged;
 
+            ApplyTooltip(wrapView, node.GetType());
+
             if (selectAfterCreate)
             {
                 wrapView.OnSelected();
@@ -1444,6 +1471,8 @@ namespace RenownedGames.AITreeEditor
             DecoratorView decoratorView = new DecoratorView(this, decorator);
             decoratorView.UpdateSelection += UpdateSelection;
             decoratorView.ViewChanged += OnNodeViewChanged;
+            ApplyTooltip(decoratorView, decorator.GetType());
+
             return decoratorView;
         }
 
@@ -1452,6 +1481,8 @@ namespace RenownedGames.AITreeEditor
             ServiceView serviceView = new ServiceView(this, service);
             serviceView.UpdateSelection += UpdateSelection;
             serviceView.ViewChanged += OnNodeViewChanged;
+            ApplyTooltip(serviceView, service.GetType());
+
             return serviceView;
         }
 
@@ -1467,6 +1498,20 @@ namespace RenownedGames.AITreeEditor
             NoteView noteView = new NoteView(this, note);
             notes.Add(noteView);
             return noteView;
+        }
+
+        private void ApplyTooltip(VisualElement visualElement, Type nodeType)
+        {
+            if((AITreeSettings.instance.GetNodeTooltipMode() & AITreeSettings.NodeTooltipMode.MouseOverlay) != 0)
+            {
+                if (NodeTypeCache.TryGetNodeInfo(nodeType, out NodeTypeCache.NodeInfo nodeInfo))
+                {
+                    if (nodeInfo.tooltipAttribute != null)
+                    {
+                        visualElement.tooltip = nodeInfo.tooltipAttribute.text;
+                    }
+                }
+            }
         }
 
         private void UpdateNodesSequenceNumber()
@@ -1636,11 +1681,19 @@ namespace RenownedGames.AITreeEditor
                 }
                 else if (node is SubTree subTree)
                 {
-                    BehaviourTree behaviourTree = subTree.GetSharedSubTree();
-                    if (behaviourTree != null)
+                    if (EditorApplication.isPlaying)
                     {
-                        ClearSelection();
-                        Selection.activeObject = behaviourTree;
+                        BehaviourTreeWindow window = BehaviourTreeWindow.CreateWindow();
+                        window.TrackEditor(subTree.GetSubTree());
+                    }
+                    else
+                    {
+                        BehaviourTree behaviourTree = subTree.GetSharedSubTree();
+                        if (behaviourTree != null)
+                        {
+                            ClearSelection();
+                            Selection.activeObject = behaviourTree;
+                        }
                     }
                 }
                 else if (node is TaskNode)

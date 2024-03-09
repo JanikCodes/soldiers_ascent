@@ -56,6 +56,15 @@ namespace RenownedGames.AITree.Nodes
         /// </summary>
         protected override void OnFlowUpdate() { }
 
+        /// <summary>
+        /// Progress of node execution.
+        /// </summary>
+        /// <returns>If node support progress line, return value of normalized progress. Otherwise null.</returns>
+        protected override float? GetProgress()
+        {
+            return (Time.time - startTime) / timeLimit.GetValue();
+        }
+
         #region [IEntityDescription Implementation]
         /// <summary>
         /// Detail description of entity.
