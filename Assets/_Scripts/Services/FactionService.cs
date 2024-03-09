@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
 {
-    public static OnNewArmySpawnedDelegate OnNewArmySpawned;
+    public static OnNewArmySpawnedDelegate OnArmySpawned;
     public delegate void OnNewArmySpawnedDelegate(Transform armyTransform, string factionId);
 
     [field: SerializeField] public Transform FactionParentTransform { get; private set; }
@@ -119,7 +119,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
         EconomyServiceReference economyServiceReference = army.GetComponentInChildren<EconomyServiceReference>();
         economyServiceReference.Service = economyService;
 
-        OnNewArmySpawned?.Invoke(army.transform, factionId);
+        OnArmySpawned?.Invoke(army.transform, factionId);
 
         return army;
     }
@@ -128,7 +128,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
     {
         foreach (Transform army in ArmyParentTransform)
         {
-            GUID armyGUID = army.GetComponent<GUID>();
+            GUID armyGUID = army.GetComponentInChildren<GUID>();
             if (armyGUID == null) { continue; }
 
             if (armyGUID.Id.Equals(guid))
@@ -174,6 +174,7 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 {
                     armySaveData.DialogueActive = true;
                     armySaveData.DialogueType = armyDialogueHandler.dialogueType.ToString();
+                    // save dialogue partner guid
                     GUID otherGUID = armyDialogueHandler.other.GetComponent<GUID>();
                     if (otherGUID)
                     {
@@ -262,8 +263,12 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
 
                 inventory.SetItems(items);
             }
+        }
 
-            foreach (ArmySaveData armySaveData in factionSaveData.Armies)
+        // load the dialogue for each army in each faction after everything basic has been loaded
+        foreach (FactionSaveData factionSave in save.Factions)
+        {
+            foreach (ArmySaveData armySaveData in factionSave.Armies)
             {
                 // is army not in dialogue?
                 if (!armySaveData.DialogueActive) { continue; }
@@ -284,5 +289,6 @@ public class FactionService : ScriptableObjectService<FactionSO>, ISave, ILoad
                 armyDialogueHandler.TalkTo(other, dialogueType);
             }
         }
+
     }
 }
