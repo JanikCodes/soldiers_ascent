@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Overlay Blur Config
   m_EditorClassIdentifier: 
   radius: 1.25
-  iteration: 2
+  iteration: 3
   maxDepth: 10
-  strength: 5
+  strength: 10
