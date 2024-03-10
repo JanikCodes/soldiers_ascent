@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2113155055578139013, guid: 8eaba13ff9c2e7241b5620d745138ab9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6286493482251843000, guid: 8eaba13ff9c2e7241b5620d745138ab9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -46,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 6286493482251843000, guid: 8eaba13ff9c2e7241b5620d745138ab9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 166
+      value: 155
       objectReference: {fileID: 0}
     - target: {fileID: 6286493482251843000, guid: 8eaba13ff9c2e7241b5620d745138ab9,
         type: 3}
@@ -116,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 8550113183191566348, guid: 8eaba13ff9c2e7241b5620d745138ab9,
         type: 3}
       propertyPath: m_Name
-      value: Item Variant
+      value: Item_Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
