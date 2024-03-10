@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7014958866354980045}
   - component: {fileID: 2740551212577676121}
   m_Layer: 5
-  m_Name: OverlayImage
+  m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9dc67c5d1dc545e47be307d3ea3f558b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed3ce5398d5abd241bd3d1e1995ad376, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
