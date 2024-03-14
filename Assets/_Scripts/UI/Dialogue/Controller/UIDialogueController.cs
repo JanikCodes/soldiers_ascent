@@ -57,12 +57,12 @@ public class UIDialogueController : MonoBehaviour
         CallDialogueWindow();
     }
 
-    private void CallDialogueWindow()
+    public void CallDialogueWindow()
     {
         rectTransform.DOLocalMoveX(activeXPosition, tweenDuration).SetUpdate(true);
     }
 
-    private void DismissDialogueWindow()
+    public void DismissDialogueWindow()
     {
         rectTransform.DOLocalMoveX(defaultXPosition, tweenDuration).SetUpdate(true);
     }
