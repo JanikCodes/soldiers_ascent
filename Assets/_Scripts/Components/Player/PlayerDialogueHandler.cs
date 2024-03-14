@@ -134,6 +134,9 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
     public void ExitDialogue()
     {
+        // resume time
+        timeServiceReference.Service.SetTime(TimeState.Playing, true);
+
         dialogueImmunity.SetImmunity(25f);
         active = false;
 
