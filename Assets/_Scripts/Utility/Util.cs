@@ -168,6 +168,18 @@ public static class Util
         return Quaternion.Euler(rotation[0], rotation[1], rotation[2]);
     }
 
+    /// <summary>
+    /// Destroys all gameobjects children under a root transform
+    /// </summary>
+    /// <param name="root">Root transform</param>
+    public static void ClearChildren(Transform root)
+    {
+        foreach (Transform child in root)
+        {
+            UnityEngine.Object.Destroy(child.gameObject);
+        }
+    }
+
     public static bool WriteValueToField<T>(string type, Type typeObject, T scriptableObject, KeyValuePair<string, object> property)
     {
         FieldInfo fieldInfo = typeObject.GetField(property.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);

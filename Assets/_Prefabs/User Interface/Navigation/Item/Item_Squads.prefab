@@ -129,6 +129,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452096962699179992, guid: 8eaba13ff9c2e7241b5620d745138ab9,
+        type: 3}
+      propertyPath: vibrancy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452096962699179992, guid: 8eaba13ff9c2e7241b5620d745138ab9,
+        type: 3}
+      propertyPath: brightness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452096962699179992, guid: 8eaba13ff9c2e7241b5620d745138ab9,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 3280c6a87b6fc9b44b1b693e52dc007f, type: 2}
     - target: {fileID: 8550113183191566348, guid: 8eaba13ff9c2e7241b5620d745138ab9,
         type: 3}
       propertyPath: m_Name

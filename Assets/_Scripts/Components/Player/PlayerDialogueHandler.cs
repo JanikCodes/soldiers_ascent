@@ -21,7 +21,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
     // events
     public static event OnDialogueInstantiatedDelegate OnDialogueInstantiated;
-    public delegate void OnDialogueInstantiatedDelegate(Transform other);
+    public delegate void OnDialogueInstantiatedDelegate(Transform self, Transform other);
 
     private void Awake()
     {
@@ -61,7 +61,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         }
 
         // notify subscribers and quest progress
-        OnDialogueInstantiated?.Invoke(other);
+        OnDialogueInstantiated?.Invoke(transform, other);
 
         // pause time hard till dialogue is resolved
         timeServiceReference.Service.SetTime(TimeState.Paused, true);
@@ -111,7 +111,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
 
         // notify subscribers and quest progress
-        OnDialogueInstantiated?.Invoke(other);
+        OnDialogueInstantiated?.Invoke(transform, other);
 
         // pause time hard till dialogue is resolved
         timeServiceReference.Service.SetTime(TimeState.Paused, true);
