@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 70be494bd0acdd64c8c193a91a1dd67c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ForestPine_LOD0
+    100002: ForestPine_LOD1
+    100004: ForestPine_LOD2
+    100006: Pine3Mesh
+    100008: Pine3Mesh_LOD0
+    100010: Pine3Mesh_LOD1
+    100012: Pine3Mesh_LOD2
+    100014: Pine3Mesh_LOD3
+    100016: pine5Mesh_LOD0
+    100018: pine5Mesh_LOD1
+    100020: pine5Mesh_LOD2
+    100022: pine5Mesh_LOD3
+    100024: Pine_1_LOD0
+    100026: Pine_1_LOD1
+    100028: Pine_1_LOD2
+    100030: Pine_1_LOD3
+    100032: Pine_2_LOD0
+    100034: Pine_2_LOD1
+    100036: Pine_2_LOD2
+    100038: Pine_2_LOD3
+    100040: Pine_3_LOD0
+    100042: Pine_3_LOD1
+    100044: Pine_3_LOD2
+    100046: Pine_3_LOD3
+    100048: pine_LOD0
+    100050: pine_LOD1
+    100052: pine_LOD2
+    100054: //RootNode
+    100056: ScotPineMesh_LOD0
+    100058: ScotPineMesh_LOD1
+    100060: ScotPineMesh_LOD2
+    100062: ScotPineMesh_LOD3
+    100064: Pine3Mesh_LOD0 1
+    400000: ForestPine_LOD0
+    400002: ForestPine_LOD1
+    400004: ForestPine_LOD2
+    400006: Pine3Mesh
+    400008: Pine3Mesh_LOD0
+    400010: Pine3Mesh_LOD1
+    400012: Pine3Mesh_LOD2
+    400014: Pine3Mesh_LOD3
+    400016: pine5Mesh_LOD0
+    400018: pine5Mesh_LOD1
+    400020: pine5Mesh_LOD2
+    400022: pine5Mesh_LOD3
+    400024: Pine_1_LOD0
+    400026: Pine_1_LOD1
+    400028: Pine_1_LOD2
+    400030: Pine_1_LOD3
+    400032: Pine_2_LOD0
+    400034: Pine_2_LOD1
+    400036: Pine_2_LOD2
+    400038: Pine_2_LOD3
+    400040: Pine_3_LOD0
+    400042: Pine_3_LOD1
+    400044: Pine_3_LOD2
+    400046: Pine_3_LOD3
+    400048: pine_LOD0
+    400050: pine_LOD1
+    400052: pine_LOD2
+    400054: //RootNode
+    400056: ScotPineMesh_LOD0
+    400058: ScotPineMesh_LOD1
+    400060: ScotPineMesh_LOD2
+    400062: ScotPineMesh_LOD3
+    400064: Pine3Mesh_LOD0 1
+    2300000: ForestPine_LOD0
+    2300002: ForestPine_LOD1
+    2300004: ForestPine_LOD2
+    2300006: Pine3Mesh
+    2300008: Pine3Mesh_LOD0
+    2300010: Pine3Mesh_LOD1
+    2300012: Pine3Mesh_LOD2
+    2300014: Pine3Mesh_LOD3
+    2300016: pine5Mesh_LOD0
+    2300018: pine5Mesh_LOD1
+    2300020: pine5Mesh_LOD2
+    2300022: pine5Mesh_LOD3
+    2300024: Pine_1_LOD0
+    2300026: Pine_1_LOD1
+    2300028: Pine_1_LOD2
+    2300030: Pine_1_LOD3
+    2300032: Pine_2_LOD0
+    2300034: Pine_2_LOD1
+    2300036: Pine_2_LOD2
+    2300038: Pine_2_LOD3
+    2300040: Pine_3_LOD0
+    2300042: Pine_3_LOD1
+    2300044: Pine_3_LOD2
+    2300046: Pine_3_LOD3
+    2300048: pine_LOD0
+    2300050: pine_LOD1
+    2300052: pine_LOD2
+    2300054: ScotPineMesh_LOD0
+    2300056: ScotPineMesh_LOD1
+    2300058: ScotPineMesh_LOD2
+    2300060: ScotPineMesh_LOD3
+    2300062: Pine3Mesh_LOD0 1
+    3300000: ForestPine_LOD0
+    3300002: ForestPine_LOD1
+    3300004: ForestPine_LOD2
+    3300006: Pine3Mesh
+    3300008: Pine3Mesh_LOD0
+    3300010: Pine3Mesh_LOD1
+    3300012: Pine3Mesh_LOD2
+    3300014: Pine3Mesh_LOD3
+    3300016: pine5Mesh_LOD0
+    3300018: pine5Mesh_LOD1
+    3300020: pine5Mesh_LOD2
+    3300022: pine5Mesh_LOD3
+    3300024: Pine_1_LOD0
+    3300026: Pine_1_LOD1
+    3300028: Pine_1_LOD2
+    3300030: Pine_1_LOD3
+    3300032: Pine_2_LOD0
+    3300034: Pine_2_LOD1
+    3300036: Pine_2_LOD2
+    3300038: Pine_2_LOD3
+    3300040: Pine_3_LOD0
+    3300042: Pine_3_LOD1
+    3300044: Pine_3_LOD2
+    3300046: Pine_3_LOD3
+    3300048: pine_LOD0
+    3300050: pine_LOD1
+    3300052: pine_LOD2
+    3300054: ScotPineMesh_LOD0
+    3300056: ScotPineMesh_LOD1
+    3300058: ScotPineMesh_LOD2
+    3300060: ScotPineMesh_LOD3
+    3300062: Pine3Mesh_LOD0 1
+    4300000: Pine_1_LOD0
+    4300002: Pine_3_LOD0
+    4300004: Pine_2_LOD0
+    4300006: Pine_1_LOD1
+    4300008: Pine_1_LOD2
+    4300010: Pine_2_LOD1
+    4300012: Pine_3_LOD1
+    4300014: Pine_3_LOD2
+    4300016: Pine_2_LOD2
+    4300018: Pine_2_LOD3
+    4300020: Pine_3_LOD3
+    4300022: Pine_1_LOD3
+    4300024: ScotPineMesh_LOD0
+    4300026: pine5Mesh_LOD0
+    4300028: Pine3Mesh_LOD0
+    4300030: ScotPineMesh_LOD3
+    4300032: pine5Mesh_LOD3
+    4300034: Pine3Mesh_LOD3
+    4300036: Pine3Mesh
+    4300038: Pine3Mesh_LOD1
+    4300040: Pine3Mesh_LOD2
+    4300042: ScotPineMesh_LOD1
+    4300044: ScotPineMesh_LOD2
+    4300046: pine5Mesh_LOD1
+    4300048: pine5Mesh_LOD2
+    4300050: pine_LOD0
+    4300052: pine_LOD1
+    4300054: pine_LOD2
+    4300056: ForestPine_LOD0
+    4300058: ForestPine_LOD1
+    4300060: ForestPine_LOD2
+    4300062: Pine3Mesh_LOD0
+    9500000: //RootNode
+    20500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
+    globalScale: 6
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.1524
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
