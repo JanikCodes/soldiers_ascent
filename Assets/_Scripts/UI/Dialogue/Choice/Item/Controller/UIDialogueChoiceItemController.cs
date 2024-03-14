@@ -14,6 +14,7 @@ public class UIDialogueChoiceItemController : MonoBehaviour
     {
         data = dialogueChoiceSO;
 
+        label.color = dialogueChoiceSO.TextColor;
         label.text = data.ChoiceText;
     }
 }

@@ -31,6 +31,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
                 dialogueChoice.Id = dialogueChoiceData.Id;
                 dialogueChoice.ChoiceText = dialogueChoiceData.ChoiceText;
                 dialogueChoice.RawJumpToDialogueId = dialogueChoiceData.JumpToDialogueId;
+                dialogueChoice.TextColor = Util.GetColorFromIntArray(dialogueChoiceData.TextColor);
                 dialogueChoice.Requirements = GenerateRequirements(dialogueChoiceData.Requirements);
 
                 dialogue.Choices.Add(dialogueChoice);

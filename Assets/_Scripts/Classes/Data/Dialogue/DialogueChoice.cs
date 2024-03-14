@@ -11,5 +11,6 @@ public class DialogueChoiceData : BaseData
     public string AssignedDialogueId;
     public string ChoiceText;
     public string JumpToDialogueId;
+    public int[] TextColor = { 255, 255, 255 };
     public DialogueRequirementData[] Requirements;
 }

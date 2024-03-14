@@ -37,6 +37,11 @@
         "AssignedDialogueId": "Base_Dialogue_City",
         "ChoiceText": "Leave",
         "JumpToDialogueId": "",
+        "TextColor": [
+            255,
+            0,
+            0
+        ],
         "Requirements": []
     },
     {
@@ -68,6 +73,11 @@
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
         "ChoiceText": "Bye!!",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
+        "TextColor": [
+            255,
+            0,
+            0
+        ],
         "Requirements": []
     }
 ]

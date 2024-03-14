@@ -9,6 +9,7 @@ public class DialogueChoiceSO : DataSO
     [NonSerialized] public DialogueSO JumpToDialogue;
     public string ChoiceText;
     public string RawJumpToDialogueId;
+    public Color TextColor;
     public List<DialogueRequirementSO> Requirements = new();
 
     public bool MeetsRequirements(Transform self, Transform other)

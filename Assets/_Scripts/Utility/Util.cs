@@ -169,6 +169,15 @@ public static class Util
     }
 
     /// <summary>
+    /// Returns a Color based on a given int[]
+    /// </summary>
+    /// <param name="colors">Int Array</param>
+    public static Color GetColorFromIntArray(int[] colors)
+    {
+        return new Color(colors[0], colors[1], colors[2]);
+    }
+
+    /// <summary>
     /// Destroys all gameobjects children under a root transform
     /// </summary>
     /// <param name="root">Root transform</param>

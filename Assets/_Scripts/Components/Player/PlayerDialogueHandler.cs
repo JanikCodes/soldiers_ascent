@@ -101,14 +101,11 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         }
 
         IDialogueHandler otherDialogueHandler = other.GetComponent<IDialogueHandler>();
-        if (otherDialogueHandler == null)
+        if (otherDialogueHandler != null)
         {
-            Debug.LogWarning("Couldn't instantiate dialogue because the other is missing a component that is inheriting from IDialogueHandler.");
-            return;
+            // notify other that we're talking to him
+            otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
         }
-
-        // notify other that we're talking to him
-        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
 
         // notify subscribers and quest progress
         OnDialogueInstantiated?.Invoke(transform, other);
