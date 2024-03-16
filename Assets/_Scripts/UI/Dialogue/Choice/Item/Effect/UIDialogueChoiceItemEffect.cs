@@ -25,19 +25,28 @@ public class UIDialogueChoiceItemEffect : MonoBehaviour, IPointerEnterHandler, I
         overlayImage = GetComponent<Image>();
         
         // call this on start to set default values
-        rectTransform.DOLocalMoveX(defaultXPosition, tweenDuration).SetUpdate(true);
-        overlayImage.CrossFadeColor(defaultColor, tweenDuration, true, true);
+        RenderDefault();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        rectTransform.DOLocalMoveX(hoverXPosition, tweenDuration).SetUpdate(true);
-        overlayImage.CrossFadeColor(hoverColor, tweenDuration, true, true);
+        RenderHover();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        RenderDefault();
+    }
+
+    private void RenderDefault()
+    {
         rectTransform.DOLocalMoveX(defaultXPosition, tweenDuration).SetUpdate(true);
         overlayImage.CrossFadeColor(defaultColor, tweenDuration, true, true);
+    }
+
+    private void RenderHover()
+    {
+        rectTransform.DOLocalMoveX(hoverXPosition, tweenDuration).SetUpdate(true);
+        overlayImage.CrossFadeColor(hoverColor, tweenDuration, true, true);
     }
 }
