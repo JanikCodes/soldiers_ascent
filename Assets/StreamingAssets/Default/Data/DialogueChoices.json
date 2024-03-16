@@ -29,6 +29,13 @@
                     "Self": true,
                     "QuestStepId": "Base_Quest_Tutorial_Step_2"
                 }
+            },
+            {
+                "Type": "IsAtStructure",
+                "Properties": {
+                    "Self": true,
+                    "StructureId": "Base_Village_B"
+                }
             }
         ],
         "Actions": []
