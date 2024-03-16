@@ -27,12 +27,14 @@ public class UIDialogueController : MonoBehaviour
     private void OnEnable()
     {
         PlayerDialogueHandler.OnDialogueInstantiated += HandleDialogueInstantiated;
+        UIDialogueChoiceItemController.OnDialogueJump += HandleDialogueJump;
         PlayerDialogueHandler.OnDialogueDismiss += HanndleDialogueDismiss;
     }
 
     private void OnDisable()
     {
         PlayerDialogueHandler.OnDialogueInstantiated -= HandleDialogueInstantiated;
+        UIDialogueChoiceItemController.OnDialogueJump += HandleDialogueJump;
         PlayerDialogueHandler.OnDialogueDismiss -= HanndleDialogueDismiss;
     }
 
@@ -55,23 +57,31 @@ public class UIDialogueController : MonoBehaviour
             return;
         }
 
+        RenderDialogue(dialogueTrigger.Dialogue, self, other);
+
+        CallDialogueWindow();
+    }
+
+    private void HandleDialogueJump(DialogueSO dialogue, Transform self, Transform other)
+    {
+        RenderDialogue(dialogue, self, other);
+    }
+
+    private void HanndleDialogueDismiss(Transform self, Transform other)
+    {
+        DismissDialogueWindow();
+    }
+
+    private void RenderDialogue(DialogueSO dialogue, Transform self, Transform other)
+    {
         // clear previous choices
         Util.ClearChildren(choiceParent);
 
-        DialogueSO dialogueSO = dialogueTrigger.Dialogue;
-        foreach (DialogueChoiceSO dialogueChoiceSO in dialogueSO.GetChoices(self, other))
+        foreach (DialogueChoiceSO dialogueChoiceSO in dialogue.GetChoices(self, other))
         {
             GameObject choice = Instantiate(choicePrefab, choiceParent);
             UIDialogueChoiceItemController choiceController = choice.GetComponent<UIDialogueChoiceItemController>();
             choiceController.Setup(dialogueChoiceSO, self, other);
         }
-
-        CallDialogueWindow();
-    }
-
-
-    private void HanndleDialogueDismiss(Transform self, Transform other)
-    {
-        DismissDialogueWindow();
     }
 }

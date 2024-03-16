@@ -4,16 +4,8 @@
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City",
         "ChoiceText": "Talk",
-        "JumpToDialogueId": "BD_Village_Talk",
-        "Requirements": [
-            {
-                "Type": "Currency",
-                "Properties": {
-                    "Self": true,
-                    "RequiredCurrency": 6969
-                }
-            }
-        ],
+        "JumpToDialogueId": "Base_Dialogue_City_Talk",
+        "Requirements": [],
         "Actions": []
     },
     {
@@ -92,7 +84,7 @@
         "Id": "Base_Choice_Generic_Army_Bye",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
-        "ChoiceText": "Bye!!",
+        "ChoiceText": "Leave",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
         "TextColor": [
             255,

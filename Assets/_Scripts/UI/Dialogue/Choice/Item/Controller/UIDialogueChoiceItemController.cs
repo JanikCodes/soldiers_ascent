@@ -13,6 +13,10 @@ public class UIDialogueChoiceItemController : MonoBehaviour
     private Transform self, other;
     private Button button;
 
+    // events
+    public static event OnDialogueJumpDelegate OnDialogueJump;
+    public delegate void OnDialogueJumpDelegate(DialogueSO dialogue, Transform self, Transform other);
+
     private void Start()
     {
         button = GetComponent<Button>();
@@ -32,10 +36,16 @@ public class UIDialogueChoiceItemController : MonoBehaviour
     }
 
     /// <summary>
-    /// Executes all actions attached to the dialogueAction
+    /// Executes all actions attached to the dialogueAction and if available render new dialogue
     /// </summary>
     public void OnClick()
     {
+        // execute actions
         data.ExecuteActions(self, other);
+
+        if (data.JumpToDialogue)
+        {
+            OnDialogueJump?.Invoke(data.JumpToDialogue, self, other);
+        }
     }
 }
