@@ -13,7 +13,8 @@
                     "RequiredCurrency": 6969
                 }
             }
-        ]
+        ],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Tutorial_Quest",
@@ -29,7 +30,8 @@
                     "QuestStepId": "Base_Quest_Tutorial_Step_2"
                 }
             }
-        ]
+        ],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Leave",
@@ -42,14 +44,24 @@
             0,
             0
         ],
-        "Requirements": []
+        "Requirements": [],
+        "Actions": [
+            {
+                "Type": "DismissDialogue",
+                "Properties": {
+                    "Self": true
+                }
+            }
+        ]
     },
     {
         "Id": "Base_Choice_City_Talk_Fight",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City_Talk",
         "ChoiceText": "Let's fight! Haha just kidding..",
-        "JumpToDialogueId": "Base_Dialogue_City"
+        "JumpToDialogueId": "Base_Dialogue_City",
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Talk_Nevermind",
@@ -57,7 +69,8 @@
         "AssignedDialogueId": "Base_Dialogue_City_Talk",
         "ChoiceText": "Nevermind..",
         "JumpToDialogueId": "Base_Dialogue_City",
-        "Requirements": []
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_Generic_Army_Talk",
@@ -65,7 +78,8 @@
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
         "ChoiceText": "Let's talk first..",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
-        "Requirements": []
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_Generic_Army_Bye",
@@ -78,6 +92,7 @@
             0,
             0
         ],
-        "Requirements": []
+        "Requirements": [],
+        "Actions": []
     }
 ]

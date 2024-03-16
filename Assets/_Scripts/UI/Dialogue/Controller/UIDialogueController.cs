@@ -27,11 +27,23 @@ public class UIDialogueController : MonoBehaviour
     private void OnEnable()
     {
         PlayerDialogueHandler.OnDialogueInstantiated += HandleDialogueInstantiated;
+        PlayerDialogueHandler.OnDialogueDismiss += HanndleDialogueDismiss;
     }
 
     private void OnDisable()
     {
         PlayerDialogueHandler.OnDialogueInstantiated -= HandleDialogueInstantiated;
+        PlayerDialogueHandler.OnDialogueDismiss -= HanndleDialogueDismiss;
+    }
+
+    public void CallDialogueWindow()
+    {
+        rectTransform.DOLocalMoveX(activeXPosition, tweenDuration).SetUpdate(true);
+    }
+
+    public void DismissDialogueWindow()
+    {
+        rectTransform.DOLocalMoveX(defaultXPosition, tweenDuration).SetUpdate(true);
     }
 
     private void HandleDialogueInstantiated(Transform self, Transform other)
@@ -51,19 +63,15 @@ public class UIDialogueController : MonoBehaviour
         {
             GameObject choice = Instantiate(choicePrefab, choiceParent);
             UIDialogueChoiceItemController choiceController = choice.GetComponent<UIDialogueChoiceItemController>();
-            choiceController.Setup(dialogueChoiceSO);
+            choiceController.Setup(dialogueChoiceSO, self, other);
         }
 
         CallDialogueWindow();
     }
 
-    public void CallDialogueWindow()
-    {
-        rectTransform.DOLocalMoveX(activeXPosition, tweenDuration).SetUpdate(true);
-    }
 
-    public void DismissDialogueWindow()
+    private void HanndleDialogueDismiss(Transform self, Transform other)
     {
-        rectTransform.DOLocalMoveX(defaultXPosition, tweenDuration).SetUpdate(true);
+        DismissDialogueWindow();
     }
 }

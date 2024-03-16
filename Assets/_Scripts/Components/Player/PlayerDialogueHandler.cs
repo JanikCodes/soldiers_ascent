@@ -20,8 +20,9 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     private DialogueType dialogueType;
 
     // events
-    public static event OnDialogueInstantiatedDelegate OnDialogueInstantiated;
-    public delegate void OnDialogueInstantiatedDelegate(Transform self, Transform other);
+    public static event DialogueDelegate OnDialogueInstantiated;
+    public static event DialogueDelegate OnDialogueDismiss;
+    public delegate void DialogueDelegate(Transform self, Transform other);
 
     private void Awake()
     {
@@ -134,6 +135,8 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
     public void ExitDialogue()
     {
+        OnDialogueDismiss?.Invoke(transform, other);
+
         // resume time
         timeServiceReference.Service.SetTime(TimeState.Playing, true);
 
