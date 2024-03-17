@@ -18,6 +18,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
             DialogueSO dialogue = ScriptableObject.CreateInstance<DialogueSO>();
             dialogue.name = dialogueData.Id;
             dialogue.Id = dialogueData.Id;
+            dialogue.Text = dialogueData.Text;
 
             // assign choices to dialogue
             foreach (DialogueChoiceData dialogueChoiceData in rawDataDialogueChoices)

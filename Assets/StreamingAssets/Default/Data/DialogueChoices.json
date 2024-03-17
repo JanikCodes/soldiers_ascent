@@ -9,6 +9,20 @@
         "Actions": []
     },
     {
+        "Id": "Base_Choice_City_Talk_Alien",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City",
+        "ChoiceText": "Visit an alien planet",
+        "JumpToDialogueId": "Base_Dialogue_City_Talk",
+        "TextColor": [
+            34,
+            139,
+            34
+        ],
+        "Requirements": [],
+        "Actions": []
+    },
+    {
         "Id": "Base_Choice_City_Tutorial_Quest",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City",
@@ -92,6 +106,13 @@
             0
         ],
         "Requirements": [],
-        "Actions": []
+        "Actions": [
+            {
+                "Type": "DismissDialogue",
+                "Properties": {
+                    "Self": true
+                }
+            }
+        ]
     }
 ]

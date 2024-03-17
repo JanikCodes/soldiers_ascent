@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using TMPro;
 
 public class UIDialogueController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class UIDialogueController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform choiceParent;
+    [SerializeField] private TextMeshProUGUI textlabel;
+    [SerializeField] private TextMeshProUGUI partnerNameLabel;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject choicePrefab;
@@ -76,6 +79,12 @@ public class UIDialogueController : MonoBehaviour
     {
         // clear previous choices
         Util.ClearChildren(choiceParent);
+
+        // set text
+        textlabel.text = dialogue.Text;
+
+        // set name
+        partnerNameLabel.text = other.name;
 
         foreach (DialogueChoiceSO dialogueChoiceSO in dialogue.GetChoices(self, other))
         {
