@@ -5,7 +5,15 @@
         "AssignedDialogueId": "Base_Dialogue_City",
         "ChoiceText": "Talk",
         "JumpToDialogueId": "Base_Dialogue_City_Talk",
-        "Requirements": [],
+        "Requirements": [
+            {
+                "Type": "IsDialogueType",
+                "Properties": {
+                    "Self": true,
+                    "Type": "Talking"
+                }
+            }
+        ],
         "Actions": []
     },
     {
@@ -19,7 +27,15 @@
             139,
             34
         ],
-        "Requirements": [],
+        "Requirements": [
+            {
+                "Type": "IsDialogueType",
+                "Properties": {
+                    "Self": true,
+                    "Type": "Talking"
+                }
+            }
+        ],
         "Actions": []
     },
     {
@@ -42,6 +58,13 @@
                     "Self": true,
                     "StructureId": "Base_Village_B"
                 }
+            },
+            {
+                "Type": "IsDialogueType",
+                "Properties": {
+                    "Self": true,
+                    "Type": "Talking"
+                }
             }
         ],
         "Actions": []
@@ -57,7 +80,15 @@
             0,
             0
         ],
-        "Requirements": [],
+        "Requirements": [
+            {
+                "Type": "IsDialogueType",
+                "Properties": {
+                    "Self": true,
+                    "Type": "Talking"
+                }
+            }
+        ],
         "Actions": [
             {
                 "Type": "DismissDialogue",
@@ -91,7 +122,15 @@
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
         "ChoiceText": "Let's talk first..",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
-        "Requirements": [],
+        "Requirements": [
+            {
+                "Type": "IsDialogueType",
+                "Properties": {
+                    "Self": true,
+                    "Type": "Talking"
+                }
+            }
+        ],
         "Actions": []
     },
     {

@@ -9,7 +9,7 @@
             },
             {
                 "FactionId": "Base_Hunter",
-                "RelationshipValue": -25
+                "RelationshipValue": -30
             },
             {
                 "FactionId": "Base_Matronos",
@@ -23,7 +23,7 @@
         "Relationships": [
             {
                 "FactionId": "Base_Player",
-                "RelationshipValue": -25
+                "RelationshipValue": -30
             },
             {
                 "FactionId": "Base_Hunter",
