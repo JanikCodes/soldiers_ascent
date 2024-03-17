@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Util
 {
@@ -187,6 +188,31 @@ public static class Util
         {
             UnityEngine.Object.Destroy(child.gameObject);
         }
+    }
+
+    /// <summary>
+    /// Checks if the current mouse is over any user interface
+    /// </summary>
+    public static bool IsMouseOverUI()
+    {
+        // Check if the EventSystem is null, which can happen if the UI system is not initialized
+        if (EventSystem.current == null)
+        {
+            return false;
+        }
+
+        // Create a pointer event data object and set its position to the current mouse position
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        // Create a list to store the results of the raycast
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        // Perform the raycast using the current mouse position
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // If the results list is not empty, it means the mouse is over a UI element
+        return results.Count > 0;
     }
 
     public static bool WriteValueToField<T>(string type, Type typeObject, T scriptableObject, KeyValuePair<string, object> property)

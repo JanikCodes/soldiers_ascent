@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.828
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: health 375/400
+  m_text: health 400/400
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c6b9b5b92d868b4cbac4cfd1acccdfe, type: 2}
   m_sharedMaterial: {fileID: 6699280947504003305, guid: 2c6b9b5b92d868b4cbac4cfd1acccdfe,

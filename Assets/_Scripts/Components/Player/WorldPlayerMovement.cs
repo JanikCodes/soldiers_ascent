@@ -22,11 +22,13 @@ public class WorldPlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         input.OnSingleClick += SingleMouseClick;
+        PlayerDialogueHandler.OnDialogueDismiss += HandleDialogueDismiss;
     }
 
     private void OnDisable()
     {
         input.OnSingleClick -= SingleMouseClick;
+        PlayerDialogueHandler.OnDialogueDismiss -= HandleDialogueDismiss;
     }
 
     private void SingleMouseClick()
@@ -49,6 +51,12 @@ public class WorldPlayerMovement : MonoBehaviour
                 SetCustomDestination(hit.point);
             }
         }
+    }
+
+    private void HandleDialogueDismiss(Transform self, Transform other)
+    {
+        // reset target if we leave the dialogue
+        SetCustomDestination(transform.position);
     }
 
     private void SetCustomDestination(Vector3 position)

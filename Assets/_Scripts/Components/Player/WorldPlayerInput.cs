@@ -69,6 +69,7 @@ public class WorldPlayerInput : MonoBehaviour
     private void SingleClickToMove(CallbackContext context)
     {
         if (!context.started) { return; }
+        if (Util.IsMouseOverUI()) { return; }
 
         OnSingleClick?.Invoke();
     }
