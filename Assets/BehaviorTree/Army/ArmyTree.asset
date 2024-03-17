@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Yes
-  nodePosition: {x: 2271, y: 1029}
+  nodePosition: {x: 2271, y: 1023.67993}
   breakpoint: 0
   decorators: []
   services: []

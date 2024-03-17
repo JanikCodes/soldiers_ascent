@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SquadStorage : MonoBehaviour
+public class SquadStorage : MonoBehaviour, ISpeedPenalty
 {
-    public event Action OnNewSquadAdded;
-    public event Action OnSoldierRemoved;
+    public event Action SpeedPenaltyChanged;
 
     [field: SerializeField] public List<Squad> Squads { get; private set; }
 
@@ -22,7 +21,7 @@ public class SquadStorage : MonoBehaviour
     {
         Squads.Add(squad);
 
-        OnNewSquadAdded?.Invoke();
+        SpeedPenaltyChanged?.Invoke();
     }
 
     public int GetTotalSoldierCount()
@@ -43,7 +42,8 @@ public class SquadStorage : MonoBehaviour
                 Soldier randomSoldier = Util.GetRandomValue<Soldier>(squad.GetSoldiers());
                 squad.RemoveSoldier(randomSoldier);
 
-                OnSoldierRemoved?.Invoke();
+                SpeedPenaltyChanged?.Invoke();
+
                 return true;
             }
         }

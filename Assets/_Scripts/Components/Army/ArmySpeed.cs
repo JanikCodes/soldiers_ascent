@@ -9,35 +9,33 @@ public class ArmySpeed : MonoBehaviour
 {
     [SerializeField] private float BaseSpeed;
 
-    [Header("Debugging")]
-    [SerializeField, ReadOnlyField] private float squadStoragePenalty = 0f;
-    [SerializeField, ReadOnlyField] private float inventoryPenalty = 0f;
-
     private IAstarAI ai;
-    private SquadStorage squadStorage;
-    private Inventory inventory;
 
     private void Awake()
     {
         ai = GetComponent<IAstarAI>();
-        squadStorage = GetComponent<SquadStorage>();
-        inventory = GetComponent<Inventory>();
 
         HandleSpeedChange();
     }
 
     private void OnEnable()
     {
-        inventory.OnNewItemAdded += HandleSpeedChange;
-        squadStorage.OnNewSquadAdded += HandleSpeedChange;
-        squadStorage.OnSoldierRemoved += HandleSpeedChange;
+        // subscribe to each ISpeedPenalty component
+        ISpeedPenalty[] penalties = transform.parent.GetComponentsInChildren<ISpeedPenalty>();
+        foreach (ISpeedPenalty penalty in penalties)
+        {
+            penalty.SpeedPenaltyChanged += HandleSpeedChange;
+        }
     }
 
     private void OnDisable()
     {
-        inventory.OnNewItemAdded -= HandleSpeedChange;
-        squadStorage.OnNewSquadAdded -= HandleSpeedChange;
-        squadStorage.OnSoldierRemoved -= HandleSpeedChange;
+        // subscribe to each ISpeedPenalty component
+        ISpeedPenalty[] penalties = transform.parent.GetComponentsInChildren<ISpeedPenalty>();
+        foreach (ISpeedPenalty penalty in penalties)
+        {
+            penalty.SpeedPenaltyChanged -= HandleSpeedChange;
+        }
     }
 
     /// <summary>
@@ -45,18 +43,15 @@ public class ArmySpeed : MonoBehaviour
     /// </summary>
     private void HandleSpeedChange()
     {
-        if (squadStorage != null)
+        float totalPenalty = 0f;
+        ISpeedPenalty[] penalties = GetComponentsInChildren<ISpeedPenalty>();
+
+        foreach (ISpeedPenalty penalty in penalties)
         {
-            squadStoragePenalty = squadStorage.GetSpeedPenalty();
+            totalPenalty += penalty.GetSpeedPenalty();
         }
 
-        if (inventory != null)
-        {
-            inventoryPenalty = inventory.GetSpeedPenalty();
-        }
-
-        float calculatedSpeed = BaseSpeed - squadStoragePenalty - inventoryPenalty;
-
+        float calculatedSpeed = BaseSpeed - totalPenalty;
         ai.maxSpeed = Mathf.Max(1, calculatedSpeed);
     }
 }

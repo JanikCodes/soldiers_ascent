@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISpeedPenalty
 {
-    public event Action OnNewItemAdded;
+    public event Action SpeedPenaltyChanged;
 
     [SerializeField] private int inventoryMaxSize = 54;
 
@@ -48,6 +48,8 @@ public class Inventory : MonoBehaviour
             Item newItem = (Item)item.Clone();
             newItem.SlotIndex = FindFirstEmptySlotIndex();
             Items.Add(newItem);
+
+            SpeedPenaltyChanged?.Invoke();
 
             return;
         }
@@ -93,9 +95,9 @@ public class Inventory : MonoBehaviour
                 newItem.Count = remainingAmount;
                 Items.Add(newItem);
             }
-
-            OnNewItemAdded?.Invoke();
         }
+
+        SpeedPenaltyChanged?.Invoke();
     }
 
     private int FindFirstEmptySlotIndex()
