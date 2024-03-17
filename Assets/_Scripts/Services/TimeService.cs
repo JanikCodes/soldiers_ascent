@@ -53,9 +53,3 @@ public class TimeService : MonoBehaviour
         }
     }
 }
-
-public enum TimeState
-{
-    Playing,
-    Paused
-}

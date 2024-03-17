@@ -16,7 +16,6 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     private DialogueImmunity dialogueImmunity;
 
     private Transform other;
-    private DialogueSO dialogue;
     private DialogueType dialogueType;
 
     // events
@@ -66,7 +65,6 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
         // set states
         active = true;
-        dialogue = dialogueTrigger.Dialogue;
         dialogueType = type;
         this.other = other;
 
@@ -116,7 +114,6 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
         // set states
         active = true;
-        dialogue = dialogueTrigger.Dialogue;
         dialogueType = type;
         this.other = other;
 
