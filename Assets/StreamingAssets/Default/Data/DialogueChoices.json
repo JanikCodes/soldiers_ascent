@@ -4,16 +4,23 @@
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City",
         "ChoiceText": "Talk",
-        "JumpToDialogueId": "BD_Village_Talk",
-        "Requirements": [
-            {
-                "Type": "Currency",
-                "Properties": {
-                    "Self": true,
-                    "RequiredCurrency": 6969
-                }
-            }
-        ]
+        "JumpToDialogueId": "Base_Dialogue_City_Talk",
+        "Requirements": [],
+        "Actions": []
+    },
+    {
+        "Id": "Base_Choice_City_Talk_Alien",
+        "Active": true,
+        "AssignedDialogueId": "Base_Dialogue_City",
+        "ChoiceText": "Visit an alien planet",
+        "JumpToDialogueId": "Base_Dialogue_City_Talk",
+        "TextColor": [
+            34,
+            139,
+            34
+        ],
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Tutorial_Quest",
@@ -28,8 +35,16 @@
                     "Self": true,
                     "QuestStepId": "Base_Quest_Tutorial_Step_2"
                 }
+            },
+            {
+                "Type": "IsAtStructure",
+                "Properties": {
+                    "Self": true,
+                    "StructureId": "Base_Village_B"
+                }
             }
-        ]
+        ],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Leave",
@@ -37,14 +52,29 @@
         "AssignedDialogueId": "Base_Dialogue_City",
         "ChoiceText": "Leave",
         "JumpToDialogueId": "",
-        "Requirements": []
+        "TextColor": [
+            255,
+            0,
+            0
+        ],
+        "Requirements": [],
+        "Actions": [
+            {
+                "Type": "DismissDialogue",
+                "Properties": {
+                    "Self": true
+                }
+            }
+        ]
     },
     {
         "Id": "Base_Choice_City_Talk_Fight",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_City_Talk",
         "ChoiceText": "Let's fight! Haha just kidding..",
-        "JumpToDialogueId": "Base_Dialogue_City"
+        "JumpToDialogueId": "Base_Dialogue_City",
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_City_Talk_Nevermind",
@@ -52,7 +82,8 @@
         "AssignedDialogueId": "Base_Dialogue_City_Talk",
         "ChoiceText": "Nevermind..",
         "JumpToDialogueId": "Base_Dialogue_City",
-        "Requirements": []
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_Generic_Army_Talk",
@@ -60,14 +91,28 @@
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
         "ChoiceText": "Let's talk first..",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
-        "Requirements": []
+        "Requirements": [],
+        "Actions": []
     },
     {
         "Id": "Base_Choice_Generic_Army_Bye",
         "Active": true,
         "AssignedDialogueId": "Base_Dialogue_Generic_Army",
-        "ChoiceText": "Bye!!",
+        "ChoiceText": "Leave",
         "JumpToDialogueId": "Base_Dialogue_Generic_Army",
-        "Requirements": []
+        "TextColor": [
+            255,
+            0,
+            0
+        ],
+        "Requirements": [],
+        "Actions": [
+            {
+                "Type": "DismissDialogue",
+                "Properties": {
+                    "Self": true
+                }
+            }
+        ]
     }
 ]

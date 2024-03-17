@@ -19,7 +19,13 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
 
     public T GetScriptableObject(string id)
     {
-        return scriptableObjects.Find(x => x.Id.Equals(id));
+        T obj = scriptableObjects.Find(x => x.Id.Equals(id));
+        if (!obj)
+        {
+            Debug.LogWarning("Unable to find ScriptableObject with ID: " + id);
+        }
+
+        return obj;
     }
 
     public U GetOtherService<U>()

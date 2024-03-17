@@ -8,9 +8,9 @@ public class DialogueCurrencyRequirementSO : DialogueRequirementSO
 
     public override bool CheckRequirements(Transform self, Transform other)
     {
-        Transform selectedTransform = Self ? self : other;
+        Transform target = Self ? self : other;
 
-        CurrencyStorage currencyStorage = selectedTransform.GetComponent<CurrencyStorage>();
+        CurrencyStorage currencyStorage = target.GetComponent<CurrencyStorage>();
         return currencyStorage.HasEnoughCurrency(RequiredCurrency);
     }
 }

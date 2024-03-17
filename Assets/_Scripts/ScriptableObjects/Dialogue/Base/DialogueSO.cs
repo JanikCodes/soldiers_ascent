@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class DialogueSO : DataSO
 {
+    public string Text;
     public List<DialogueChoiceSO> Choices = new();
 
     public List<DialogueChoiceSO> GetChoices(Transform self, Transform other)

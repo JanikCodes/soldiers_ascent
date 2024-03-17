@@ -20,8 +20,9 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
     private DialogueType dialogueType;
 
     // events
-    public static event OnDialogueInstantiatedDelegate OnDialogueInstantiated;
-    public delegate void OnDialogueInstantiatedDelegate(Transform other);
+    public static event DialogueDelegate OnDialogueInstantiated;
+    public static event DialogueDelegate OnDialogueDismiss;
+    public delegate void DialogueDelegate(Transform self, Transform other);
 
     private void Awake()
     {
@@ -61,7 +62,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         }
 
         // notify subscribers and quest progress
-        OnDialogueInstantiated?.Invoke(other);
+        OnDialogueInstantiated?.Invoke(transform, other);
 
         // pause time hard till dialogue is resolved
         timeServiceReference.Service.SetTime(TimeState.Paused, true);
@@ -101,17 +102,14 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         }
 
         IDialogueHandler otherDialogueHandler = other.GetComponent<IDialogueHandler>();
-        if (otherDialogueHandler == null)
+        if (otherDialogueHandler != null)
         {
-            Debug.LogWarning("Couldn't instantiate dialogue because the other is missing a component that is inheriting from IDialogueHandler.");
-            return;
+            // notify other that we're talking to him
+            otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
         }
 
-        // notify other that we're talking to him
-        otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
-
         // notify subscribers and quest progress
-        OnDialogueInstantiated?.Invoke(other);
+        OnDialogueInstantiated?.Invoke(transform, other);
 
         // pause time hard till dialogue is resolved
         timeServiceReference.Service.SetTime(TimeState.Paused, true);
@@ -137,6 +135,11 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
     public void ExitDialogue()
     {
+        OnDialogueDismiss?.Invoke(transform, other);
+
+        // resume time
+        timeServiceReference.Service.SetTime(TimeState.Playing, true);
+
         dialogueImmunity.SetImmunity(25f);
         active = false;
 

@@ -35,7 +35,7 @@ public class QuestVisitStructureTypeSO : QuestObjectiveSO
         return questObjective.BoolCheck;
     }
 
-    private void HandleInstantiatedDialogue(Transform other)
+    private void HandleInstantiatedDialogue(Transform self, Transform other)
     {
         DataSO dataSO = other.GetComponent<ObjectStorage>().GetObject<DataSO>();
         if (!dataSO) { return; }

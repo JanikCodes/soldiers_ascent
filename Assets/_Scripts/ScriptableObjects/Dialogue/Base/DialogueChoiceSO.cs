@@ -9,7 +9,9 @@ public class DialogueChoiceSO : DataSO
     [NonSerialized] public DialogueSO JumpToDialogue;
     public string ChoiceText;
     public string RawJumpToDialogueId;
+    public Color TextColor;
     public List<DialogueRequirementSO> Requirements = new();
+    public List<DialogueActionSO> Actions = new();
 
     public bool MeetsRequirements(Transform self, Transform other)
     {
@@ -26,5 +28,13 @@ public class DialogueChoiceSO : DataSO
         }
 
         return valid;
+    }
+
+    public void ExecuteActions(Transform self, Transform other)
+    {
+        foreach (DialogueActionSO action in Actions)
+        {
+            action.ExecuteEffect(self, other);
+        }
     }
 }

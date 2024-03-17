@@ -8,5 +8,5 @@ using UnityEngine;
 [Serializable]
 public class DialogueData : BaseData
 {
-    // empty
+    public string Text;
 }

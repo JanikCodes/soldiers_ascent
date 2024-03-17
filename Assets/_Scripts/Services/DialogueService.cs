@@ -18,6 +18,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
             DialogueSO dialogue = ScriptableObject.CreateInstance<DialogueSO>();
             dialogue.name = dialogueData.Id;
             dialogue.Id = dialogueData.Id;
+            dialogue.Text = dialogueData.Text;
 
             // assign choices to dialogue
             foreach (DialogueChoiceData dialogueChoiceData in rawDataDialogueChoices)
@@ -31,8 +32,9 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
                 dialogueChoice.Id = dialogueChoiceData.Id;
                 dialogueChoice.ChoiceText = dialogueChoiceData.ChoiceText;
                 dialogueChoice.RawJumpToDialogueId = dialogueChoiceData.JumpToDialogueId;
+                dialogueChoice.TextColor = Util.GetColorFromIntArray(dialogueChoiceData.TextColor);
                 dialogueChoice.Requirements = GenerateRequirements(dialogueChoiceData.Requirements);
-
+                dialogueChoice.Actions = GenerateActions(dialogueChoiceData.Actions);
                 dialogue.Choices.Add(dialogueChoice);
             }
 
@@ -66,7 +68,7 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
 
             if (requirementType == null || !typeof(DialogueRequirementSO).IsAssignableFrom(requirementType))
             {
-                Debug.LogWarning($"Invalid condition type: {type}");
+                Debug.LogWarning($"Invalid requirement type: {type}");
                 continue;
             }
 
@@ -89,6 +91,49 @@ public class DialogueService : ScriptableObjectService<DialogueSO>
             }
 
             results.Add(requirementSO);
+        }
+
+        return results;
+    }
+
+    private List<DialogueActionSO> GenerateActions(DialogueActionData[] actions)
+    {
+        List<DialogueActionSO> results = new();
+
+        // catch early if actions are null
+        if (actions == null) { return results; }
+
+        // try adding each action scriptableobject
+        foreach (DialogueActionData actionData in actions)
+        {
+            string type = actionData.Type;
+            Type actionType = Type.GetType($"Dialogue{type}ActionSO");
+
+            if (actionType == null || !typeof(DialogueActionSO).IsAssignableFrom(actionType))
+            {
+                Debug.LogWarning($"Invalid action type: {type}");
+                continue;
+            }
+
+            // generate object based on actionType
+            DialogueActionSO actionSO = ScriptableObject.CreateInstance(actionType) as DialogueActionSO;
+
+            if (actionSO == null)
+            {
+                Debug.LogWarning($"Failed to create an instance of {type}");
+                continue;
+            }
+
+            // try to populate the object with its properties
+            foreach (KeyValuePair<string, object> property in actionData.Properties)
+            {
+                if (!Util.WriteValueToField(type, actionType, actionSO, property))
+                {
+                    continue;
+                }
+            }
+
+            results.Add(actionSO);
         }
 
         return results;
