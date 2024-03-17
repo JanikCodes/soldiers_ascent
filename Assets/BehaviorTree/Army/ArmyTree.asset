@@ -1109,7 +1109,7 @@ MonoBehaviour:
   groups:
   - {fileID: -1289275580204884401}
   notes: []
-  selectedNode: {fileID: -1901643243556892874}
+  selectedNode: {fileID: 0}
 --- !u!114 &828556399303590945
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,9 +8,7 @@ public class DialogueIsDialogueTypeRequirementSO : DialogueRequirementSO
 
     public override bool CheckRequirements(Transform self, Transform other)
     {
-        Transform target = Self ? self : other;
-
-        IDialogueHandler dialogueHandler = target.GetComponent<IDialogueHandler>();
+        IDialogueHandler dialogueHandler = self.GetComponent<IDialogueHandler>();
         return dialogueHandler.GetDialogueType().ToString().Equals(Type);
     }
 }

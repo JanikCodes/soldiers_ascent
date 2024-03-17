@@ -40,7 +40,7 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
 
         if (trigger)
         {
-            TalkTo(aIDestinationSetter.target, DialogueType.Player);
+            TalkTo(aIDestinationSetter.target, DialogueType.Talking);
         }
     }
 

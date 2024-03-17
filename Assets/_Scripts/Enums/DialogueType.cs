@@ -4,6 +4,5 @@ using System;
 public enum DialogueType
 {
     Talking,
-    Fighting,
-    Player
+    Fighting
 }
