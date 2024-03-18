@@ -184,6 +184,8 @@ public static class Util
     /// <param name="root">Root transform</param>
     public static void ClearChildren(Transform root)
     {
+        if (!root) { return; }
+
         foreach (Transform child in root)
         {
             UnityEngine.Object.Destroy(child.gameObject);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479049449731882989}
   - component: {fileID: 7164912159384037664}
+  - component: {fileID: 30068107049454696}
   - component: {fileID: 7177935184840220556}
   m_Layer: 5
   m_Name: Clock
@@ -46,6 +47,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102307682007604573}
   m_CullTransparentMesh: 1
+--- !u!114 &30068107049454696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102307682007604573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a233348717dab8409d4e3ee2de4c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7177935184840220556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,6 +2697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 839342505110937065}
   - component: {fileID: 8440824962637971579}
+  - component: {fileID: 202970258466510512}
   - component: {fileID: 2433316900490135632}
   m_Layer: 5
   m_Name: Calender
@@ -2720,6 +2734,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8621745681588078939}
   m_CullTransparentMesh: 1
+--- !u!114 &202970258466510512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621745681588078939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e913aab15653aae4c959e744cedb72e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2433316900490135632
 MonoBehaviour:
   m_ObjectHideFlags: 0

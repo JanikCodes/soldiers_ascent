@@ -13,4 +13,5 @@ public class Save
     public List<StructureSaveData> Structures = new();
     public List<ItemRecord> Economy = new();
     public List<QuestSaveData> Quests = new();
+    public CalenderSaveData Calender = new();
 }

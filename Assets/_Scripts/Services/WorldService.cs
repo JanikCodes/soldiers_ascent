@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WorldService : MonoBehaviour
 {
+    private CalenderService calenderService;
     private DialogueService dialogueService;
     private ItemService itemService;
     private EconomyService economyService;
@@ -19,6 +20,7 @@ public class WorldService : MonoBehaviour
 
     private void Start()
     {
+        calenderService = GetComponentInChildren<CalenderService>();
         dialogueService = GetComponentInChildren<DialogueService>();
         itemService = GetComponentInChildren<ItemService>();
         economyService = GetComponentInChildren<EconomyService>();
@@ -34,6 +36,9 @@ public class WorldService : MonoBehaviour
 
         // created neccesary file directories on startup
         FileService.CreateDirectories();
+
+        calenderService.CreateScriptableObjects();
+        calenderService.InstantiateDateTime();
 
         dialogueService.CreateScriptableObjects();
 

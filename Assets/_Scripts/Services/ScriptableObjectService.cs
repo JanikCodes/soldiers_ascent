@@ -28,6 +28,17 @@ public abstract class ScriptableObjectService<T> : MonoBehaviour where T : DataS
         return obj;
     }
 
+    public T GetScriptableObject(int index)
+    {
+        T obj = scriptableObjects[index];
+        if (!obj)
+        {
+            Debug.LogWarning("Unable to find ScriptableObject at index: " + index);
+        }
+
+        return obj;
+    }
+
     public U GetOtherService<U>()
     {
         return transform.parent.GetComponentInChildren<U>();

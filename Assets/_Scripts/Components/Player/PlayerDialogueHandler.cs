@@ -120,11 +120,6 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         Debug.Log("Player is talking to ... " + other.name);
     }
 
-    private bool ShouldTriggerDialogue()
-    {
-        return Vector3.Distance(aIDestinationSetter.target.position, transform.position) <= dialogueTriggerDistance;
-    }
-
     public DialogueType GetDialogueType()
     {
         return dialogueType;
@@ -141,6 +136,11 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         active = false;
 
         NotifyOtherAboutExit();
+    }
+
+    private bool ShouldTriggerDialogue()
+    {
+        return Vector3.Distance(aIDestinationSetter.target.position, transform.position) <= dialogueTriggerDistance;
     }
 
     private void NotifyOtherAboutExit()
