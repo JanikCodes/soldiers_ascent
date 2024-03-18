@@ -106,9 +106,6 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
             otherDialogueHandler.BeingTalkedTo(transform, dialogueType);
         }
 
-        // notify subscribers and quest progress
-        OnDialogueInstantiated?.Invoke(transform, other);
-
         // pause time hard till dialogue is resolved
         timeServiceReference.Service.SetTime(TimeState.Paused, true);
 
@@ -116,6 +113,9 @@ public class PlayerDialogueHandler : MonoBehaviour, IDialogueHandler
         active = true;
         dialogueType = type;
         this.other = other;
+
+        // notify subscribers and quest progress
+        OnDialogueInstantiated?.Invoke(transform, other);
 
         Debug.Log("Player is talking to ... " + other.name);
     }
