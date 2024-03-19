@@ -973,8 +973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15f0a68271d01447b5155487f95f2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  minuteToRealTime: 1
+  scriptableObjects: []
+  addMinutes: 15
+  intervall: 3
 --- !u!1 &881369371
 GameObject:
   m_ObjectHideFlags: 0
