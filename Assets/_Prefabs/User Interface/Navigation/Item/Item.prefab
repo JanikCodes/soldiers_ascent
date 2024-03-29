@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 6991173651373938890}
   - component: {fileID: 7452096962699179992}
   - component: {fileID: 2904465966142211375}
+  - component: {fileID: -3312324536219876855}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -668,6 +669,18 @@ MonoBehaviour:
   overlayImage: {fileID: 2740551212577676121}
   icon: {fileID: 2072517999697242343}
   label: {fileID: 1982461912179931191}
+--- !u!114 &-3312324536219876855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550113183191566348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e827745a69e653479969023412ed554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8843857865466964500
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7818773632520269550
 RectTransform:
   m_ObjectHideFlags: 0
